@@ -18,15 +18,14 @@
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0">
                     <div class="flex items-center">
-                        <i class="fas fa-home-alt text-2xl text-teal-500 mr-2"></i>
+                        <a href="./login.php"><i class="fas fa-home-alt text-2xl text-teal-500 mr-2"></i></a>
                         <span class="text-xl font-bold">AAHA SERENITY STAY</span>
                     </div>
                     <p class="mt-2 text-gray-400">A serene private cottage in Anna Nagar, Puducherry</p>
                 </div>
-                
                 <div class="flex flex-col items-center md:items-end">
                     <p class="mb-4 text-gray-400">Licensed by Ministry of Tourism, Government of India</p>
-                    <p class="text-gray-400">&copy; 2023 AAHA Serenity Stay. All rights reserved.</p>
+                    <p class="text-gray-400">&copy; 2025 AAHA Serenity Stay. All rights reserved.</p>
                 </div>
             </div>
         </div>

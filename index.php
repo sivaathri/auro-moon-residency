@@ -806,11 +806,11 @@
         });
         
         // Mobile Menu Toggle (would need implementation)
-        const mobileMenuButton = document.querySelector('.md\\:hidden');
-        mobileMenuButton.addEventListener('click', () => {
-            // Implement mobile menu toggle functionality
-            alert('Mobile menu would open here in a full implementation');
-        });
+        // const mobileMenuButton = document.querySelector('.md\\:hidden');
+        // mobileMenuButton.addEventListener('click', () => {
+        //     // Implement mobile menu toggle functionality
+        //     alert('Mobile menu would open here in a full implementation');
+        // });
 
 
 

@@ -1,32 +1,20 @@
 <?php
 include('dbconfig.php');
-
+$message = '';
 if (isset($_POST['submit'])) {
-
     $email = $_POST['email'];
     $password = $_POST['password'];
-
     $query = "SELECT * FROM tbladmin where admin_email=:email and admin_pwd=:passWord";
-
     $run_query = $dbconn->prepare($query);
-
     $run_query->bindParam(':email', $email, PDO::PARAM_STR);
     $run_query->bindParam(':passWord', $password, PDO::PARAM_STR);
-
     $run_query->execute();
-
-    //$result = $run_query->fetchAll();
-
     $_count = $run_query->rowCount();
-
     if ($_count > 0) {
-        echo '<script language="javascript">
-            alert("Welcome Admin..!"); window.location.href="Admin.php";</script>';
+        header('Location: Admin.php');
         exit();
     } else {
-        echo '<script language="javascript">
-            alert("Invalid login creational..!"); window.location.href="login.php";</script>';
-        exit();
+        $message = '<div class="alert alert-danger text-center">Invalid email or password</div>';
     }
 }
 ?>
@@ -242,7 +230,7 @@ body {
   text-decoration: none;
 }
 
-
+.login-error { background: #e3f6fc; color: #0a4d4a; border-radius: 6px; padding: 12px; margin-bottom: 18px; text-align: center; font-weight: 500; }
 
     </style>
 </head>
@@ -273,7 +261,7 @@ body {
           <h1>AAHA SERENITY STAY</h1>
           <p>Admin Portal</p>
         </div>
-
+        <?php if ($message) echo $message; ?>
         <form method="POST" action="" class="login-form">
           <div class="input-group">
             <i class="fas fa-envelope icon"></i>
@@ -287,7 +275,7 @@ body {
 
           <div class="options">
             <label><input type="checkbox" name="remember-me" /> Remember me</label>
-            <a href="#">Forgot password?</a>
+            <a href="forgot-password.php">Forgot password?</a>
           </div>
 
           <button type="submit" name="submit" class="btn-login">

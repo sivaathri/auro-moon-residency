@@ -1,4 +1,5 @@
 <?php
+ob_start();
 // if (isset($_POST["eqSubmit"])) {
 //    $userName = $_POST["userName"];
 //    $userMailId = $_POST["userEmail"];
@@ -53,12 +54,6 @@ if (isset($_POST["eqSubmit"])) {
    $userMsg    = $_POST["userMsg"];
 
    // JavaScript console logs for debugging in browser
-   echo "<script>
-           console.log('Name: " . addslashes($userName) . "');
-           console.log('Email: " . addslashes($userMailId) . "');
-           console.log('Phone: " . addslashes($userPhNum) . "');
-           console.log('Message: " . addslashes($userMsg) . "');
-         </script>";
 
    // Include PHPMailer classes manually (if not using Composer)
    require './mailsent/PHPMailerAutoload.php';
@@ -89,10 +84,6 @@ if (isset($_POST["eqSubmit"])) {
    ";
    $mail->AltBody = "Name: $userName\nPhone: $userPhNum\nEmail: $userMailId\nMessage: $userMsg";
    
-
-echo "<script>
-   console.log(" . json_encode("AltBody: $mail->AltBody") . ");
-</script>";
 
   
    // Send email

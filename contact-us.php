@@ -72,8 +72,8 @@ button:focus {
             </div>
             <div class="mb-3">
               <label for="phoneNumber" class="form-label fw-semibold">Phone Number</label>
-              <input type="tel" class="form-control rounded-3 shadow-sm" id="phoneNumber" name="userPhnumber" pattern="[6-9]{1}[0-9]{9}" placeholder="10-digit mobile number" required>
-              <div class="invalid-feedback">Please enter a valid 10-digit phone number.</div>
+              <input type="tel" class="form-control rounded-3 shadow-sm" id="phoneNumber" name="userPhnumber" pattern="(\d{10}|\d{12})" placeholder="10 or 12-digit phone number" required>
+              <div class="invalid-feedback">Please enter a valid 10-digit Indian number (starting with 6-9) or 12-digit UK number (starting with 44).</div>
             </div>
             <div class="mb-3">
               <label for="messageBox" class="form-label fw-semibold">Message</label>
@@ -116,8 +116,66 @@ button:focus {
         'use strict'
         var forms = document.querySelectorAll('.needs-validation');
         Array.prototype.slice.call(forms).forEach(function (form) {
+            var nameInput = form.querySelector('#name');
+            var messageInput = form.querySelector('#messageBox');
+            var emailInput = form.querySelector('#userEmail');
+            var phoneInput = form.querySelector('#phoneNumber');
+
+            function validateTrimmed(input) {
+                if (!input) return;
+                var trimmed = input.value.trim();
+                input.classList.remove('is-valid', 'is-invalid');
+                if (trimmed === "") {
+                    input.value = "";
+                    input.classList.add('is-invalid');
+                } else if (input === phoneInput) {
+                    // Custom phone validation: 10 digits (India, starts 6-9) or 12 digits (UK, starts 44)
+                    var phonePatternIndia = /^[6-9][0-9]{9}$/;
+                    var phonePatternUK = /^44[0-9]{10}$/;
+                    if (phonePatternIndia.test(trimmed) || phonePatternUK.test(trimmed)) {
+                        input.classList.add('is-valid');
+                        return;
+                    } else {
+                        input.classList.add('is-invalid');
+                        return;
+                    }
+                } else if (input.checkValidity()) {
+                    input.classList.add('is-valid');
+                }
+            }
+
+            if (nameInput) {
+                nameInput.addEventListener('input', function() {
+                    validateTrimmed(nameInput);
+                });
+            }
+            if (messageInput) {
+                messageInput.addEventListener('input', function() {
+                    validateTrimmed(messageInput);
+                });
+            }
+            if (emailInput) {
+                emailInput.addEventListener('input', function() {
+                    validateTrimmed(emailInput);
+                });
+            }
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function() {
+                    validateTrimmed(phoneInput);
+                });
+            }
+
             form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
+                validateTrimmed(nameInput);
+                validateTrimmed(messageInput);
+                validateTrimmed(emailInput);
+                validateTrimmed(phoneInput);
+                if (!form.checkValidity() ||
+                    (nameInput && nameInput.value.trim() === "") ||
+                    (messageInput && messageInput.value.trim() === "") ||
+                    (emailInput && emailInput.value.trim() === "") ||
+                    (phoneInput && phoneInput.value.trim() === "")
+                ) {
                     event.preventDefault();
                     event.stopPropagation();
                 }

@@ -62,16 +62,47 @@
                 <a href="./Calendar.php" class="text-gray-800 hover:text-teal-600 font-medium no-underline">Calendar</a>
                 <a href="./OurPrices.php" class="text-gray-800 hover:text-teal-600 font-medium no-underline">Our Prices</a>
                 <a href="./contact-us.php" class="text-gray-800 hover:text-teal-600 font-medium no-underline">Contact Us</a>
-                <a href="./login.php" class="text-gray-800 hover:text-teal-600 font-medium no-underline">Admin</a>
             </div>
-            <button class="md:hidden text-gray-800">
+            <button id="mobileMenuBtn" class="md:hidden text-gray-800">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
+        </div>
+        <!-- Mobile Menu Overlay -->
+        <div id="mobileMenuOverlay" class="fixed inset-0 bg-black bg-opacity-40 z-50 hidden"></div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="fixed top-0 right-0 w-64 h-full bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 flex flex-col p-6 space-y-6 md:hidden">
+            <div class="flex justify-between items-center mb-4">
+                <span class="text-xl font-bold text-gray-800">Menu</span>
+                <button id="closeMobileMenu" class="text-gray-800 text-2xl">&times;</button>
+            </div>
+            <a href="./" class="text-gray-800 hover:text-teal-600 font-medium no-underline">Home</a>
+            <a href="./Photos.php" class="text-gray-800 hover:text-teal-600 font-medium no-underline">Gallery</a>
+            <a href="./Calendar.php" class="text-gray-800 hover:text-teal-600 font-medium no-underline">Calendar</a>
+            <a href="./OurPrices.php" class="text-gray-800 hover:text-teal-600 font-medium no-underline">Our Prices</a>
+            <a href="./contact-us.php" class="text-gray-800 hover:text-teal-600 font-medium no-underline">Contact Us</a>
         </div>
     </nav>
 
 
     <script>
+        // Mobile menu logic
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+
+        function openMobileMenu() {
+            mobileMenu.classList.remove('translate-x-full');
+            mobileMenuOverlay.classList.remove('hidden');
+        }
+        function closeMenu() {
+            mobileMenu.classList.add('translate-x-full');
+            mobileMenuOverlay.classList.add('hidden');
+        }
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        closeMobileMenu.addEventListener('click', closeMenu);
+        mobileMenuOverlay.addEventListener('click', closeMenu);
+
         const closeBtn=document.getElementById('closeBtn'); 
         const contactBtn = document.getElementById('contact');
         const contactForm = document.getElementById('contactUs');
