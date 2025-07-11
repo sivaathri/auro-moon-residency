@@ -1,0 +1,481 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff&display=swap');
+/* font-family: 'DynaPuff', cursive; */
+
+@import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap');
+/* font-family: 'Chelsea Market', cursive; */
+
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+/* font-family: 'Permanent Marker', cursive; */
+
+body {
+    background-color: #fff;
+}
+
+.text-green {
+    color: #44bd32;
+}
+
+/* nav bar style sheet */
+.nav_col {
+    background-color: #c44569;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    padding: 10px;
+}
+
+
+.nav_list li {
+    padding-right: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.nav_list li a {
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.nav_list li a:hover,
+.nav_list li a:focus {
+    color: #68bb47;
+    transition-duration: 0.5s;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 3px;
+}
+
+.nav_list li a:active {
+    color: yellow;
+}
+
+.nav_button i {
+    color: white;
+    font-size: 30px;
+}
+
+@media only screen and (max-width: 991px) {
+    .nav_collapse {
+        text-align: center;
+    }
+}
+
+/* contact us  */
+#contactUs {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#contactUs .card {
+    max-width: 400px;
+    border-radius: 15px;
+    animation: popupanim .5s;
+}
+#contactUs .card h3{
+    color: #c44569;
+}
+#contactUs .card input,
+#contactUs .card textarea {
+    outline: none;
+    border-radius: 15px;
+    background-color: #c8d6e5;
+}
+#contactUs .card button{
+    background-color: #c44569;
+    color: white;
+}
+#contactUs .card button:hover{
+    background-color:#c8d6e5;
+    color: #c44569;
+}
+/* nav bar end*/
+/* first banner styles */
+
+.first-banner {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    padding-top: 0;
+}
+
+.slider-images {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 0;
+}
+.slider-images img {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: sliderFade 36s infinite;
+    transition: opacity 1.5s;
+}
+.slider-images img:nth-child(1) { animation-delay: 0s; }
+.slider-images img:nth-child(2) { animation-delay: 6s; }
+.slider-images img:nth-child(3) { animation-delay: 12s; }
+.slider-images img:nth-child(4) { animation-delay: 18s; }
+.slider-images img:nth-child(5) { animation-delay: 24s; }
+.slider-images img:nth-child(6) { animation-delay: 30s; }
+
+@keyframes sliderFade {
+    0% { opacity: 0; }
+    5% { opacity: 1; }
+    25% { opacity: 1; }
+    30% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+.banner-title {
+    font-family: 'Chelsea Market', cursive;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    z-index: 10;
+    margin-bottom: 30px;
+    text-align: center;
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+}
+
+.first-banner, .banner-content {
+    position: relative;
+    height: 100vh;
+}
+
+.banner-content {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+    z-index: 2;
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.45);
+    z-index: 1;
+}
+.banner-content > *:not(.banner-overlay) {
+    position: relative;
+    z-index: 2;
+}
+
+.bacCol {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.first-banner .text-center {
+    position: relative;
+    z-index: 2;
+    padding-top: 10px;
+    margin-top: 0;
+}
+
+.container h3,h3 {
+    color: #595F66;
+}
+
+.first-banner p {
+    font-family: 'Chelsea Market', cursive;
+    color: #dcdde1;
+    max-width: 700px;
+}
+
+.banner-content .text-center {
+    margin-top: 0;
+}
+
+.contact-info {
+    color: #ffffff; /* Bright white */
+    font-weight: bold;
+    font-size: 1.6rem;
+    background: none; /* No background box */
+    padding: 10px 0;
+    text-align: center;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icon {
+    color: #ffffff;
+    font-size: 1.8rem;
+    margin: 0 10px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); /* Soft shadow for icon clarity */
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+    color: #00ffcc; /* Optional hover color */
+}
+
+/* services */
+#services {
+    background: #fff;
+    border-radius: 0;
+}
+
+#services .services {
+    width: 250px;
+    margin: 10px;
+    /* height: 150px; */
+    padding: 10px;
+    border-radius: 15px;
+}
+
+/* gallery */
+
+#gal{
+    width: 100%;
+}
+
+#gal .galContainer .card{
+    width: 250px;
+    margin: 20px 20px;
+}
+#gal .galContainer .card img{
+    height: 180px;
+    cursor: pointer;
+}
+
+.fullScreenImg {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 0, .7);
+}
+
+@keyframes popupanim {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.fullScreenImg img {
+    width: 60%;
+    animation: popupanim .5s;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width:680px){
+    .fullScreenImg img {
+        width: 90%;
+    }
+}
+
+.contact-circle {
+    border: none;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0 auto 30px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-info span {
+    color: #fff !important;
+    font-size: 2.5rem !important;
+    font-weight: 900 !important;
+    letter-spacing: 1px;
+    text-shadow: 3px 3px 10px #000, 0 0 12px #fff, 0 0 8px #000;
+    margin-bottom: 18px;
+    text-align: center;
+    font-family: 'Chelsea Market', cursive;
+    opacity: 1 !important;
+}
+
+.social-icons {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+}
+
+.social-icon {
+    font-size: 3rem !important;
+    filter: drop-shadow(0 0 10px #000);
+    text-shadow: 2px 2px 10px #000, 0 0 10px #fff;
+    transition: transform 0.2s, filter 0.2s;
+    opacity: 1 !important;
+}
+
+.social-icon.whatsapp { color: #25D366 !important; }
+.social-icon.facebook { color: #1877f3 !important; }
+.social-icon.instagram { color: #e1306c !important; }
+.social-icon.youtube { color: #ff0000 !important; }
+.social-icon.google { color: #ea4335 !important; }
+
+.social-icon:hover {
+    filter: brightness(2) drop-shadow(0 0 16px #fff);
+    transform: scale(1.25);
+}
+
+.nav-link.active,
+.nav-link.active:hover,
+.nav-link.active:focus {
+    color: #44bd32 !important; /* bright green */
+    border-bottom: 3px solid #44bd32;
+    font-weight: bold;
+    background: none !important;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 3px;
+}
+
+.navbar-brand-green {
+    color: #7ac943 !important;
+}
+
+/* Premium Places UI - External CSS */
+
+.premium-places-section {
+  background: white;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.section-title {
+  color: #2c3e50;
+  font-size: 2.75rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  letter-spacing: -0.5px;
+}
+
+.section-subtitle {
+  color: #34495e;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-left: 5px solid #2980b9;
+  padding-left: 12px;
+}
+
+.section-heading {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #7f8c8d;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid #ecf0f1;
+  padding-bottom: 0.4rem;
+}
+
+.badge-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.badge-custom {
+    user-select: none;         /* Prevent text selection */
+    cursor: pointer;           /* Show hand pointer on hover */
+    padding: 8px 12px;
+    background-color: #f2f2f2;
+    border-radius: 20px;
+    margin: 4px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+  
+
+.badge-custom:hover {
+  background: #127873;
+  color: #fff;
+  border-color: #127873;
+}
+
+.card-custom {
+  border-radius: 1rem;
+  background: #ffffff;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-custom:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+.card-custom::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(to right, #3498db, #2ecc71);
+  top: 0;
+  left: 0;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.icon-primary { color: #3498db; margin-right: 10px; }
+.icon-success { color: #2ecc71; margin-right: 10px; }
+.icon-danger  { color: #e74c3c; margin-right: 10px; }
+.icon-warning { color: #f39c12; margin-right: 10px; }
+.icon-info    { color: #1abc9c; margin-right: 10px; }
+
+/* Smooth animations */
+.card-custom ul li,
+.badge-custom {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
