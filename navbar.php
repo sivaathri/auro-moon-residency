@@ -52,10 +52,14 @@
 
     <nav class="bg-white shadow-lg sticky top-0 z-50">
         <div class=" mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center">
-                <img src="./assect/logo/aaha home stay.png" alt="Logo" class="logo mr-2" />
-                <span class="text-xl font-bold text-gray-800">SERENITY STAY</span>
-            </div>
+        <div class="flex items-center">
+    <a href="/aahaserenitystay/">
+        <img src="./assect/logo/aaha home stay.png" alt="Logo" class="logo mr-2" />
+    </a>
+    <span class="text-xl font-bold text-gray-800">SERENITY STAY</span>
+</div>
+
+
             <div class="hidden md:flex space-x-8">
                 <a href="./" class="text-gray-800 hover:text-teal-600 font-medium no-underline">Home</a>
                 <a href="./Photos.php" class="text-gray-800 hover:text-teal-600 font-medium no-underline">Gallery</a>
