@@ -317,22 +317,54 @@
     <div class="first-banner">
     
            <!-- Hero Section -->
-    <section id="home" class="relative h-screen flex items-center justify-center text-white overflow-hidden">
-        <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="bg-cover bg-center absolute inset-0 parallax" style="background-image: url('./assect/images/Gallery/Entrance.png');"></div>
+           <section id="home" class="relative h-screen flex items-center justify-center text-white overflow-hidden">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="bg-cover bg-center absolute inset-0 parallax" style="background-image: url('./assect/images/Gallery/Entrance.png');"></div>
 
-        <div class="container mx-auto px-4 z-10 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6"><span style = "color:#7ac943;">AAHA </span> <span style = "color:#1f2937	;"> SERENITY STAY </span> </h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto"><span style =  "color:black;">A serene private cottage in Anna Nagar, Puducherry</span></p>
-           
-            <h2 class="text-xl md:text-2xl font-semibold mb-6 text-black">Contact no - 8098299921</h2>
+     <!-- Black Overlay -->
+     <div class="absolute inset-0 bg-black opacity-40"></div>
+
+    <div class="container mx-auto px-4 z-10 text-center">
+        <!-- Main Heading -->
+        <h1 class="text-4xl md:text-8xl font-bold mb-6">
+            <span style="color:#7ac943;">AAHA </span> 
+            <span class="text-white"> SERENITY STAY </span>
+        </h1>
+
+        <!-- Line Separator -->
+        <div class="w-full max-w-6xl h-4 bg-teal-600 mx-auto mb-6"></div>
 
 
-                <a href="./BookingPage.php" class="bg-teal-600 hover:bg-teal-700 text-white font-bold  py-[30px] w-[340px] h-[100px]  rounded-full transition duration-300 inline-block no-underline">
-                   <span class="text-[25px]">Book Your Stay</span> 
-                </a>
-        
+        <!-- Subheading -->
+        <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+            <span style="color:white;">A serene private cottage in Anna Nagar, Puducherry</span>
+        </p>
+       
+        <!-- Contact -->
+        <h2 class="text-xl md:text-2xl font-semibold mb-6 text-white">Contact no - 8098299921</h2>
+
+        <!-- Social Media Icons -->
+        <div class="flex justify-center space-x-9 mb-9 text-5xl">
+            <a href="https://wa.me/918098299921" target="_blank" class="text-green-500 hover:text-green-600">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" class="text-pink-500 hover:text-pink-600">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/" target="_blank" class="text-blue-600 hover:text-blue-700">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://g.page/" target="_blank" class="text-red-500 hover:text-red-600">
+                <i class="fab fa-google"></i>
+            </a>
         </div>
+
+        <!-- Booking Button -->
+        <a href="./BookingPage.php" 
+           class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-[30px] w-[340px] h-[100px] rounded-full transition duration-300 inline-block no-underline">
+           <span class="text-[25px]">Book Your Stay</span> 
+        </a>
+    </div>
       
         <div class="absolute bottom-10 left-0 right-0 flex justify-center">
             <a href="#about" class="text-white animate-bounce">
