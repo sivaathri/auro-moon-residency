@@ -319,18 +319,21 @@
            <!-- Hero Section -->
     <section id="home" class="relative h-screen flex items-center justify-center text-white overflow-hidden">
         <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="bg-cover bg-center absolute inset-0 parallax" style="background-image: url('./assect/images/Gallery/Entrance.JPG');"></div>
+        <div class="bg-cover bg-center absolute inset-0 parallax" style="background-image: url('./assect/images/Gallery/Entrance.png');"></div>
 
         <div class="container mx-auto px-4 z-10 text-center">
             <h1 class="text-4xl md:text-6xl font-bold mb-6"><span style = "color:#7ac943;">AAHA </span> <span style = "color:#1f2937	;"> SERENITY STAY </span> </h1>
             <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto"><span style =  "color:black;">A serene private cottage in Anna Nagar, Puducherry</span></p>
            
+            <h2 class="text-xl md:text-2xl font-semibold mb-6 text-black">Contact no - 8098299921</h2>
 
-                <a href="./BookingPage.php" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 inline-block no-underline">
-                    Book Your Stay
+
+                <a href="./BookingPage.php" class="bg-teal-600 hover:bg-teal-700 text-white font-bold  py-[30px] w-[340px] h-[100px]  rounded-full transition duration-300 inline-block no-underline">
+                   <span class="text-[25px]">Book Your Stay</span> 
                 </a>
         
         </div>
+      
         <div class="absolute bottom-10 left-0 right-0 flex justify-center">
             <a href="#about" class="text-white animate-bounce">
                 <i class="fas fa-chevron-down text-3xl"></i>
@@ -338,7 +341,6 @@
         </div>
     </section>
     </div>
-
 
         <!-- About Section -->
         <section id="about" class="py-16 bg-white">
@@ -618,7 +620,8 @@
             <h5 class="section-heading">Recommended Cafes</h5>
             <p class="fw-bold">Breakfast</p>
             <div class="badge-container">
-              <span class="badge-custom">Surguru</span>
+              <span class="badge-custom">Indian Coffee House</span>  
+              <span class="badge-custom">Surguru</span> 
               <span class="badge-custom">Baker's Street</span>
             </div>
             <p class="fw-bold mt-3">Lunch</p>
