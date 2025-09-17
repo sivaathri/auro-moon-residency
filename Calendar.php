@@ -38,7 +38,16 @@
         <div id="calendar">
         </div>
     </div>
+
+    <div class="flex justify-center my-10">
+        <a href="./BookingPage.php" 
+            class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-[30px] w-[340px] h-[100px] rounded-full transition duration-300 inline-block no-underline text-center">
+            <span class="text-[25px]">Book Your Stay</span> 
+        </a>
+    </div>
+
     <?php include('Footer.php') ?>
+
 </body>
 <script>
     $(document).ready(function() {
@@ -67,6 +76,8 @@
                     event.allDay = false;
                 }
             },
+
+            
 
             // editable: true,
             // eventResize: function(event) {
