@@ -1173,51 +1173,6 @@
 
 
 
-    <section class="testimonial-section">
-    <div class="container">
-        <div class="header">
-            <h2>What Our Guests Say</h2>
-            <div class="underline"></div>
-        </div>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="quote">"The perfect home away from home! The cooking facilities were a lifesaver for our family trip."</p>
-                <p class="author">- Ramesh K.</p>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="quote">"Excellent location and very comfortable stay. The staff went above and beyond to help us."</p>
-                <p class="author">- Priya M.</p>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <p class="quote">"Great value for money. The rooms were clean and had all the amenities we needed for our month-long stay."</p>
-                <p class="author">- Arjun S.</p>
-            </div>
-        </div>
-    </div>
-</section>
 
 
  <!-- Location Section -->
