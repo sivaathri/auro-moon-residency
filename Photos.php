@@ -32,14 +32,14 @@
             <span style="color:#4a4a4a;">Floor</span>
         </h4>
         <div class="d-flex flex-wrap galContainer justify-content-center">
-            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/outside-apartment.jpg" alt="Serenity stay appartment out side"></div>
-            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/Entrance.png" alt="Serenity stay appartment Entrance"></div>
-            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/2BHK Hall.JPG" alt="Serenity stay appartment 2BHK Hall"></div>
-            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/2BHK Bedroom 1.JPG" alt="Serenity stay 2BHK Bedroom 1"></div>
-            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/2BHK Bedroom 2.JPG" alt="Serenity stay 2BHK Bedroom 2"></div>
-            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/2BHK Bathroom 1.JPG" alt="Serenity stay 2BHK Bathroom 1"></div>
-            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/2BHK Bathroom 2.JPG" alt="Serenity stay 2BHK Bathroom 2"></div>
-            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/2BHK Kitchen.JPG" alt="Serenity stay 2BHK Kitchen"></div>
+            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/outside-apartment.jpg" alt="Serenity homestay apartment out side"></div>
+            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/Entrance.png" alt="Serenity homestay apartment Entrance"></div>
+            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/2BHK Hall.JPG" alt="Serenity homestay apartment 2BHK Hall"></div>
+            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/2BHK Bedroom 1.jpg" alt="Serenity homestay 2BHK Bedroom 1"></div>
+            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/2BHK Bedroom 2.JPG" alt="Serenity homestay 2BHK Bedroom 2"></div>
+            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/2BHK Bathroom 1.JPG" alt="Serenity homestay 2BHK Bathroom 1"></div>
+            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/2BHK Bathroom 2.JPG" alt="Serenity homestay 2BHK Bathroom 2"></div>
+            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/2BHK Kitchen.JPG" alt="Serenity homestay 2BHK Kitchen"></div>
         </div>
 
         <!-- Second Floor -->
@@ -48,10 +48,10 @@
             <span style="color:#4a4a4a;">Floor</span>
         </h4>
         <div class="d-flex flex-wrap galContainer justify-content-center">
-            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/2BHK Bedroom 2.JPG" alt="Serenity stay 2BHK Bedroom 2"></div>
-            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/2BHK Bathroom 1.JPG" alt="Serenity stay 2BHK Bathroom 1"></div>
-            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/2BHK Bathroom 2.JPG" alt="Serenity stay 2BHK Bathroom 2"></div>
-            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/2BHK Kitchen.JPG" alt="Serenity stay 2BHK Kitchen"></div>
+            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/2BHK Bedroom 2.JPG" alt="Serenity homestay 2BHK Bedroom 2"></div>
+            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/2BHK Bathroom 1.JPG" alt="Serenity homestay 2BHK Bathroom 1"></div>
+            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/2BHK Bathroom 2.JPG" alt="Serenity homestay 2BHK Bathroom 2"></div>
+            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/2BHK Kitchen.JPG" alt="Serenity homestay 2BHK Kitchen"></div>
         </div>
 
         <!-- Third Floor -->
@@ -60,12 +60,12 @@
             <span style="color:#4a4a4a;">Floor</span>
         </h4>
         <div class="d-flex flex-wrap galContainer justify-content-center">
-            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/3BHK Hall.jpg" alt="Serenity stay 3BHK Hall"></div>
-            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/3BHK Bedroom 1.JPG" alt="Serenity stay 3BHK Bedroom 1"></div>
-            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/3BHK Bedroom 2.JPG" alt="Serenity stay 3BHK Bedroom 2"></div>
-            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/3BHK Bedroom 3.JPG" alt="Serenity stay 3BHK Bedroom 3"></div>
-            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/3BHK Bathroom.JPG" alt="Serenity stay 3BHK Bathroom"></div>
-            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/Dinning Hall.JPG" alt="Serenity stay dining table"></div>
+            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/3BHK Hall.jpg" alt="Serenity homestay 3BHK Hall"></div>
+            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/3BHK Bedroom 1.JPG" alt="Serenity homestay 3BHK Bedroom 1"></div>
+            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/3BHK Bedroom 2.JPG" alt="Serenity homestay 3BHK Bedroom 2"></div>
+            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/3BHK Bedroom 3.JPG" alt="Serenity homestay 3BHK Bedroom 3"></div>
+            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/3BHK Bathroom.JPG" alt="Serenity homestay 3BHK Bathroom"></div>
+            <div class="card gal"><img class="gal_img" src="./assect/images/Gallery/Dinning Hall.JPG" alt="Serenity homestay dining table"></div>
         </div>
 
         <!-- Book Button -->

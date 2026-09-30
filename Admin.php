@@ -32,7 +32,14 @@ $statement->execute();
 
     <div class="pb-3" style="min-height:100vh ;">
         <?php include('navbar.php') ?>
-        <div class="text-end p-3"><a href="./Booked.php" class="text-decoration-none">Booked list <i class="fa-solid fa-arrow-right"></i></a></div>
+        <div class="text-end p-3">
+            <a href="./ContactSubmissions.php" class="text-decoration-none me-3">
+                <i class="fa fa-envelope"></i> Contact Submissions
+            </a>
+            <a href="./Booked.php" class="text-decoration-none">
+                Booked list <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
 
         <h3 class="fw-bold h3 text-center p-3">Request List</h3>
         <div class="container">

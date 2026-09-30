@@ -12,33 +12,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AAHA SERENITY STAYS</title>
+    <title>Auro Moon Residency | Luxury Homestay in Pondicherry</title>
 
-    <meta name="description" content="AAHA SERENITY STAYS is offering budget rooms with free Wi-Fi connectivity, provides in-room amenities like television, refrigerator, cooking facilities and attached washroom with hot and cold running water supply, laundry, cab rental, medical assistance and room service are additional services provided at the property.">
-    <meta name="keywords" content="pondy homestay, homestay in pondycherry,cheap homestay, homestay booking, booking rooms for one day, short stay home stay, cheap motels">
-    <!-- <link rel="shortcut icon" href="/assect/logo/pondycoworkinglogo.svg" type="image/x-icon"> -->
-    <meta property="og:site_name" content="AAHA SERENITY STAY| Homestay" />
-    <meta property="og:title" content="AAHA SERENITY STAY." />
-    <meta property="og:url" content="https://aahaserenitystays.com/" />
+    <meta name="description" content="Auro Moon Residency is a peaceful, luxury homestay in Pondicherry offering entire property booking, prime location, and warm hospitality.">
+    <meta name="keywords" content="Auro Moon Residency, Pondicherry homestay, homestay in Pondicherry, luxury homestay Pondicherry, Auroville homestay, homestay booking">
+    <meta property="og:site_name" content="Auro Moon Residency" />
+    <meta property="og:title" content="Auro Moon Residency | Luxury Homestay in Pondicherry" />
     <meta property="og:locale" content="en_US" />
-    <!-- <meta property="og:image" content="assect/logopondycoworkinglogo.svg" /> -->
 
-    <link rel=“canonical” href=“https://aahaserenitystays.com/” />
+    <link rel="shortcut icon" href="./assect/logo/auro_moon_logo.svg" type="image/svg+xml">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="shortcut icon" href="./assect/logo/aaha home stay.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!-- css link    -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
 
 
     <style>
+      .hero-bg-slide {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        will-change: transform;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+      }
+
       .testimonial-section {
     background-color: #127873; /* Tailwind's teal-700 */
     color: white;
@@ -310,261 +320,422 @@
 
 <body style="background-color:#fff;">
     <?php include('navbar.php') ?>
-    <!-- first banner -->
-    <div id="preloader">
-      <div class="spinner"></div>
-    </div>
-    <div class="first-banner">
-    
-           <!-- Hero Section -->
-           <section id="home" class="relative h-screen flex items-center justify-center text-white overflow-hidden">
-    <div class="absolute inset-0 bg-black opacity-50"></div>
-    <div class="bg-cover bg-center absolute inset-0 parallax" style="background-image: url('./assect/images/Gallery/Entrance.png');"></div>
-
-     <!-- Black Overlay -->
-     <div class="absolute inset-0 bg-black opacity-40"></div>
-
-    <div class="container mx-auto px-4 z-10 text-center">
-        <!-- Main Heading -->
-        <h1 class="text-4xl md:text-8xl font-bold mb-6">
-            <span style="color:#7ac943;">AAHA </span> 
-            <span class="text-white"> SERENITY STAY </span>
-        </h1>
-
-        <!-- Line Separator -->
-        <div class="w-full max-w-6xl h-4 bg-teal-600 mx-auto mb-6"></div>
-
-
-        <!-- Subheading -->
-        <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-            <span style="color:white;">A serene private cottage in Anna Nagar, Puducherry</span>
-        </p>
-       
-        <!-- Contact -->
-        <h2 class="text-xl md:text-2xl font-semibold mb-6 text-white">Contact no - 8098299921</h2>
-
-        <!-- Social Media Icons -->
-        <div class="flex justify-center space-x-9 mb-9 text-5xl">
-            <a href="https://wa.me/918098299921" target="_blank" class="text-green-500 hover:text-green-600">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="https://www.instagram.com/" target="_blank" class="text-pink-500 hover:text-pink-600">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.facebook.com/" target="_blank" class="text-blue-600 hover:text-blue-700">
-                <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https://g.page/" target="_blank" class="text-red-500 hover:text-red-600">
-                <i class="fab fa-google"></i>
-            </a>
+    <!-- Exact Auro Moon Residency Hero Section -->
+    <section id="home" class="relative w-full h-[calc(100vh-80px)] min-h-[760px] flex items-center overflow-hidden font-brand-sans" style="height: calc(100vh - 80px); height: calc(100dvh - 80px);">
+        <!-- Background Image Container -->
+        <div id="heroBgContainer" class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div id="heroSlide0" class="hero-bg-slide" style="background-image: url('./assect/images/herobg2.png'); transform: translateX(0%) translateZ(0);"></div>
+            <div id="heroSlide1" class="hero-bg-slide" style="background-image: url('./assect/images/auro_moon_hero.jpg'); transform: translateX(100%) translateZ(0);"></div>
+            <div id="heroSlide2" class="hero-bg-slide" style="background-image: url('./assect/images/herobg3.png'); transform: translateX(100%) translateZ(0);"></div>
         </div>
 
-        <!-- Booking Button -->
-        <a href="./BookingPage.php" 
-           class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-[30px] w-[340px] h-[100px] rounded-full transition duration-300 inline-block no-underline">
-           <span class="text-[25px]">Book Your Stay</span> 
-        </a>
-    </div>
-      
-        <div class="absolute bottom-10 left-0 right-0 flex justify-center">
-            <a href="#about" class="text-white animate-bounce">
-                <i class="fas fa-chevron-down text-3xl"></i>
-            </a>
+
+        <!-- Main Hero Overlay Content -->
+        <div class="relative z-10 w-full px-6 sm:px-10 md:px-14 lg:px-36 py-10">
+            <div class="max-w-2xl text-left">
+                <!-- Eyebrow Subtitle -->
+                <p class="text-[#E8C782] text-xs sm:text-sm font-semibold tracking-[0.24em] uppercase mb-3.5 select-none font-brand-sans">
+                    A PEACEFUL HOMESTAY IN
+                </p>
+
+                <!-- Hero Title -->
+                <h1 class="font-brand-serif text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-normal text-white leading-[1.08] mb-4 drop-shadow-[0_2px_14px_rgba(0,0,0,0.4)] select-none">
+                    Auro Moon<br>Residency
+                </h1>
+
+                <!-- Tagline -->
+                <p class="font-brand-serif text-xl sm:text-2xl text-white/95 font-light leading-snug mb-8 max-w-xl">
+                    Feel at Home in the Heart of Pondicherry
+                </p>
+
+                <!-- 3 Feature Badges -->
+                <div class="flex items-center gap-6 sm:gap-9 mb-9 flex-wrap select-none">
+                    <!-- Entire Property -->
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 flex-shrink-0 flex items-center justify-center">
+                            <svg class="w-7 h-7 stroke-white fill-none" stroke-width="1.8" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                            </svg>
+                        </div>
+                        <div class="text-white text-xs sm:text-sm font-medium leading-tight font-brand-sans">
+                            Entire<br>Property
+                        </div>
+                    </div>
+
+                    <!-- Prime Location -->
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 flex-shrink-0 flex items-center justify-center">
+                            <svg class="w-7 h-7 stroke-white fill-none" stroke-width="1.8" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <div class="text-white text-xs sm:text-sm font-medium leading-tight font-brand-sans">
+                            Prime<br>Location
+                        </div>
+                    </div>
+
+                    <!-- Warm Hospitality -->
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 flex-shrink-0 flex items-center justify-center">
+                            <svg class="w-7 h-7 stroke-white fill-none" stroke-width="1.8" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                        </div>
+                        <div class="text-white text-xs sm:text-sm font-medium leading-tight font-brand-sans">
+                            Warm<br>Hospitality
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="./BookingPage.php" class="inline-flex items-center gap-3 px-8 py-3.5 bg-[#E5A93C] hover:bg-[#d69829] text-[#FFFDF7] font-semibold text-base sm:text-lg rounded-xl shadow-[0_4px_20px_rgba(229,169,60,0.4)] hover:shadow-[0_6px_25px_rgba(229,169,60,0.55)] hover:-translate-y-0.5 transition-all duration-200 no-underline font-brand-sans group select-none">
+                    <span>Book Your Stay</span>
+                    <i class="fa-solid fa-arrow-right-long text-base transition-transform duration-200 group-hover:translate-x-1"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Bottom Carousel Indicators -->
+        <div class="absolute bottom-6 left-0 right-0 flex justify-center items-center gap-3 z-20">
+            <button type="button" aria-label="Slide 1" onclick="switchHeroSlide(0)" id="heroDot0" class="hero-dot w-2.5 h-2.5 rounded-full bg-white ring-2 ring-white/50 transition-all duration-300"></button>
+            <button type="button" aria-label="Slide 2" onclick="switchHeroSlide(1)" id="heroDot1" class="hero-dot w-2.5 h-2.5 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300"></button>
+            <button type="button" aria-label="Slide 3" onclick="switchHeroSlide(2)" id="heroDot2" class="hero-dot w-2.5 h-2.5 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300"></button>
         </div>
     </section>
-    </div>
 
-        <!-- About Section -->
-        <section id="about" class="py-16 bg-white">
-        <div class="section-container">
-  <div class="section-header">
-    <h2>Your Peaceful Retreat in Puducherry</h2>
-    <div class="underline"></div>
-  </div>
+    <!-- Top Feature Highlights Bar -->
+    <section class="bg-[#FAF7F2] border-b border-[#ECE5D8] py-8 font-brand-sans">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-[#ECE5D8]">
+                <!-- Feature 1: Entire Property -->
+                <div class="flex flex-col items-center text-center px-4 py-4 md:py-2">
+                    <div class="w-12 h-12 flex items-center justify-center mb-2.5">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#DE9E36" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 10.5L12 3l9 7.5"/>
+                            <path d="M5 9.5V20a1 1 0 001 1h12a1 1 0 001-1V9.5"/>
+                            <path d="M19 7V4h-3v1.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-[#1C2530] text-sm md:text-base leading-tight mb-1 font-brand-sans">Entire Property</h3>
+                    <p class="text-xs md:text-sm text-gray-500 font-normal font-brand-sans">Private & Peaceful Stay</p>
+                </div>
 
-  <div class="section-content">
-    <div class="image-box">
-      <img
-        src="./assect/images/Gallery/AAHA Serenity Stay view.png"
-        alt="AAHA Serenity Stay"
-        class="section-image"
-      />
-    </div>
-    <div class="text-box">
-      <p>
-        We are a fully Licensed Bed & Breakfast (Homestay) establishment approved by Ministry of Tourism, Government of India and Department of Tourism, Government of Puducherry.
-      </p>
-      <p>
-        Enjoy <span class="highlight">affordable rooms with cooking facilities</span>, <span class="highlight">free Wi-Fi</span>, and <span class="highlight">in-room amenities</span> like TV and refrigerator – perfect for <span class="highlight">families, business stays, and long-term guests</span>.
-      </p>
-      <p>
-        Our homestay also provides <span class="highlight">laundry service</span>, <span class="highlight">cab rental for local travel</span>, <span class="highlight">room service</span>, and <span class="highlight">medical assistance on request</span>.
-      </p>
-      <div class="btn-wrapper">
-        <a href="#amenities" class="explore-btn">
-          Explore Amenities <i class="fas fa-arrow-right"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
+                <!-- Feature 2: Prime Location -->
+                <div class="flex flex-col items-center text-center px-4 py-4 md:py-2">
+                    <div class="w-12 h-12 flex items-center justify-center mb-2.5">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#DE9E36" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/>
+                            <circle cx="12" cy="9" r="2.5" fill="#DE9E36"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-[#1C2530] text-sm md:text-base leading-tight mb-1 font-brand-sans">Prime Location</h3>
+                    <p class="text-xs md:text-sm text-gray-500 font-normal font-brand-sans">Close to Beach & Attractions</p>
+                </div>
 
+                <!-- Feature 3: Fully Furnished -->
+                <div class="flex flex-col items-center text-center px-4 py-4 md:py-2">
+                    <div class="w-12 h-12 flex items-center justify-center mb-2.5">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#DE9E36" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 9V7a2 2 0 00-2-2H6a2 2 0 00-2 2v2"/>
+                            <path d="M2 13v5a1 1 0 001 1h1v1a1 1 0 002 0v-1h12v1a1 1 0 002 0v-1h1a1 1 0 001-1v-5a3 3 0 00-3-3H5a3 3 0 00-3 3z"/>
+                            <path d="M4 14h16"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-[#1C2530] text-sm md:text-base leading-tight mb-1 font-brand-sans">Fully Furnished</h3>
+                    <p class="text-xs md:text-sm text-gray-500 font-normal font-brand-sans">Modern & Comfortable</p>
+                </div>
+
+                <!-- Feature 4: Safe & Secure -->
+                <div class="flex flex-col items-center text-center px-4 py-4 md:py-2">
+                    <div class="w-12 h-12 flex items-center justify-center mb-2.5">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#DE9E36" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 3s7 2.5 7 8c0 5.5-3.5 9-7 10-3.5-1-7-4.5-7-10 0-5.5 7-8 7-8z"/>
+                            <path d="M9 12l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-[#1C2530] text-sm md:text-base leading-tight mb-1 font-brand-sans">Safe & Secure</h3>
+                    <p class="text-xs md:text-sm text-gray-500 font-normal font-brand-sans">A Homely Atmosphere</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- our services  -->
-    <!-- <div id="services" class="container py-5" style="background: #fff; border-radius: 12px;">
-        <h2 class="text-center fw-bold mb-5 section-title">
-            Our services
-        </h2>
-        <div class="mb-4">
-            <span style="font-weight: bold; font-size: 1.3rem;">
-                4 - 12 guests &middot; 5 bedrooms &middot; 5 beds &middot; 2.5 bathrooms
-            </span>
+    <!-- About Section -->
+    <section id="about" class="relative pt-16 md:pt-24 pb-8 md:pb-12 bg-[#FAF7F2] overflow-hidden font-brand-sans">
+        <!-- Floating Botanical Decorative Element on Right -->
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-64 md:w-80 lg:w-96 pointer-events-none opacity-40 select-none hidden sm:block">
+            <svg viewBox="0 0 320 520" fill="none" stroke="#D8B57F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M 300 500 C 270 380 230 250 140 100" />
+                <path d="M 270 420 C 220 400 200 410 190 435 C 220 455 255 445 270 420 Z" fill="#F3E9D5" />
+                <path d="M 245 340 C 190 325 170 345 160 375 C 195 390 230 370 245 340 Z" fill="#F3E9D5" />
+                <path d="M 220 260 C 245 220 280 225 295 250 C 280 280 245 285 220 260 Z" fill="#F3E9D5" />
+                <path d="M 195 200 C 145 180 130 205 125 235 C 155 250 190 230 195 200 Z" fill="#F3E9D5" />
+                <path d="M 160 135 C 185 95 225 105 240 130 C 220 160 180 165 160 135 Z" fill="#F3E9D5" />
+                <path d="M 140 100 C 130 50 165 40 180 60 C 175 90 150 100 140 100 Z" fill="#F3E9D5" />
+            </svg>
         </div>
-        <div class="mb-3" style="font-size: 1.1rem;">
-            We are a fully Licensed Bed & Breakfast (Homestay) establishment approved by Ministry of Tourism, Government of India and Department of Tourism, Government of Puducherry.
-        </div>
-        <div class="mb-3" style="font-size: 1.1rem;">
-            AAHA Serenity Stay – A serene private cottage in Anna Nagar, Puducherry. Enjoy <b>affordable rooms with cooking facilities</b>, <b>free Wi-Fi</b>, and <b>in-room amenities</b> like TV and refrigerator – perfect for <b>families, business stays, and long-term guests</b>.
-        </div>
-        <div class="mb-3" style="font-size: 1.1rem;">
-            Our homestay also provides <b>laundry service</b>, <b>cab rental for local travel</b>, <b>room service</b>, and <b>medical assistance on request</b>. Enjoy a <b>peaceful and homely environment</b> just minutes away from <b>Puducherry's top attractions</b>, including Promenade Beach, Auroville, and White Town.
-        </div>
-        <div class="mb-4" style="font-size: 1.1rem;">
-            Book your stay today at one of the <b>best budget homestays in Puducherry</b>, and make your trip truly memorable.
-        </div>
-        <div class="row" style="font-size: 1.05rem;">
-            <div class="col-md-6">
-                <ul style="list-style:none; padding-left:0;">
-                    <li><i class="fa fa-home text-green"></i> <b>Budget homestay in Puducherry</b></li>
-                    <li><i class="fa fa-map-marker text-green"></i> <b>Homestay in Anna Nagar Puducherry</b></li>
-                    <li><i class="fa fa-cutlery text-green"></i> <b>Affordable rooms with cooking facilities Puducherry</b></li>
-                </ul>
-            </div>
-            <div class="col-md-6">
-                <ul style="list-style:none; padding-left:0;">
-                    <li><i class="fa fa-users text-green"></i> <b>Homestay for family and business stay</b></li>
-                    <li><i class="fa fa-calendar text-green"></i> <b>Long-term stay homestay Puducherry</b></li>
-                    <li><i class="fa fa-wifi text-green"></i> <b>Room with free Wi-Fi in Pondicherry</b></li>
-                </ul>
-            </div>
-        </div>
-    </div> -->
-    <!-- Features Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Why Choose AAHA Serenity Stay?</h2>
-                <div class="w-24 h-1 bg-teal-600 mx-auto"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-xl transition duration-300">
-                    <div class="text-teal-600 mb-4">
-                        <i class="fas fa-home text-5xl"></i>
+
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+                <!-- Left Image Column -->
+                <div class="lg:col-span-6">
+                    <div class="relative w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl bg-white border border-[#E8DFC8]">
+                        <img 
+                            src="./assect/images/auro_about_bedroom.jpg" 
+                            alt="A Comfortable Home at Auro Moon Residency" 
+                            class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700 ease-out"
+                        />
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-800">Homely Environment</h3>
-                    <p class="text-gray-600">Experience a peaceful and comfortable stay that feels just like home, away from home.</p>
                 </div>
-                
-                <div class="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-xl transition duration-300">
-                    <div class="text-teal-600 mb-4">
-                        <i class="fas fa-map-marker-alt text-5xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-800">Prime Location</h3>
-                    <p class="text-gray-600">Located just minutes away from Puducherry's top attractions including Promenade Beach and Auroville.</p>
+
+                <!-- Right Content Column -->
+                <div class="lg:col-span-6 pl-0 lg:pl-6">
+                    <!-- Kicker -->
+                    <p class="text-[#B88028] text-xs md:text-sm font-semibold tracking-[0.24em] uppercase mb-2.5 select-none font-brand-sans">
+                        ABOUT
+                    </p>
+
+                    <!-- Title -->
+                    <h2 class="font-brand-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2839] leading-[1.18] mb-4">
+                        A Comfortable Home<br>for Your Pondicherry Stay
+                    </h2>
+
+                    <!-- Golden Underline -->
+                    <div class="w-12 h-1 bg-[#DE9E36] rounded-full mb-6"></div>
+
+                    <!-- Description -->
+                    <p class="text-[#556270] text-base md:text-lg leading-relaxed mb-8 font-normal font-brand-sans">
+                        Auro Moon Residency is a single property homestay located in the heart of Pondicherry. We offer a peaceful, clean and comfortable stay with modern amenities, making it an ideal choice for families, couples and solo travelers.
+                    </p>
+
+                    <!-- CTA Button -->
+                    <a href="./BookingPage.php" class="inline-flex items-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-[#E5A93C] hover:bg-[#d69829] text-[#1a140c] font-semibold text-sm sm:text-base rounded-xl shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 no-underline font-brand-sans group select-none">
+                        <i class="fa-regular fa-calendar-days text-base"></i>
+                        <span>Book Your Stay</span>
+                        <i class="fa-solid fa-arrow-right-long text-sm transition-transform duration-200 group-hover:translate-x-1"></i>
+                    </a>
                 </div>
-                
-                <div class="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-xl transition duration-300">
-                    <div class="text-teal-600 mb-4">
-                        <i class="fas fa-wallet text-5xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-800">Budget Friendly</h3>
-                    <p class="text-gray-600">Affordable accommodation without compromising on comfort and essential amenities.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Preview Section -->
+    <section id="gallery" class="pt-6 md:pt-10 pb-16 md:pb-24 bg-[#FAF7F2] font-brand-sans">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <!-- Header Row -->
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-7 sm:mb-9">
+                <!-- Title & Kicker -->
+                <div>
+                    <p class="text-[#B88028] text-xs sm:text-sm font-bold tracking-[0.24em] uppercase mb-2 select-none">
+                        GALLERY
+                    </p>
+                    <h2 class="font-brand-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2839] leading-tight">
+                        Take a Look Inside
+                    </h2>
+                    <!-- Golden Underline Bar -->
+                    <div class="w-12 h-1 bg-[#DE9E36] rounded-full mt-3"></div>
                 </div>
+
+                <!-- View Full Gallery CTA Button -->
+                <div class="flex-shrink-0">
+                    <a href="./Photos.php" class="inline-flex items-center gap-2.5 px-6 sm:px-7 py-2.5 sm:py-3 rounded-xl border-2 border-[#DE9E36] bg-transparent hover:bg-[#DE9E36] text-[#1A2839] hover:text-[#1a140c] font-semibold text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-300 no-underline group select-none">
+                        <span>View Full Gallery</span>
+                        <i class="fa-solid fa-arrow-right text-sm transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 5-Column Photo Preview Strip -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4 md:gap-5">
+                <!-- Photo 1: Cozy Bedroom -->
+                <a href="./Photos.php" class="group block relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-white aspect-[4/3] focus:outline-none" title="Bedroom - Auro Moon Residency">
+                    <img 
+                        src="./assect/images/auro_about_bedroom.jpg" 
+                        alt="Bedroom at Auro Moon Residency" 
+                        class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
+                        loading="lazy"
+                    />
+                    <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-300"></div>
+                </a>
+
+                <!-- Photo 2: Living Room -->
+                <a href="./Photos.php" class="group block relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-white aspect-[4/3] focus:outline-none" title="Living Room - Auro Moon Residency">
+                    <img 
+                        src="./assect/images/auro_gallery_living.jpg" 
+                        alt="Living Room at Auro Moon Residency" 
+                        class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
+                        loading="lazy"
+                    />
+                    <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-300"></div>
+                </a>
+
+                <!-- Photo 3: Dining Area -->
+                <a href="./Photos.php" class="group block relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-white aspect-[4/3] focus:outline-none" title="Dining Area - Auro Moon Residency">
+                    <img 
+                        src="./assect/images/auro_gallery_dining.jpg" 
+                        alt="Dining Area at Auro Moon Residency" 
+                        class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
+                        loading="lazy"
+                    />
+                    <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-300"></div>
+                </a>
+
+                <!-- Photo 4: Equipped Kitchen -->
+                <a href="./Photos.php" class="group block relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-white aspect-[4/3] focus:outline-none" title="Kitchen - Auro Moon Residency">
+                    <img 
+                        src="./assect/images/auro_gallery_kitchen.jpg" 
+                        alt="Kitchen at Auro Moon Residency" 
+                        class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
+                        loading="lazy"
+                    />
+                    <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-300"></div>
+                </a>
+
+                <!-- Photo 5: Corridor / Hallway -->
+                <a href="./Photos.php" class="group block relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-white aspect-[4/3] col-span-2 sm:col-span-1 focus:outline-none" title="Veranda & Hallway - Auro Moon Residency">
+                    <img 
+                        src="./assect/images/auro_gallery_hallway.jpg" 
+                        alt="Veranda and Hallway at Auro Moon Residency" 
+                        class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
+                        loading="lazy"
+                    />
+                    <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-300"></div>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Amenities Section -->
-    <section id="amenities" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Amenities</h2>
-                <div class="w-24 h-1 bg-teal-600 mx-auto"></div>
+    <section id="amenities" class="py-16 md:py-24 bg-white font-brand-sans border-t border-[#ECE5D8]">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <!-- Header Row (Theme Pattern Matching Gallery) -->
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-10 sm:mb-12">
+                <!-- Title & Kicker -->
+                <div>
+                    <p class="text-[#B88028] text-xs sm:text-sm font-bold tracking-[0.24em] uppercase mb-2 select-none">
+                        AMENITIES
+                    </p>
+                    <h2 class="font-brand-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2839] leading-tight">
+                        Thoughtful Comforts for Your Stay
+                    </h2>
+                    <!-- Golden Underline Bar -->
+                    <div class="w-12 h-1 bg-[#DE9E36] rounded-full mt-3"></div>
+                </div>
+
+                <!-- Book Your Stay CTA Button -->
+                <div class="flex-shrink-0">
+                    <a href="./BookingPage.php" class="inline-flex items-center gap-2.5 px-6 sm:px-7 py-2.5 sm:py-3 rounded-xl border-2 border-[#DE9E36] bg-transparent hover:bg-[#DE9E36] text-[#1A2839] hover:text-[#1a140c] font-semibold text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-300 no-underline group select-none">
+                        <span>Book Your Stay</span>
+                        <i class="fa-solid fa-arrow-right text-sm transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </a>
+                </div>
             </div>
-            
+
+            <!-- Amenities Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Amenity 1 -->
-                <div class="amenity-card bg-gray-50 p-6 rounded-lg text-center hover:bg-teal-50 transition duration-300">
-                    <div class="amenity-icon text-teal-600 mb-4">
-                        <i class="fas fa-wifi text-4xl"></i>
+                <!-- Amenity 1: Free Wi-Fi -->
+                <div class="group relative p-6 sm:p-7 rounded-2xl bg-[#FCFBF8] hover:bg-white border border-[#ECE5D8] hover:border-[#DE9E36]/70 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-start">
+                    <div class="w-14 h-14 rounded-2xl bg-[#FAF3E7] group-hover:bg-[#DE9E36] text-[#DE9E36] group-hover:text-white flex items-center justify-center mb-5 transition-all duration-300 shadow-sm">
+                        <i class="fa-solid fa-wifi text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Free Wi-Fi</h3>
-                    <p class="text-gray-600">Stay connected with high-speed internet access throughout your stay.</p>
+                    <h3 class="font-brand-sans font-bold text-lg text-[#1A2839] group-hover:text-[#DE9E36] transition-colors duration-200 mb-2">
+                        Free High-Speed Wi-Fi
+                    </h3>
+                    <p class="text-sm text-[#556270] leading-relaxed">
+                        Stay connected effortlessly with fast, uninterrupted internet access throughout the homestay.
+                    </p>
                 </div>
-                
-                <!-- Amenity 2 -->
-                <div class="amenity-card bg-gray-50 p-6 rounded-lg text-center hover:bg-teal-50 transition duration-300">
-                    <div class="amenity-icon text-teal-600 mb-4">
-                        <i class="fas fa-utensils text-4xl"></i>
+
+                <!-- Amenity 2: Cooking Facilities -->
+                <div class="group relative p-6 sm:p-7 rounded-2xl bg-[#FCFBF8] hover:bg-white border border-[#ECE5D8] hover:border-[#DE9E36]/70 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-start">
+                    <div class="w-14 h-14 rounded-2xl bg-[#FAF3E7] group-hover:bg-[#DE9E36] text-[#DE9E36] group-hover:text-white flex items-center justify-center mb-5 transition-all duration-300 shadow-sm">
+                        <i class="fa-solid fa-utensils text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Cooking Facilities</h3>
-                    <p class="text-gray-600">Prepare your own meals with our fully equipped kitchen facilities.</p>
+                    <h3 class="font-brand-sans font-bold text-lg text-[#1A2839] group-hover:text-[#DE9E36] transition-colors duration-200 mb-2">
+                        Equipped Kitchen
+                    </h3>
+                    <p class="text-sm text-[#556270] leading-relaxed">
+                        Prepare home-cooked meals with refrigerator, gas stove, cookware, and dining sets.
+                    </p>
                 </div>
-                
-                <!-- Amenity 3 -->
-                <div class="amenity-card bg-gray-50 p-6 rounded-lg text-center hover:bg-teal-50 transition duration-300">
-                    <div class="amenity-icon text-teal-600 mb-4">
-                        <i class="fas fa-tv text-4xl"></i>
+
+                <!-- Amenity 3: TV & Entertainment -->
+                <div class="group relative p-6 sm:p-7 rounded-2xl bg-[#FCFBF8] hover:bg-white border border-[#ECE5D8] hover:border-[#DE9E36]/70 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-start">
+                    <div class="w-14 h-14 rounded-2xl bg-[#FAF3E7] group-hover:bg-[#DE9E36] text-[#DE9E36] group-hover:text-white flex items-center justify-center mb-5 transition-all duration-300 shadow-sm">
+                        <i class="fa-solid fa-tv text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">TV & Entertainment</h3>
-                    <p class="text-gray-600">Relax with in-room television and entertainment options.</p>
+                    <h3 class="font-brand-sans font-bold text-lg text-[#1A2839] group-hover:text-[#DE9E36] transition-colors duration-200 mb-2">
+                        Smart TV & Media
+                    </h3>
+                    <p class="text-sm text-[#556270] leading-relaxed">
+                        Relax in comfort with in-room smart television, digital streaming, and entertaining channels.
+                    </p>
                 </div>
-                
-                <!-- Amenity 4 -->
-                <div class="amenity-card bg-gray-50 p-6 rounded-lg text-center hover:bg-teal-50 transition duration-300">
-                    <div class="amenity-icon text-teal-600 mb-4">
-                        <i class="fas fa-snowflake text-4xl"></i>
+
+                <!-- Amenity 4: Air Conditioning -->
+                <div class="group relative p-6 sm:p-7 rounded-2xl bg-[#FCFBF8] hover:bg-white border border-[#ECE5D8] hover:border-[#DE9E36]/70 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-start">
+                    <div class="w-14 h-14 rounded-2xl bg-[#FAF3E7] group-hover:bg-[#DE9E36] text-[#DE9E36] group-hover:text-white flex items-center justify-center mb-5 transition-all duration-300 shadow-sm">
+                        <i class="fa-solid fa-snowflake text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Air Conditioning</h3>
-                    <p class="text-gray-600">Stay comfortable with climate-controlled rooms.</p>
+                    <h3 class="font-brand-sans font-bold text-lg text-[#1A2839] group-hover:text-[#DE9E36] transition-colors duration-200 mb-2">
+                        Air Conditioning
+                    </h3>
+                    <p class="text-sm text-[#556270] leading-relaxed">
+                        Individual climate control across bedrooms ensures a cool, restful retreat night and day.
+                    </p>
                 </div>
-                
-                <!-- Amenity 5 -->
-                <div class="amenity-card bg-gray-50 p-6 rounded-lg text-center hover:bg-teal-50 transition duration-300">
-                    <div class="amenity-icon text-teal-600 mb-4">
-                        <i class="fas fa-car text-4xl"></i>
+
+                <!-- Amenity 5: Cab Rental -->
+                <div class="group relative p-6 sm:p-7 rounded-2xl bg-[#FCFBF8] hover:bg-white border border-[#ECE5D8] hover:border-[#DE9E36]/70 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-start">
+                    <div class="w-14 h-14 rounded-2xl bg-[#FAF3E7] group-hover:bg-[#DE9E36] text-[#DE9E36] group-hover:text-white flex items-center justify-center mb-5 transition-all duration-300 shadow-sm">
+                        <i class="fa-solid fa-car text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Cab Rental</h3>
-                    <p class="text-gray-600">Convenient local travel options available on request.</p>
+                    <h3 class="font-brand-sans font-bold text-lg text-[#1A2839] group-hover:text-[#DE9E36] transition-colors duration-200 mb-2">
+                        Cab & Travel Support
+                    </h3>
+                    <p class="text-sm text-[#556270] leading-relaxed">
+                        Convenient local travel arrangements, rental assistance, and sightseeing recommendations.
+                    </p>
                 </div>
-                
-                <!-- Amenity 6 -->
-                <div class="amenity-card bg-gray-50 p-6 rounded-lg text-center hover:bg-teal-50 transition duration-300">
-                    <div class="amenity-icon text-teal-600 mb-4">
-                        <i class="fas fa-tshirt text-4xl"></i>
+
+                <!-- Amenity 6: Laundry Service -->
+                <div class="group relative p-6 sm:p-7 rounded-2xl bg-[#FCFBF8] hover:bg-white border border-[#ECE5D8] hover:border-[#DE9E36]/70 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-start">
+                    <div class="w-14 h-14 rounded-2xl bg-[#FAF3E7] group-hover:bg-[#DE9E36] text-[#DE9E36] group-hover:text-white flex items-center justify-center mb-5 transition-all duration-300 shadow-sm">
+                        <i class="fa-solid fa-shirt text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Laundry Service</h3>
-                    <p class="text-gray-600">Keep your clothes fresh with our laundry facilities.</p>
+                    <h3 class="font-brand-sans font-bold text-lg text-[#1A2839] group-hover:text-[#DE9E36] transition-colors duration-200 mb-2">
+                        Laundry Facilities
+                    </h3>
+                    <p class="text-sm text-[#556270] leading-relaxed">
+                        Keep your wardrobe fresh and ready with easy in-house laundry and washing setup.
+                    </p>
                 </div>
-                
-                <!-- Amenity 7 -->
-                <div class="amenity-card bg-gray-50 p-6 rounded-lg text-center hover:bg-teal-50 transition duration-300">
-                    <div class="amenity-icon text-teal-600 mb-4">
-                        <i class="fas fa-concierge-bell text-4xl"></i>
+
+                <!-- Amenity 7: Attentive Hospitality -->
+                <div class="group relative p-6 sm:p-7 rounded-2xl bg-[#FCFBF8] hover:bg-white border border-[#ECE5D8] hover:border-[#DE9E36]/70 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-start">
+                    <div class="w-14 h-14 rounded-2xl bg-[#FAF3E7] group-hover:bg-[#DE9E36] text-[#DE9E36] group-hover:text-white flex items-center justify-center mb-5 transition-all duration-300 shadow-sm">
+                        <i class="fa-solid fa-bell-concierge text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Room Service</h3>
-                    <p class="text-gray-600">Enjoy the convenience of in-room service.</p>
+                    <h3 class="font-brand-sans font-bold text-lg text-[#1A2839] group-hover:text-[#DE9E36] transition-colors duration-200 mb-2">
+                        Attentive Hospitality
+                    </h3>
+                    <p class="text-sm text-[#556270] leading-relaxed">
+                        Warm, personalized care with regular housekeeping and on-call assistance when needed.
+                    </p>
                 </div>
-                
-                <!-- Amenity 8 -->
-                <div class="amenity-card bg-gray-50 p-6 rounded-lg text-center hover:bg-teal-50 transition duration-300">
-                    <div class="amenity-icon text-teal-600 mb-4">
-                        <i class="fas fa-first-aid text-4xl"></i>
+
+                <!-- Amenity 8: Safe Stay & First Aid -->
+                <div class="group relative p-6 sm:p-7 rounded-2xl bg-[#FCFBF8] hover:bg-white border border-[#ECE5D8] hover:border-[#DE9E36]/70 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-start">
+                    <div class="w-14 h-14 rounded-2xl bg-[#FAF3E7] group-hover:bg-[#DE9E36] text-[#DE9E36] group-hover:text-white flex items-center justify-center mb-5 transition-all duration-300 shadow-sm">
+                        <i class="fa-solid fa-shield-halved text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Medical Assistance</h3>
-                    <p class="text-gray-600">Peace of mind with medical help available when needed.</p>
+                    <h3 class="font-brand-sans font-bold text-lg text-[#1A2839] group-hover:text-[#DE9E36] transition-colors duration-200 mb-2">
+                        Safe Stay & First Aid
+                    </h3>
+                    <p class="text-sm text-[#556270] leading-relaxed">
+                        Peace of mind with secure surroundings, first-aid kit ready, and local medical support.
+                    </p>
                 </div>
             </div>
         </div>
@@ -572,124 +743,262 @@
 
 
 <!-- Premium UI Section: Things to Do in Auroville & Pondicherry -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-<section class="premium-places-section py-5 bg-white">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-5 section-title">Things to Do in Auroville & Pondicherry</h2>
-      <div class="row g-4">
-        <!-- Auroville Card -->
-        <div class="col-md-6">
-          <div class="card-custom shadow-sm p-4 bg-white h-100">
-            <h3 class="mb-3 section-subtitle"><i class="fas fa-leaf me-2"></i>Auroville Highlights</h3>
-
-          <div class="mb-4">
-            <h5 class="section-heading">Top Places</h5>
-            <ul class="list-unstyled lh-lg mb-3">
-              <li><i class="fas fa-map-marker-alt icon-primary"></i> Visitor's Centre</li>
-              <li><i class="fas fa-sun icon-warning"></i> Matrimandir</li>
-              <li><i class="fas fa-music icon-danger"></i> Svaram Sound Garden</li>
-              <li><i class="fas fa-tree icon-success"></i> Bamboo Centre</li>
-              <li><i class="fas fa-water icon-info"></i> Serenity Beach</li>
-            </ul>
-          </div>
-
-          <div class="mb-4">
-            <h5 class="section-heading">Recommended Cafes</h5>
-            <p class="fw-bold">Breakfast</p>
-            <div class="badge-container">
-              <span class="badge-custom">Auroville Bakery</span>
-              <span class="badge-custom">Bread and Chocolate</span>
-              <span class="badge-custom">Marc's Cafe</span>
-              <span class="badge-custom">Coffee Break</span>
+<section id="explore" class="py-16 md:py-24 bg-[#FAF7F2] font-brand-sans border-t border-[#ECE5D8]">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <!-- Header Row (Theme Pattern Matching Gallery) -->
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-10 sm:mb-12">
+            <!-- Title & Kicker -->
+            <div>
+                <p class="text-[#B88028] text-xs sm:text-sm font-bold tracking-[0.24em] uppercase mb-2 select-none">
+                    LOCAL GUIDE
+                </p>
+                <h2 class="font-brand-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2839] leading-tight">
+                    Things to Do in Auroville & Pondicherry
+                </h2>
+                <!-- Golden Underline Bar -->
+                <div class="w-12 h-1 bg-[#DE9E36] rounded-full mt-3"></div>
             </div>
-            <p class="fw-bold mt-3">Lunch</p>
-            <div class="badge-container">
-              <span class="badge-custom">Tanto</span>
-              <span class="badge-custom">Aurelec</span>
-              <span class="badge-custom">Umami Kitchen</span>
-              <span class="badge-custom">Cafe 73</span>
-            </div>
-            <p class="fw-bold mt-3">Dinner</p>
-            <div class="badge-container">
-              <span class="badge-custom">Nowana</span>
-              <span class="badge-custom">Tanto</span>
-              <span class="badge-custom">Umami</span>
-            </div>
-          </div>
 
-          <div>
-            <h5 class="section-heading">Activities</h5>
-            <ul class="list-unstyled lh-lg">
-              <li><i class="fas fa-water icon-primary"></i> Surfing</li>
-              <li><i class="fas fa-bicycle icon-danger"></i> E-Bike Cycling in Auroville</li>
-              <li><i class="fas fa-spa icon-success"></i> Massage in Kalarigram</li>
-              <li><i class="fas fa-headphones icon-warning"></i> Sound Healing</li>
-              <li><i class="fas fa-horse icon-info"></i> Horse Riding from Red Earth</li>
-            </ul>
-          </div>
+            <!-- Plan Your Trip CTA Button -->
+            <div class="flex-shrink-0">
+                <a href="./BookingPage.php" class="inline-flex items-center gap-2.5 px-6 sm:px-7 py-2.5 sm:py-3 rounded-xl border-2 border-[#DE9E36] bg-transparent hover:bg-[#DE9E36] text-[#1A2839] hover:text-[#1a140c] font-semibold text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-300 no-underline group select-none">
+                    <span>Plan Your Trip</span>
+                    <i class="fa-solid fa-arrow-right text-sm transition-transform duration-300 group-hover:translate-x-1"></i>
+                </a>
+            </div>
         </div>
-      </div>
 
-      <!-- Pondicherry Card -->
-      <div class="col-md-6">
-        <div class="card-custom shadow-sm p-4 bg-white h-100">
-          <h3 class="mb-3 section-subtitle"><i class="fas fa-city me-2"></i>Pondicherry Highlights</h3>
+        <!-- 2 Destination Showcase Cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+            <!-- Card 1: Auroville Highlights -->
+            <div class="bg-white rounded-3xl p-7 sm:p-9 border border-[#ECE5D8] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                <div>
+                    <!-- Card Header -->
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-[#FAF3E7] text-[#DE9E36] flex items-center justify-center text-2xl flex-shrink-0 shadow-sm">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-brand-serif text-2xl sm:text-3xl font-bold text-[#1A2839] leading-tight">
+                                Auroville Highlights
+                            </h3>
+                            <p class="text-xs sm:text-sm text-[#8A7968] font-medium mt-0.5">
+                                Spiritual landmarks, sound gardens & artisan bakeries
+                            </p>
+                        </div>
+                    </div>
 
-          <div class="mb-4">
-            <h5 class="section-heading">Top Places</h5>
-            <ul class="list-unstyled lh-lg mb-3">
-              <li><i class="fas fa-umbrella-beach icon-info"></i> Promenade Beach</li>
-              <li><i class="fas fa-home icon-primary"></i> White and French Town</li>
-              <li><i class="fas fa-church icon-danger"></i> Lady of Angels Church</li>
-              <li><i class="fas fa-place-of-worship icon-success"></i> Manakula Vinayagar Temple</li>
-              <li><i class="fas fa-praying-hands icon-warning"></i> Aurobindo Ashram</li>
-              <li><i class="fas fa-umbrella-beach icon-info"></i> Paradise Island</li>
-              <li><i class="fas fa-water icon-primary"></i> Sand Dunes Beach</li>
-            </ul>
-          </div>
+                    <!-- Divider -->
+                    <div class="w-full h-px bg-[#ECE5D8] mb-6"></div>
 
-          <div class="mb-4">
-            <h5 class="section-heading">Recommended Cafes</h5>
-            <p class="fw-bold">Breakfast</p>
-            <div class="badge-container">
-              <span class="badge-custom">Indian Coffee House</span>  
-              <span class="badge-custom">Surguru</span> 
-              <span class="badge-custom">Baker's Street</span>
+                    <!-- Top Places -->
+                    <div class="mb-7">
+                        <h4 class="text-xs uppercase font-bold tracking-[0.2em] text-[#B88028] mb-3.5 flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-[#DE9E36]"></i> Top Places to Visit
+                        </h4>
+                        <div class="flex flex-wrap gap-2.5">
+                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
+                                <i class="fa-solid fa-location-pin text-[#DE9E36] text-xs"></i> Visitor's Centre
+                            </span>
+                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
+                                <i class="fa-solid fa-sun text-[#DE9E36] text-xs"></i> Matrimandir
+                            </span>
+                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
+                                <i class="fa-solid fa-music text-[#DE9E36] text-xs"></i> Svaram Sound Garden
+                            </span>
+                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
+                                <i class="fa-solid fa-tree text-[#DE9E36] text-xs"></i> Bamboo Centre
+                            </span>
+                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
+                                <i class="fa-solid fa-water text-[#DE9E36] text-xs"></i> Serenity Beach
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Recommended Cafes -->
+                    <div class="mb-7">
+                        <h4 class="text-xs uppercase font-bold tracking-[0.2em] text-[#B88028] mb-3.5 flex items-center gap-2">
+                            <i class="fa-solid fa-utensils text-[#DE9E36]"></i> Recommended Cafes & Dining
+                        </h4>
+                        <div class="space-y-3">
+                            <div>
+                                <span class="text-[11px] font-bold text-[#8A7968] uppercase tracking-wider block mb-1.5">Breakfast</span>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Auroville Bakery</span>
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Bread and Chocolate</span>
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Marc's Cafe</span>
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Coffee Break</span>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="text-[11px] font-bold text-[#8A7968] uppercase tracking-wider block mb-1.5">Lunch</span>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Tanto</span>
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Aurelec</span>
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Umami Kitchen</span>
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Cafe 73</span>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="text-[11px] font-bold text-[#8A7968] uppercase tracking-wider block mb-1.5">Dinner</span>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Nowana</span>
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Tanto</span>
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Umami</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activities -->
+                <div class="pt-5 border-t border-[#ECE5D8]">
+                    <h4 class="text-xs uppercase font-bold tracking-[0.2em] text-[#B88028] mb-3.5 flex items-center gap-2">
+                        <i class="fa-solid fa-compass text-[#DE9E36]"></i> Popular Activities
+                    </h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                        <div class="flex items-center gap-2.5 text-xs sm:text-sm text-[#1A2839]">
+                            <i class="fa-solid fa-water text-[#DE9E36] w-4 text-center"></i>
+                            <span>Surfing</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 text-xs sm:text-sm text-[#1A2839]">
+                            <i class="fa-solid fa-bicycle text-[#DE9E36] w-4 text-center"></i>
+                            <span>E-Bike Cycling in Auroville</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 text-xs sm:text-sm text-[#1A2839]">
+                            <i class="fa-solid fa-spa text-[#DE9E36] w-4 text-center"></i>
+                            <span>Massage in Kalarigram</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 text-xs sm:text-sm text-[#1A2839]">
+                            <i class="fa-solid fa-headphones text-[#DE9E36] w-4 text-center"></i>
+                            <span>Sound Healing</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 text-xs sm:text-sm text-[#1A2839] sm:col-span-2">
+                            <i class="fa-solid fa-horse text-[#DE9E36] w-4 text-center"></i>
+                            <span>Horse Riding from Red Earth</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p class="fw-bold mt-3">Lunch</p>
-            <div class="badge-container">
-              <span class="badge-custom">Coromandel Cafe</span>
-              <span class="badge-custom">Hotel Kamatchi Mess</span>
-              <span class="badge-custom">Promenade</span>
-            </div>
-            <p class="fw-bold mt-3">Dinner</p>
-            <div class="badge-container">
-              <span class="badge-custom">Villa Shanti</span>
-              <span class="badge-custom">Le Dupleix</span>
-              <span class="badge-custom">Bay of Buddha</span>
-            </div>
-          </div>
 
-          <div>
-            <h5 class="section-heading">Activities</h5>
-            <ul class="list-unstyled lh-lg">
-              <li><i class="fas fa-swimmer icon-primary"></i> Scuba from Temple Adventures</li>
-              <li><i class="fas fa-motorcycle icon-danger"></i> Ride Around French Town</li>
-              <li><i class="fas fa-ship icon-success"></i> Paradise Island Boat Ride</li>
-              <li><i class="fas fa-leaf icon-info"></i> Pondicherry Mangrove Forest Boating</li>
-            </ul>
-          </div>
+            <!-- Card 2: Pondicherry Highlights -->
+            <div class="bg-white rounded-3xl p-7 sm:p-9 border border-[#ECE5D8] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                <div>
+                    <!-- Card Header -->
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-[#FAF3E7] text-[#DE9E36] flex items-center justify-center text-2xl flex-shrink-0 shadow-sm">
+                            <i class="fa-solid fa-landmark"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-brand-serif text-2xl sm:text-3xl font-bold text-[#1A2839] leading-tight">
+                                Pondicherry Highlights
+                            </h3>
+                            <p class="text-xs sm:text-sm text-[#8A7968] font-medium mt-0.5">
+                                French colonial lanes, coastal promenades & heritage shrines
+                            </p>
+                        </div>
+                    </div>
 
+                    <!-- Divider -->
+                    <div class="w-full h-px bg-[#ECE5D8] mb-6"></div>
+
+                    <!-- Top Places -->
+                    <div class="mb-7">
+                        <h4 class="text-xs uppercase font-bold tracking-[0.2em] text-[#B88028] mb-3.5 flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-[#DE9E36]"></i> Top Places to Visit
+                        </h4>
+                        <div class="flex flex-wrap gap-2.5">
+                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
+                                <i class="fa-solid fa-umbrella-beach text-[#DE9E36] text-xs"></i> Promenade Beach
+                            </span>
+                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
+                                <i class="fa-solid fa-house-chimney text-[#DE9E36] text-xs"></i> White & French Town
+                            </span>
+                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
+                                <i class="fa-solid fa-church text-[#DE9E36] text-xs"></i> Lady of Angels Church
+                            </span>
+                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
+                                <i class="fa-solid fa-om text-[#DE9E36] text-xs"></i> Manakula Vinayagar Temple
+                            </span>
+                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
+                                <i class="fa-solid fa-hands-praying text-[#DE9E36] text-xs"></i> Aurobindo Ashram
+                            </span>
+                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
+                                <i class="fa-solid fa-water text-[#DE9E36] text-xs"></i> Paradise Island
+                            </span>
+                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
+                                <i class="fa-solid fa-umbrella-beach text-[#DE9E36] text-xs"></i> Sand Dunes Beach
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Recommended Cafes -->
+                    <div class="mb-7">
+                        <h4 class="text-xs uppercase font-bold tracking-[0.2em] text-[#B88028] mb-3.5 flex items-center gap-2">
+                            <i class="fa-solid fa-utensils text-[#DE9E36]"></i> Recommended Cafes & Dining
+                        </h4>
+                        <div class="space-y-3">
+                            <div>
+                                <span class="text-[11px] font-bold text-[#8A7968] uppercase tracking-wider block mb-1.5">Breakfast</span>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Indian Coffee House</span>
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Surguru</span>
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Baker's Street</span>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="text-[11px] font-bold text-[#8A7968] uppercase tracking-wider block mb-1.5">Lunch</span>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Coromandel Cafe</span>
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Hotel Kamatchi Mess</span>
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Promenade</span>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="text-[11px] font-bold text-[#8A7968] uppercase tracking-wider block mb-1.5">Dinner</span>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Villa Shanti</span>
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Le Dupleix</span>
+                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Bay of Buddha</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activities -->
+                <div class="pt-5 border-t border-[#ECE5D8]">
+                    <h4 class="text-xs uppercase font-bold tracking-[0.2em] text-[#B88028] mb-3.5 flex items-center gap-2">
+                        <i class="fa-solid fa-compass text-[#DE9E36]"></i> Popular Activities
+                    </h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                        <div class="flex items-center gap-2.5 text-xs sm:text-sm text-[#1A2839]">
+                            <i class="fa-solid fa-person-swimming text-[#DE9E36] w-4 text-center"></i>
+                            <span>Scuba with Temple Adventures</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 text-xs sm:text-sm text-[#1A2839]">
+                            <i class="fa-solid fa-motorcycle text-[#DE9E36] w-4 text-center"></i>
+                            <span>Ride Around French Town</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 text-xs sm:text-sm text-[#1A2839]">
+                            <i class="fa-solid fa-ship text-[#DE9E36] w-4 text-center"></i>
+                            <span>Paradise Island Boat Ride</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 text-xs sm:text-sm text-[#1A2839]">
+                            <i class="fa-solid fa-tree text-[#DE9E36] w-4 text-center"></i>
+                            <span>Mangrove Forest Boating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <!-- Back to Top Button -->
-<button id="backToTop" class="fixed bottom-6 right-6 bg-teal-600 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+<button id="backToTop" class="fixed bottom-6 right-6 bg-[#E5A93C] hover:bg-[#d69829] text-[#1a140c] p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 z-50">
+    <i class="fas fa-arrow-up"></i>
+</button>
 
 
 
@@ -742,7 +1051,7 @@
 
 
  <!-- Location Section -->
- <section class="py-16 bg-white">
+ <section id="location" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
@@ -768,7 +1077,7 @@
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-map-marker-alt text-teal-600 mt-1 mr-3"></i>
-                                <span>Puducherry Railway Station - 8 min drive</span>
+                                <span>Pondicherry Railway Station - 8 min drive</span>
                             </li>
                         </ul>
                     </div>
@@ -776,7 +1085,7 @@
                 <div class="md:w-1/2">
                     <div class="h-96 w-full bg-gray-200 rounded-lg overflow-hidden">
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243.97254453737554!2d79.80971806108442!3d11.93562946751948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a536174f703e3bd%3A0xc201ded8a0aaae5a!2s92%2C%2012th%20Cross%20St%2C%20Anna%20Nagar%2C%20Puducherry%2C%20605013!5e0!3m2!1sen!2sin!4v1660889513828!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243.97254453737554!2d79.80971806108442!3d11.93562946751948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a536174f703e3bd%3A0xc201ded8a0aaae5a!2s92%2C%2012th%20Cross%20St%2C%20Anna%20Nagar%2C%20Pondicherry%2C%20605013!5e0!3m2!1sen!2sin!4v1660889513828!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" 
                             width="100%" 
                             height="100%" 
                             style="border:0;" 
@@ -796,7 +1105,7 @@
             DIRECTIONS
         </h2>
         <div class="pb-3">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243.97254453737554!2d79.80971806108442!3d11.93562946751948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a536174f703e3bd%3A0xc201ded8a0aaae5a!2s92%2C%2012th%20Cross%20St%2C%20Anna%20Nagar%2C%20Puducherry%2C%20605013!5e0!3m2!1sen!2sin!4v1660889513828!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243.97254453737554!2d79.80971806108442!3d11.93562946751948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a536174f703e3bd%3A0xc201ded8a0aaae5a!2s92%2C%2012th%20Cross%20St%2C%20Anna%20Nagar%2C%20Pondicherry%2C%20605013!5e0!3m2!1sen!2sin!4v1660889513828!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
    </div> -->
@@ -806,11 +1115,11 @@
         <div class="content">
             <h3 style="color:white;">Find us as</h3>
             <div class="tags">
-                <span>Budget homestay in Puducherry</span>
-                <span>Homestay in Anna Nagar Puducherry</span>
-                <span>Affordable rooms with cooking facilities Puducherry</span>
+                <span>Budget homestay in Pondicherry</span>
+                <span>Homestay in Anna Nagar Pondicherry</span>
+                <span>Affordable rooms with cooking facilities Pondicherry</span>
                 <span>Homestay for family and business stay</span>
-                <span>Long-term stay homestay Puducherry</span>
+                <span>Long-term stay homestay Pondicherry</span>
                 <span>Room with free Wi-Fi in Pondicherry</span>
             </div>
         </div>
@@ -859,6 +1168,9 @@
     });
         // Preload images
         const images = [
+            "./assect/images/herobg2.png",
+            "./assect/images/auro_moon_hero.jpg",
+            "./assect/images/herobg3.png",
             "./assect/images/Gallery/2BHK Bedroom 2.JPG",
             "./assect/images/Gallery/2BHK Bedroom 1.JPG",
             "./assect/images/Gallery/2BHK Kitchen.JPG",
@@ -878,19 +1190,90 @@
         // Call preload when page loads
         window.addEventListener('load', preloadImages);
 
-        const navBar = document.getElementById('navcontainer');
-        document.onscroll = () => {
-            if (window.scrollY > 50) {
-                navBar.style.backgroundColor = "#c44569"
-            } else {
-                var smallDevice = window.matchMedia("(max-width: 991px)");
-                if (!smallDevice.matches) {
-                    navBar.style.backgroundColor = "transparent"
-                }else{
-                    navBar.style.backgroundColor = "#c44569"
+        // Hero Smooth Right-to-Left Slide Carousel (3 slides)
+        const totalHeroSlides = 3;
+        let currentHeroIndex = 0;
+        let isSliding = false;
+        let heroTimer = null;
+
+        function slideTo(nextIndex) {
+            if (isSliding || nextIndex === currentHeroIndex) return;
+            isSliding = true;
+
+            const outgoing = document.getElementById('heroSlide' + currentHeroIndex);
+            const incoming = document.getElementById('heroSlide' + nextIndex);
+
+            if (!outgoing || !incoming) {
+                isSliding = false;
+                return;
+            }
+
+            // Ensure incoming slide is positioned off-screen to the right
+            incoming.style.transition = 'none';
+            incoming.style.transform = 'translateX(100%) translateZ(0)';
+            // Force DOM reflow
+            void incoming.offsetHeight;
+
+            // Animate both slides from right to left with smooth luxury easing
+            const easeCurve = 'transform 1200ms cubic-bezier(0.25, 1, 0.35, 1)';
+            outgoing.style.transition = easeCurve;
+            incoming.style.transition = easeCurve;
+
+            outgoing.style.transform = 'translateX(-100%) translateZ(0)';
+            incoming.style.transform = 'translateX(0%) translateZ(0)';
+
+            // Update dots
+            currentHeroIndex = nextIndex;
+            for (let i = 0; i < totalHeroSlides; i++) {
+                const dot = document.getElementById('heroDot' + i);
+                if (dot) {
+                    if (i === currentHeroIndex) {
+                        dot.className = 'hero-dot w-2.5 h-2.5 rounded-full bg-white ring-2 ring-white/50 transition-all duration-300';
+                    } else {
+                        dot.className = 'hero-dot w-2.5 h-2.5 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300';
+                    }
                 }
             }
-        };
+
+            // Once animation completes, reset outgoing slide to the right
+            setTimeout(() => {
+                outgoing.style.transition = 'none';
+                outgoing.style.transform = 'translateX(100%) translateZ(0)';
+                isSliding = false;
+            }, 1250);
+        }
+
+        function switchHeroSlide(index) {
+            slideTo(index);
+            resetHeroTimer();
+        }
+
+        function resetHeroTimer() {
+            if (heroTimer) clearInterval(heroTimer);
+            heroTimer = setInterval(() => {
+                const nextIndex = (currentHeroIndex + 1) % totalHeroSlides;
+                slideTo(nextIndex);
+            }, 6000);
+        }
+
+        window.switchHeroSlide = switchHeroSlide;
+        resetHeroTimer();
+
+        const navBar = document.getElementById('navcontainer');
+        if (navBar) {
+            document.onscroll = () => {
+                if (window.scrollY > 50) {
+                    navBar.style.backgroundColor = "#c44569";
+                } else {
+                    var smallDevice = window.matchMedia("(max-width: 991px)");
+                    if (!smallDevice.matches) {
+                        navBar.style.backgroundColor = "transparent";
+                    } else {
+                        navBar.style.backgroundColor = "#c44569";
+                    }
+                }
+            };
+        }
     </script>
     <?php include ('Footer.php') ?>
 </body>

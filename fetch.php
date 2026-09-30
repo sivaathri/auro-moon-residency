@@ -170,5 +170,39 @@ if (isset($_POST['action'])) {
         }
         exit();
     }
+
+    // ------------------------------------------
+    // CONTACT SUBMISSION ACTIONS
+    // ------------------------------------------
+    
+    if ($_POST['action'] == 'mark_contact_read') {
+        $contact_id = $_POST['id'];
+        
+        $query = "UPDATE contact_submissions SET status = 'read', read_at = NOW() WHERE id = ?";
+        $stmt = $dbconn->prepare($query);
+        $response = $stmt->execute([$contact_id]);
+        
+        if ($response) {
+            echo 'success';
+        } else {
+            echo 'error';
+        }
+        exit();
+    }
+
+    if ($_POST['action'] == 'delete_contact') {
+        $contact_id = $_POST['id'];
+        
+        $query = "DELETE FROM contact_submissions WHERE id = ?";
+        $stmt = $dbconn->prepare($query);
+        $response = $stmt->execute([$contact_id]);
+        
+        if ($response) {
+            echo 'success';
+        } else {
+            echo 'error';
+        }
+        exit();
+    }
 }
 ?>

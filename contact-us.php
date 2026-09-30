@@ -1,11 +1,13 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
  <html lang="en">
  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AAHA Serenity Stay || Contact US </title>
     <link rel="shortcut icon" href="./assect/logo/aaha home stay.png" type="image/x-icon">
-    <style>#contactUs {
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+   
+   <style>#contactUs {
   background: #f8f9fa;
 }
 
@@ -80,9 +82,16 @@ button:focus {
               <textarea class="form-control rounded-3 shadow-sm" id="messageBox" name="userMsg" rows="4" placeholder="Write your message..." required></textarea>
               <div class="invalid-feedback">Please enter your message.</div>
             </div>
-            <div class="d-flex justify-content-center mt-4">
-                <button type="submit" name="eqSubmit"class="btn btn-custom-green rounded-pill px-4 py-2 fw-semibold">Submit </button>
-            </div>
+            <div class="mb-3 d-flex justify-content-center">
+    <div class="g-recaptcha" data-sitekey="6LdsiREsAAAAAM3isEuk3H58_tNgxF-Y2Xjopda3"></div>
+</div>
+
+<div class="d-flex justify-content-center mt-3">
+    <button type="submit" name="eqSubmit" class="btn btn-custom-green rounded-pill px-4 py-2 fw-semibold">
+        Submit
+    </button>
+</div>
+
           </form>
         </div>
       </div>
@@ -190,6 +199,4 @@ button:focus {
 
  </body>
  <?php include('Footer.php') ?>
- </html>   
-    
-
+ </html>
