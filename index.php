@@ -762,10 +762,11 @@
 
 
 <!-- Premium UI Section: Things to Do in Auroville & Pondicherry -->
-<section id="explore" class="py-14 md:py-20 bg-[#FAF7F2] font-brand-sans border-t border-[#ECE5D8]">
-    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+<section id="explore" class="py-12 md:py-16 bg-[#FAF7F2] font-brand-sans border-t border-[#ECE5D8]">
+    <!-- Centered Header Container Matching Amenities Layout -->
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 mb-8 sm:mb-10">
         <!-- Section Header Row -->
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-8 sm:mb-10">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-5">
             <div>
                 <p class="text-[#B88028] text-xs sm:text-sm font-bold tracking-[0.24em] uppercase mb-2 select-none">
                     LOCAL GUIDE
@@ -777,62 +778,72 @@
             </div>
 
             <div class="flex-shrink-0">
-                <a href="./BookingPage.php" class="inline-flex items-center gap-2.5 px-6 sm:px-7 py-2.5 sm:py-3 rounded-xl border-2 border-[#DE9E36] bg-transparent hover:bg-[#DE9E36] text-[#1A2839] hover:text-[#1a140c] font-semibold text-sm sm:text-base shadow-xs hover:shadow-md transition-all duration-300 no-underline group select-none">
+                <a href="./BookingPage.php" class="inline-flex items-center gap-2.5 px-6 sm:px-7 py-2.5 sm:py-3 rounded-xl border-2 border-[#DE9E36] bg-transparent hover:bg-[#DE9E36] text-[#1A2839] hover:text-[#1a140c] font-semibold text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-300 no-underline group select-none">
                     <span>Plan Your Trip</span>
                     <i class="fa-solid fa-arrow-right text-sm transition-transform duration-300 group-hover:translate-x-1"></i>
                 </a>
             </div>
         </div>
+    </div>
 
+    <!-- Full-Width Cards Container -->
+    <div class="w-full px-3 sm:px-5 lg:px-6">
         <!-- 2 Side-by-Side Highlight Cards (Auroville & Pondicherry) -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 lg:gap-6">
             <!-- ===================== AUROVILLE HIGHLIGHTS ===================== -->
-            <div class="bg-white rounded-3xl p-5 sm:p-7 border border-[#ECE5D8] shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between">
+            <div class="bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-xs flex flex-col justify-between">
                 <!-- Top Hero Banner Card -->
-                <div class="relative overflow-hidden rounded-2xl border border-[#ECE5D8] bg-[#FAF5EB] flex flex-col sm:flex-row mb-6 group">
-                    <!-- Image Half with Wave Curve -->
-                    <div class="w-full sm:w-[54%] h-48 sm:h-auto min-h-[190px] relative overflow-hidden flex-shrink-0">
+                <div class="relative overflow-hidden rounded-xl border border-gray-200/80 bg-[#FFFDF8] flex flex-col md:flex-row mb-5 group">
+                    <!-- Image Left Side -->
+                    <div class="relative w-full md:w-[62%] h-44 sm:h-52 md:h-auto min-h-[190px] overflow-hidden flex-shrink-0">
                         <img 
                             src="./assect/images/auroville_hero.jpg" 
                             alt="Matrimandir Auroville" 
                             class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
                             loading="lazy"
                         />
-                        <!-- Subtle Gradient Fade into content on desktop -->
-                        <div class="hidden sm:block absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-r from-transparent to-[#FAF5EB] pointer-events-none"></div>
                     </div>
 
-                    <!-- Content Half -->
-                    <div class="w-full sm:w-[46%] p-4 sm:p-5 flex flex-col justify-between items-start">
+                    <!-- Dividing SVG Wave with Gold Accents -->
+                    <div class="hidden md:block absolute right-[36%] top-0 bottom-0 w-24 h-full pointer-events-none z-10">
+                        <svg class="w-full h-full" viewBox="0 0 100 200" preserveAspectRatio="none">
+                            <path d="M 100,0 C 40,25 15,70 15,100 C 15,130 40,175 100,200 L 100,200 L 100,0 Z" fill="#FFFDF8" />
+                            <path d="M 100,0 C 55,18 28,45 20,75 C 28,40 65,15 100,0 Z" fill="#F6BC47" />
+                            <path d="M 20,125 C 28,155 55,182 100,200 C 65,185 28,160 20,125 Z" fill="#F6BC47" />
+                        </svg>
+                    </div>
+
+                    <!-- Content Right Side -->
+                    <div class="relative w-full md:w-[38%] bg-[#FFFDF8] p-4 sm:p-5 flex flex-col justify-between items-start z-10">
                         <div>
                             <!-- Gold Leaf Icon Badge -->
-                            <div class="w-10 h-10 rounded-full bg-[#F3E7CF] text-[#DE9E36] flex items-center justify-center text-lg mb-2 shadow-2xs">
+                            <div class="w-11 h-11 rounded-full bg-[#FEF4E0] text-[#E69B19] flex items-center justify-center text-lg mb-2 shadow-2xs">
                                 <i class="fa-solid fa-leaf"></i>
                             </div>
-                            <h3 class="font-brand-serif text-xl sm:text-2xl font-bold text-[#1A2839] leading-tight mb-1.5">
+                            <h3 class="font-brand-serif text-xl sm:text-2xl font-bold text-[#14233C] leading-tight mb-1.5">
                                 Auroville Highlights
                             </h3>
-                            <p class="text-xs text-[#5C6874] leading-relaxed font-normal">
+                            <p class="text-xs text-[#5D6B78] leading-relaxed font-normal">
                                 Spiritual landmarks, sound gardens and artisan bakeries in a peaceful community.
                             </p>
                         </div>
-                        <a href="./BookingPage.php" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#DE9E36] bg-white hover:bg-[#DE9E36] text-[#1A2839] hover:text-[#1a140c] text-xs font-semibold shadow-2xs hover:shadow-xs transition-all duration-200 no-underline mt-3 group select-none">
+                        <a href="./BookingPage.php" class="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-full bg-[#F5B438] hover:bg-[#E5A122] text-[#1E2530] text-xs font-semibold shadow-2xs hover:shadow-xs transition-all duration-200 no-underline mt-3 group/btn select-none">
                             <span>Explore Auroville</span>
-                            <i class="fa-solid fa-arrow-right text-[10px] transition-transform duration-200 group-hover:translate-x-0.5"></i>
+                            <i class="fa-solid fa-arrow-right text-[11px] transition-transform duration-200 group-hover/btn:translate-x-0.5"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Top Places to Visit in Auroville -->
-                <div class="mb-6">
+                <div class="mb-5">
                     <div class="flex items-center justify-between mb-3">
                         <div class="flex items-center gap-2">
-                            <i class="fa-solid fa-location-dot text-[#DE9E36] text-sm"></i>
-                            <h4 class="font-brand-serif text-sm sm:text-base font-bold text-[#1A2839]">
+                            <i class="fa-solid fa-location-dot text-[#F5B438] text-base"></i>
+                            <h4 class="font-brand-serif text-base sm:text-lg font-bold text-[#14233C]">
                                 Top Places to Visit in Auroville
                             </h4>
                         </div>
-                        <a href="./Photos.php" class="text-xs font-semibold text-[#DE9E36] hover:text-[#b88028] flex items-center gap-1 no-underline transition-colors">
+                        <a href="./Photos.php" class="text-xs font-semibold text-[#F5B438] hover:text-[#d9941b] flex items-center gap-1 no-underline transition-colors">
                             <span>View All</span>
                             <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </a>
@@ -840,54 +851,59 @@
 
                     <div class="grid grid-cols-5 gap-2 sm:gap-2.5">
                         <!-- Matrimandir -->
-                        <div class="group flex flex-col items-center text-center">
-                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
-                                <img src="./assect/images/place_matrimandir.jpg" alt="Matrimandir" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                        <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
+                            <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
+                                <img src="./assect/images/place_matrimandir.jpg" alt="Matrimandir" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
-                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
-                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Matrimandir</span>
+                            <div class="py-1.5 px-1 bg-white border-t border-gray-100 flex items-center justify-center gap-1 text-center">
+                                <i class="fa-solid fa-location-dot text-[#F5B438] text-[9px] flex-shrink-0"></i>
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate">Matrimandir</span>
                             </div>
-                        </div>
+                        </a>
 
                         <!-- Swaram Sound Garden -->
-                        <div class="group flex flex-col items-center text-center">
-                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
-                                <img src="./assect/images/place_swaram.jpg" alt="Swaram Sound Garden" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                        <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
+                            <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
+                                <img src="./assect/images/place_swaram.jpg" alt="Swaram Sound Garden" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
-                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
-                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Swaram Sound Garden</span>
+                            <div class="py-1.5 px-1 bg-white border-t border-gray-100 flex items-center justify-center gap-1 text-center">
+                                <i class="fa-solid fa-location-dot text-[#F5B438] text-[9px] flex-shrink-0"></i>
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate">Swaram Sound Garden</span>
                             </div>
-                        </div>
+                        </a>
 
                         <!-- Visitor's Centre -->
-                        <div class="group flex flex-col items-center text-center">
-                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
-                                <img src="./assect/images/place_visitors_centre.jpg" alt="Visitor's Centre" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                        <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
+                            <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
+                                <img src="./assect/images/place_visitors_centre.jpg" alt="Visitor's Centre" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
-                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
-                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Visitor's Centre</span>
+                            <div class="py-1.5 px-1 bg-white border-t border-gray-100 flex items-center justify-center gap-1 text-center">
+                                <i class="fa-solid fa-location-dot text-[#F5B438] text-[9px] flex-shrink-0"></i>
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate">Visitor's Centre</span>
                             </div>
-                        </div>
+                        </a>
 
                         <!-- Bamboo Centre -->
-                        <div class="group flex flex-col items-center text-center">
-                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
-                                <img src="./assect/images/place_bamboo_centre.jpg" alt="Bamboo Centre" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                        <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
+                            <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
+                                <img src="./assect/images/place_bamboo_centre.jpg" alt="Bamboo Centre" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
-                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
-                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Bamboo Centre</span>
+                            <div class="py-1.5 px-1 bg-white border-t border-gray-100 flex items-center justify-center gap-1 text-center">
+                                <i class="fa-solid fa-location-dot text-[#F5B438] text-[9px] flex-shrink-0"></i>
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate">Bamboo Centre</span>
                             </div>
-                        </div>
+                        </a>
 
                         <!-- Serenity Beach -->
-                        <div class="group flex flex-col items-center text-center">
-                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
-                                <img src="./assect/images/place_serenity_beach.jpg" alt="Serenity Beach" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                        <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
+                            <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
+                                <img src="./assect/images/place_serenity_beach.jpg" alt="Serenity Beach" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
-                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
-                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Serenity Beach</span>
+                            <div class="py-1.5 px-1 bg-white border-t border-gray-100 flex items-center justify-center gap-1 text-center">
+                                <i class="fa-solid fa-location-dot text-[#F5B438] text-[9px] flex-shrink-0"></i>
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate">Serenity Beach</span>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
 
@@ -895,12 +911,12 @@
                 <div>
                     <div class="flex items-center justify-between mb-3">
                         <div class="flex items-center gap-2">
-                            <i class="fa-solid fa-utensils text-[#DE9E36] text-sm"></i>
-                            <h4 class="font-brand-serif text-sm sm:text-base font-bold text-[#1A2839]">
+                            <i class="fa-solid fa-utensils text-[#F5B438] text-base"></i>
+                            <h4 class="font-brand-serif text-base sm:text-lg font-bold text-[#14233C]">
                                 Recommended Cafes & Dining in Auroville
                             </h4>
                         </div>
-                        <a href="./Photos.php" class="text-xs font-semibold text-[#DE9E36] hover:text-[#b88028] flex items-center gap-1 no-underline transition-colors">
+                        <a href="./Photos.php" class="text-xs font-semibold text-[#F5B438] hover:text-[#d9941b] flex items-center gap-1 no-underline transition-colors">
                             <span>View All</span>
                             <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </a>
@@ -908,105 +924,112 @@
 
                     <div class="grid grid-cols-5 gap-2 sm:gap-2.5">
                         <!-- Auroville Bakery -->
-                        <div class="group flex flex-col items-center text-center">
-                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
-                                <img src="./assect/images/cafe_auroville_bakery.jpg" alt="Auroville Bakery" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                        <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
+                            <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
+                                <img src="./assect/images/cafe_auroville_bakery.jpg" alt="Auroville Bakery" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
-                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
-                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Auroville Bakery</span>
+                            <div class="py-1.5 px-1 bg-white border-t border-gray-100 text-center">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate block">Auroville Bakery</span>
                             </div>
-                        </div>
+                        </a>
 
                         <!-- Bread and Chocolate -->
-                        <div class="group flex flex-col items-center text-center">
-                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
-                                <img src="./assect/images/cafe_bread_chocolate.jpg" alt="Bread and Chocolate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                        <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
+                            <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
+                                <img src="./assect/images/cafe_bread_chocolate.jpg" alt="Bread and Chocolate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
-                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
-                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Bread and Chocolate</span>
+                            <div class="py-1.5 px-1 bg-white border-t border-gray-100 text-center">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate block">Bread and Chocolate</span>
                             </div>
-                        </div>
+                        </a>
 
                         <!-- Marc's Café -->
-                        <div class="group flex flex-col items-center text-center">
-                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
-                                <img src="./assect/images/cafe_marcs.jpg" alt="Marc's Café" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                        <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
+                            <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
+                                <img src="./assect/images/cafe_marcs.jpg" alt="Marc's Café" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
-                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
-                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Marc's Café</span>
+                            <div class="py-1.5 px-1 bg-white border-t border-gray-100 text-center">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate block">Marc's Café</span>
                             </div>
-                        </div>
+                        </a>
 
                         <!-- Tanto -->
-                        <div class="group flex flex-col items-center text-center">
-                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
-                                <img src="./assect/images/cafe_tanto.jpg" alt="Tanto" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                        <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
+                            <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
+                                <img src="./assect/images/cafe_tanto.jpg" alt="Tanto" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
-                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
-                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Tanto</span>
+                            <div class="py-1.5 px-1 bg-white border-t border-gray-100 text-center">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate block">Tanto</span>
                             </div>
-                        </div>
+                        </a>
 
                         <!-- Café 73 -->
-                        <div class="group flex flex-col items-center text-center">
-                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
-                                <img src="./assect/images/cafe_73.jpg" alt="Café 73" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                        <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
+                            <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
+                                <img src="./assect/images/cafe_73.jpg" alt="Café 73" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
-                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
-                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Café 73</span>
+                            <div class="py-1.5 px-1 bg-white border-t border-gray-100 text-center">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate block">Café 73</span>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
 
             <!-- ===================== PONDICHERRY HIGHLIGHTS ===================== -->
-            <div class="bg-white rounded-3xl p-5 sm:p-7 border border-[#ECE5D8] shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between">
+            <div class="bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-xs flex flex-col justify-between">
                 <!-- Top Hero Banner Card -->
-                <div class="relative overflow-hidden rounded-2xl border border-[#ECE5D8] bg-[#FAF5EB] flex flex-col sm:flex-row mb-6 group">
-                    <!-- Image Half with Wave Curve -->
-                    <div class="w-full sm:w-[54%] h-48 sm:h-auto min-h-[190px] relative overflow-hidden flex-shrink-0">
+                <div class="relative overflow-hidden rounded-xl border border-gray-200/80 bg-[#FFFDF8] flex flex-col md:flex-row mb-5 group">
+                    <!-- Image Left Side -->
+                    <div class="relative w-full md:w-[62%] h-44 sm:h-52 md:h-auto min-h-[190px] overflow-hidden flex-shrink-0">
                         <img 
                             src="./assect/images/pondicherry_hero.jpg" 
                             alt="White Town Pondicherry" 
                             class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
                             loading="lazy"
                         />
-                        <!-- Subtle Gradient Fade into content on desktop -->
-                        <div class="hidden sm:block absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-r from-transparent to-[#FAF5EB] pointer-events-none"></div>
                     </div>
 
-                    <!-- Content Half -->
-                    <div class="w-full sm:w-[46%] p-4 sm:p-5 flex flex-col justify-between items-start">
+                    <!-- Dividing SVG Wave with Gold Accents -->
+                    <div class="hidden md:block absolute right-[36%] top-0 bottom-0 w-24 h-full pointer-events-none z-10">
+                        <svg class="w-full h-full" viewBox="0 0 100 200" preserveAspectRatio="none">
+                            <path d="M 100,0 C 40,25 15,70 15,100 C 15,130 40,175 100,200 L 100,200 L 100,0 Z" fill="#FFFDF8" />
+                            <path d="M 100,0 C 55,18 28,45 20,75 C 28,40 65,15 100,0 Z" fill="#F6BC47" />
+                            <path d="M 20,125 C 28,155 55,182 100,200 C 65,185 28,160 20,125 Z" fill="#F6BC47" />
+                        </svg>
+                    </div>
+
+                    <!-- Content Right Side -->
+                    <div class="relative w-full md:w-[38%] bg-[#FFFDF8] p-4 sm:p-5 flex flex-col justify-between items-start z-10">
                         <div>
-                            <!-- Temple/Monument Icon Badge -->
-                            <div class="w-10 h-10 rounded-full bg-[#F3E7CF] text-[#DE9E36] flex items-center justify-center text-lg mb-2 shadow-2xs">
-                                <i class="fa-solid fa-building-columns"></i>
+                            <!-- Monument Icon Badge -->
+                            <div class="w-11 h-11 rounded-full bg-[#FEF4E0] text-[#E69B19] flex items-center justify-center text-lg mb-2 shadow-2xs">
+                                <i class="fa-solid fa-landmark"></i>
                             </div>
-                            <h3 class="font-brand-serif text-xl sm:text-2xl font-bold text-[#1A2839] leading-tight mb-1.5">
+                            <h3 class="font-brand-serif text-xl sm:text-2xl font-bold text-[#14233C] leading-tight mb-1.5">
                                 Pondicherry Highlights
                             </h3>
-                            <p class="text-xs text-[#5C6874] leading-relaxed font-normal">
+                            <p class="text-xs text-[#5D6B78] leading-relaxed font-normal">
                                 French colonial lanes, coastal promenades and heritage shrines.
                             </p>
                         </div>
-                        <a href="./BookingPage.php" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#DE9E36] bg-white hover:bg-[#DE9E36] text-[#1A2839] hover:text-[#1a140c] text-xs font-semibold shadow-2xs hover:shadow-xs transition-all duration-200 no-underline mt-3 group select-none">
+                        <a href="./BookingPage.php" class="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-full bg-[#F5B438] hover:bg-[#E5A122] text-[#1E2530] text-xs font-semibold shadow-2xs hover:shadow-xs transition-all duration-200 no-underline mt-3 group/btn select-none">
                             <span>Explore Pondicherry</span>
-                            <i class="fa-solid fa-arrow-right text-[10px] transition-transform duration-200 group-hover:translate-x-0.5"></i>
+                            <i class="fa-solid fa-arrow-right text-[11px] transition-transform duration-200 group-hover/btn:translate-x-0.5"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Top Places to Visit in Pondicherry -->
-                <div class="mb-6">
+                <div class="mb-5">
                     <div class="flex items-center justify-between mb-3">
                         <div class="flex items-center gap-2">
-                            <i class="fa-solid fa-location-dot text-[#DE9E36] text-sm"></i>
-                            <h4 class="font-brand-serif text-sm sm:text-base font-bold text-[#1A2839]">
+                            <i class="fa-solid fa-location-dot text-[#F5B438] text-base"></i>
+                            <h4 class="font-brand-serif text-base sm:text-lg font-bold text-[#14233C]">
                                 Top Places to Visit in Pondicherry
                             </h4>
                         </div>
-                        <a href="./Photos.php" class="text-xs font-semibold text-[#DE9E36] hover:text-[#b88028] flex items-center gap-1 no-underline transition-colors">
+                        <a href="./Photos.php" class="text-xs font-semibold text-[#F5B438] hover:text-[#d9941b] flex items-center gap-1 no-underline transition-colors">
                             <span>View All</span>
                             <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </a>
@@ -1014,54 +1037,59 @@
 
                     <div class="grid grid-cols-5 gap-2 sm:gap-2.5">
                         <!-- Promenade Beach -->
-                        <div class="group flex flex-col items-center text-center">
-                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
-                                <img src="./assect/images/place_promenade_beach.jpg" alt="Promenade Beach" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                        <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
+                            <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
+                                <img src="./assect/images/place_promenade_beach.jpg" alt="Promenade Beach" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
-                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
-                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Promenade Beach</span>
+                            <div class="py-1.5 px-1 bg-white border-t border-gray-100 flex items-center justify-center gap-1 text-center">
+                                <i class="fa-solid fa-location-dot text-[#F5B438] text-[9px] flex-shrink-0"></i>
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate">Promenade Beach</span>
                             </div>
-                        </div>
+                        </a>
 
                         <!-- White & French Town -->
-                        <div class="group flex flex-col items-center text-center">
-                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
-                                <img src="./assect/images/place_french_town.jpg" alt="White & French Town" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                        <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
+                            <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
+                                <img src="./assect/images/place_french_town.jpg" alt="White & French Town" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
-                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
-                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">White & French Town</span>
+                            <div class="py-1.5 px-1 bg-white border-t border-gray-100 flex items-center justify-center gap-1 text-center">
+                                <i class="fa-solid fa-location-dot text-[#F5B438] text-[9px] flex-shrink-0"></i>
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate">White & French Town</span>
                             </div>
-                        </div>
+                        </a>
 
                         <!-- Lady of Angels Church -->
-                        <div class="group flex flex-col items-center text-center">
-                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
-                                <img src="./assect/images/place_church.jpg" alt="Lady of Angels Church" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                        <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
+                            <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
+                                <img src="./assect/images/place_church.jpg" alt="Lady of Angels Church" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
-                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
-                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Lady of Angels Church</span>
+                            <div class="py-1.5 px-1 bg-white border-t border-gray-100 flex items-center justify-center gap-1 text-center">
+                                <i class="fa-solid fa-location-dot text-[#F5B438] text-[9px] flex-shrink-0"></i>
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate">Lady of Angels Church</span>
                             </div>
-                        </div>
+                        </a>
 
                         <!-- Manakula Vinayagar Temple -->
-                        <div class="group flex flex-col items-center text-center">
-                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
-                                <img src="./assect/images/place_temple.jpg" alt="Manakula Vinayagar Temple" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                        <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
+                            <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
+                                <img src="./assect/images/place_temple.jpg" alt="Manakula Vinayagar Temple" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
-                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
-                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Manakula Vinayagar Temple</span>
+                            <div class="py-1.5 px-1 bg-white border-t border-gray-100 flex items-center justify-center gap-1 text-center">
+                                <i class="fa-solid fa-location-dot text-[#F5B438] text-[9px] flex-shrink-0"></i>
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate">Manakula Vinayagar</span>
                             </div>
-                        </div>
+                        </a>
 
                         <!-- Paradise Island -->
-                        <div class="group flex flex-col items-center text-center">
-                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
-                                <img src="./assect/images/place_paradise_island.jpg" alt="Paradise Island" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                        <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
+                            <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
+                                <img src="./assect/images/place_paradise_island.jpg" alt="Paradise Island" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
-                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
-                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Paradise Island</span>
+                            <div class="py-1.5 px-1 bg-white border-t border-gray-100 flex items-center justify-center gap-1 text-center">
+                                <i class="fa-solid fa-location-dot text-[#F5B438] text-[9px] flex-shrink-0"></i>
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate">Paradise Island</span>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
 
@@ -1069,12 +1097,12 @@
                 <div>
                     <div class="flex items-center justify-between mb-3">
                         <div class="flex items-center gap-2">
-                            <i class="fa-solid fa-utensils text-[#DE9E36] text-sm"></i>
-                            <h4 class="font-brand-serif text-sm sm:text-base font-bold text-[#1A2839]">
+                            <i class="fa-solid fa-utensils text-[#F5B438] text-base"></i>
+                            <h4 class="font-brand-serif text-base sm:text-lg font-bold text-[#14233C]">
                                 Recommended Cafes & Dining in Pondicherry
                             </h4>
                         </div>
-                        <a href="./Photos.php" class="text-xs font-semibold text-[#DE9E36] hover:text-[#b88028] flex items-center gap-1 no-underline transition-colors">
+                        <a href="./Photos.php" class="text-xs font-semibold text-[#F5B438] hover:text-[#d9941b] flex items-center gap-1 no-underline transition-colors">
                             <span>View All</span>
                             <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </a>
@@ -1082,54 +1110,54 @@
 
                     <div class="grid grid-cols-5 gap-2 sm:gap-2.5">
                         <!-- Indian Coffee House -->
-                        <div class="group flex flex-col items-center text-center">
-                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
-                                <img src="./assect/images/cafe_indian_coffee_house.jpg" alt="Indian Coffee House" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                        <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
+                            <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
+                                <img src="./assect/images/cafe_indian_coffee_house.jpg" alt="Indian Coffee House" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
-                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
-                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Indian Coffee House</span>
+                            <div class="py-1.5 px-1 bg-white border-t border-gray-100 text-center">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate block">Indian Coffee House</span>
                             </div>
-                        </div>
+                        </a>
 
                         <!-- Surguru -->
-                        <div class="group flex flex-col items-center text-center">
-                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
-                                <img src="./assect/images/cafe_surguru.jpg" alt="Surguru" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                        <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
+                            <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
+                                <img src="./assect/images/cafe_surguru.jpg" alt="Surguru" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
-                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
-                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Surguru</span>
+                            <div class="py-1.5 px-1 bg-white border-t border-gray-100 text-center">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate block">Surguru</span>
                             </div>
-                        </div>
+                        </a>
 
                         <!-- Baker's Street -->
-                        <div class="group flex flex-col items-center text-center">
-                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
-                                <img src="./assect/images/cafe_bakers_street.jpg" alt="Baker's Street" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                        <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
+                            <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
+                                <img src="./assect/images/cafe_bakers_street.jpg" alt="Baker's Street" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
-                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
-                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Baker's Street</span>
+                            <div class="py-1.5 px-1 bg-white border-t border-gray-100 text-center">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate block">Baker's Street</span>
                             </div>
-                        </div>
+                        </a>
 
                         <!-- Coromandel Café -->
-                        <div class="group flex flex-col items-center text-center">
-                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
-                                <img src="./assect/images/cafe_coromandel.jpg" alt="Coromandel Café" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                        <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
+                            <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
+                                <img src="./assect/images/cafe_coromandel.jpg" alt="Coromandel Café" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
-                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
-                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Coromandel Café</span>
+                            <div class="py-1.5 px-1 bg-white border-t border-gray-100 text-center">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate block">Coromandel Café</span>
                             </div>
-                        </div>
+                        </a>
 
                         <!-- Hotel Kamatchi Mess -->
-                        <div class="group flex flex-col items-center text-center">
-                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
-                                <img src="./assect/images/cafe_kamatchi_mess.jpg" alt="Hotel Kamatchi Mess" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                        <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
+                            <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
+                                <img src="./assect/images/cafe_kamatchi_mess.jpg" alt="Hotel Kamatchi Mess" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
-                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
-                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Hotel Kamatchi Mess</span>
+                            <div class="py-1.5 px-1 bg-white border-t border-gray-100 text-center">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate block">Hotel Kamatchi Mess</span>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
