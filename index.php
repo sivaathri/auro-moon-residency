@@ -791,9 +791,9 @@
         <!-- 2 Side-by-Side Highlight Cards (Auroville & Pondicherry) -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 lg:gap-6">
             <!-- ===================== AUROVILLE HIGHLIGHTS ===================== -->
-            <div class="bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-xs flex flex-col justify-between">
+            <div class="bg-white rounded-xl p-2.5 sm:p-3 border border-gray-200/70 shadow-xs flex flex-col justify-between">
                 <!-- Top Hero Banner Card -->
-                <div class="relative overflow-hidden rounded-xl border border-gray-200/80 bg-[#FFFDF8] flex flex-col md:flex-row mb-5 group">
+                <div class="relative overflow-hidden rounded-lg border border-gray-200/60 bg-[#FFFDF8] flex flex-col md:flex-row mb-4 group">
                     <!-- Image Left Side -->
                     <div class="relative w-full md:w-[62%] h-44 sm:h-52 md:h-auto min-h-[190px] overflow-hidden flex-shrink-0">
                         <img 
@@ -977,9 +977,9 @@
             </div>
 
             <!-- ===================== PONDICHERRY HIGHLIGHTS ===================== -->
-            <div class="bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-xs flex flex-col justify-between">
+            <div class="bg-white rounded-xl p-2.5 sm:p-3 border border-gray-200/70 shadow-xs flex flex-col justify-between">
                 <!-- Top Hero Banner Card -->
-                <div class="relative overflow-hidden rounded-xl border border-gray-200/80 bg-[#FFFDF8] flex flex-col md:flex-row mb-5 group">
+                <div class="relative overflow-hidden rounded-lg border border-gray-200/60 bg-[#FFFDF8] flex flex-col md:flex-row mb-4 group">
                     <!-- Image Left Side -->
                     <div class="relative w-full md:w-[62%] h-44 sm:h-52 md:h-auto min-h-[190px] overflow-hidden flex-shrink-0">
                         <img 
