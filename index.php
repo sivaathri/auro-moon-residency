@@ -1,10 +1,10 @@
 <?php
-// Auto-sync exact location asset if updated
-$sourceUpload = 'C:/Users/DELL/.gemini/antigravity-ide/brain/89618c7a-ad8a-4a19-bfcc-59de820a4221/.user_uploaded/media_1790771632911.png';
-$destUpload = __DIR__ . '/assect/images/location_explore_exact.png';
-if (file_exists($sourceUpload) && (!file_exists($destUpload) || filesize($destUpload) !== filesize($sourceUpload))) {
-    @copy($sourceUpload, $destUpload);
-}
+?><?php
+?><?php
+?><?php
+?><?php
+?><?php
+?><?php
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -1217,17 +1217,8 @@ if (!function_exists('getHighResImg')) {
 
 
 <?php
-// Ensure exact Explore Pondicherry asset is present
-$exactLeftImg = __DIR__ . '/assect/images/location_explore_exact.png';
-$sourceUpload = 'C:/Users/DELL/.gemini/antigravity-ide/brain/89618c7a-ad8a-4a19-bfcc-59de820a4221/.user_uploaded/media_1790771632911.png';
-if (file_exists($sourceUpload)) {
-    if (!file_exists($exactLeftImg) || filesize($exactLeftImg) !== filesize($sourceUpload)) {
-        @copy($sourceUpload, $exactLeftImg);
-    }
-}
-$exploreExactUrl = file_exists($exactLeftImg) 
-    ? './assect/images/location_explore_exact.png?v=' . filemtime($exactLeftImg) 
-    : (file_exists(__DIR__ . '/assect/images/location_mockup_full.png') ? './assect/images/location_mockup_full.png' : 'https://images.unsplash.com/photo-1516472096803-187d3339b36f?w=1600&auto=format&fit=crop&q=85');
+// Location Section Assets
+$sunsetImgUrl = 'https://images.unsplash.com/photo-1516472096803-187d3339b36f?w=1600&auto=format&fit=crop&q=85';
 $hasMapCard = file_exists(__DIR__ . '/assect/images/location_map_card.png');
 $mapCardImgUrl = $hasMapCard ? './assect/images/location_map_card.png?v=' . filemtime(__DIR__ . '/assect/images/location_map_card.png') : '';
 ?>
@@ -1239,13 +1230,100 @@ $mapCardImgUrl = $hasMapCard ? './assect/images/location_map_card.png?v=' . file
         <div class="relative overflow-hidden rounded-2xl lg:rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.25)] border border-gray-900/10 bg-[#121924] flex flex-col lg:flex-row items-stretch">
             
             <!-- ===================== LEFT SIDE: EXPLORE PONDICHERRY (~58.5% on desktop) ===================== -->
-            <div class="relative w-full lg:w-[58.5%] min-h-[280px] sm:min-h-[320px] lg:min-h-[340px] flex items-stretch overflow-hidden group bg-black">
-                <img 
-                    src="<?= $exploreExactUrl ?>" 
-                    alt="Explore Pondicherry - Stay Close to Beautiful Experiences" 
-                    class="w-full h-full object-cover object-center transform group-hover:scale-[1.015] transition-transform duration-700 ease-out select-none"
-                    loading="eager"
-                />
+            <div class="relative w-full lg:w-[58.5%] min-h-[300px] sm:min-h-[340px] lg:min-h-[360px] flex flex-col justify-between p-6 sm:p-8 lg:p-10 overflow-hidden group">
+                <!-- Background Sunset Ocean & Lighthouse Image -->
+                <div class="absolute inset-0 z-0">
+                    <img 
+                        src="<?= $sunsetImgUrl ?>" 
+                        alt="Pondicherry Promenade Beach Sunset & Lighthouse" 
+                        class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-1000 ease-out"
+                    />
+                    <!-- Subtle Dark Gradient Scrim to ensure crystal-clear text contrast on mobile & desktop -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30"></div>
+                </div>
+
+                <!-- Top Header Content -->
+                <div class="relative z-10">
+                    <p class="text-[#F5B438] text-[11px] sm:text-xs font-bold tracking-[0.24em] uppercase mb-2 select-none flex items-center gap-2">
+                        <span>EXPLORE PONDICHERRY</span>
+                    </p>
+                    <h3 class="font-brand-serif text-2xl sm:text-3xl lg:text-[38px] font-bold text-white leading-tight drop-shadow-md">
+                        Stay Close to<br class="hidden sm:inline" /> Beautiful Experiences
+                    </h3>
+                </div>
+
+                <!-- Bottom Feature Strip: 4 Key Landmarks with Driving Times -->
+                <div class="relative z-10 mt-6 sm:mt-8 pt-4 sm:pt-5 border-t border-white/20">
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-2 lg:gap-4 xl:gap-6">
+                        <!-- 1. Promenade Beach -->
+                        <div class="flex items-center gap-2.5 sm:pr-3 sm:border-r sm:border-white/20 group/item">
+                            <!-- Gold House/Gazebo Icon matching mockup -->
+                            <div class="text-[#F5B438] flex-shrink-0 transition-transform duration-300 group-hover/item:scale-110">
+                                <svg class="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 10l9-7 9 7v10a1 1 0 01-1 1H4a1 1 0 01-1-1V10z" />
+                                    <path d="M9 21V12h6v9" />
+                                    <circle cx="12" cy="7" r="1.5" />
+                                </svg>
+                            </div>
+                            <div class="min-w-0">
+                                <h4 class="text-white text-xs sm:text-[13px] font-bold truncate leading-tight">Promenade Beach</h4>
+                                <p class="text-gray-300 text-[10px] sm:text-xs font-medium">5 mins drive</p>
+                            </div>
+                        </div>
+
+                        <!-- 2. White Town -->
+                        <div class="flex items-center gap-2.5 sm:px-3 sm:border-r sm:border-white/20 group/item">
+                            <!-- Gold Heritage House Icon matching mockup -->
+                            <div class="text-[#F5B438] flex-shrink-0 transition-transform duration-300 group-hover/item:scale-110">
+                                <svg class="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 21h18" />
+                                    <path d="M5 21V9l7-6 7 6v12" />
+                                    <path d="M9 13h6" />
+                                    <path d="M10 21v-4h4v4" />
+                                    <circle cx="12" cy="7.5" r="1.5" />
+                                </svg>
+                            </div>
+                            <div class="min-w-0">
+                                <h4 class="text-white text-xs sm:text-[13px] font-bold truncate leading-tight">White Town</h4>
+                                <p class="text-gray-300 text-[10px] sm:text-xs font-medium">10 mins drive</p>
+                            </div>
+                        </div>
+
+                        <!-- 3. Auroville -->
+                        <div class="flex items-center gap-2.5 sm:px-3 sm:border-r sm:border-white/20 group/item">
+                            <!-- Gold Globe Icon matching mockup -->
+                            <div class="text-[#F5B438] flex-shrink-0 transition-transform duration-300 group-hover/item:scale-110">
+                                <svg class="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="2" y1="12" x2="22" y2="12" />
+                                    <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+                                </svg>
+                            </div>
+                            <div class="min-w-0">
+                                <h4 class="text-white text-xs sm:text-[13px] font-bold truncate leading-tight">Auroville</h4>
+                                <p class="text-gray-300 text-[10px] sm:text-xs font-medium">20 mins drive</p>
+                            </div>
+                        </div>
+
+                        <!-- 4. Paradise Beach -->
+                        <div class="flex items-center gap-2.5 sm:pl-3 group/item">
+                            <!-- Gold Pagoda/Hut Icon matching mockup -->
+                            <div class="text-[#F5B438] flex-shrink-0 transition-transform duration-300 group-hover/item:scale-110">
+                                <svg class="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2l8 6H4l8-6z" />
+                                    <path d="M4 8v3h16V8" />
+                                    <path d="M6 11v10h12V11" />
+                                    <path d="M10 21v-5h4v5" />
+                                </svg>
+                            </div>
+                            <div class="min-w-0">
+                                <h4 class="text-white text-xs sm:text-[13px] font-bold truncate leading-tight">Paradise Beach</h4>
+                                <p class="text-gray-300 text-[10px] sm:text-xs font-medium">20 mins drive</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- ===================== RIGHT SIDE: OUR LOCATION (~41.5% on desktop) ===================== -->
@@ -1395,21 +1473,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
    </div> -->
  <!-- Keywords Section -->
- <section class="find-us-section">
-    <div class="container">
-        <div class="content">
-            <h3 style="color:white;">Find us as</h3>
-            <div class="tags">
-                <span>Budget homestay in Pondicherry</span>
-                <span>Homestay in Anna Nagar Pondicherry</span>
-                <span>Affordable rooms with cooking facilities Pondicherry</span>
-                <span>Homestay for family and business stay</span>
-                <span>Long-term stay homestay Pondicherry</span>
-                <span>Room with free Wi-Fi in Pondicherry</span>
-            </div>
-        </div>
-    </div>
-</section>
+
 
     <script>
 
