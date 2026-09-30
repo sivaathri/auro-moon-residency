@@ -761,6 +761,47 @@
     </section>
 
 
+<?php
+// Smart High-Definition Image Resolver for Places & Dining
+if (!function_exists('getHighResImg')) {
+    function getHighResImg($filename, $cdnFallback) {
+        $localPath = __DIR__ . '/assect/images/' . $filename;
+        $relPath = './assect/images/' . $filename;
+        
+        // Exact sizes of mismatched or corrupted legacy thumbnail files
+        $mismatchedSizes = [
+            'place_bamboo_centre.jpg' => 76260,   // legacy tote bag image
+            'place_promenade_beach.jpg' => 125556, // legacy pine forest image
+            'place_french_town.jpg' => 199903,    // legacy Santorini image
+            'place_church.jpg' => 95392,          // legacy Maldives pier image
+        ];
+
+        $isMismatched = isset($mismatchedSizes[$filename]) && 
+                        file_exists($localPath) && 
+                        filesize($localPath) == $mismatchedSizes[$filename];
+
+        // If local file is missing, mismatched, or an old tiny crop (< 20KB)
+        if (!file_exists($localPath) || filesize($localPath) < 20000 || $isMismatched) {
+            if (!empty($cdnFallback)) {
+                // Try caching the verified high-res photo locally
+                $ctx = stream_context_create([
+                    'http' => ['timeout' => 2, 'user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)']
+                ]);
+                $data = @file_get_contents($cdnFallback, false, $ctx);
+                if ($data && strlen($data) > 10000) {
+                    @file_put_contents($localPath, $data);
+                    return $relPath . '?v=' . time();
+                }
+                // Fallback directly to high-speed CDN to display razor-sharp image
+                return $cdnFallback;
+            }
+        }
+        
+        return $relPath . '?v=' . (file_exists($localPath) ? filemtime($localPath) : '202610_hd');
+    }
+}
+?>
+
 <!-- Premium UI Section: Things to Do in Auroville & Pondicherry -->
 <section id="explore" class="py-12 md:py-16 bg-[#FAF7F2] font-brand-sans border-t border-[#ECE5D8]">
     <!-- Centered Header Container Matching Amenities Layout -->
@@ -797,7 +838,7 @@
                     <!-- Image Left Side -->
                     <div class="relative w-full md:w-[62%] h-44 sm:h-52 md:h-auto min-h-[190px] overflow-hidden flex-shrink-0">
                         <img 
-                            src="./assect/images/auroville_hero.jpg" 
+                            src="<?= getHighResImg('auroville_hero.jpg', 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1000&auto=format&fit=crop&q=85') ?>" 
                             alt="Matrimandir Auroville" 
                             class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
                             loading="lazy"
@@ -853,7 +894,7 @@
                         <!-- Matrimandir -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
-                                <img src="./assect/images/place_matrimandir.jpg" alt="Matrimandir" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                                <img src="<?= getHighResImg('place_matrimandir.jpg', 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&auto=format&fit=crop&q=85') ?>" alt="Matrimandir" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
                             <div class="py-1.5 px-1 bg-white border-t border-gray-100 flex items-center justify-center gap-1 text-center">
                                 <i class="fa-solid fa-location-dot text-[#F5B438] text-[9px] flex-shrink-0"></i>
@@ -864,7 +905,7 @@
                         <!-- Swaram Sound Garden -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
-                                <img src="./assect/images/place_swaram.jpg" alt="Swaram Sound Garden" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                                <img src="<?= getHighResImg('place_swaram.jpg', 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&auto=format&fit=crop&q=85') ?>" alt="Swaram Sound Garden" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
                             <div class="py-1.5 px-1 bg-white border-t border-gray-100 flex items-center justify-center gap-1 text-center">
                                 <i class="fa-solid fa-location-dot text-[#F5B438] text-[9px] flex-shrink-0"></i>
@@ -875,7 +916,7 @@
                         <!-- Visitor's Centre -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
-                                <img src="./assect/images/place_visitors_centre.jpg" alt="Visitor's Centre" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                                <img src="<?= getHighResImg('place_visitors_centre.jpg', 'https://images.unsplash.com/photo-1590412851493-2720b08e2ef8?w=800&auto=format&fit=crop&q=85') ?>" alt="Visitor's Centre" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
                             <div class="py-1.5 px-1 bg-white border-t border-gray-100 flex items-center justify-center gap-1 text-center">
                                 <i class="fa-solid fa-location-dot text-[#F5B438] text-[9px] flex-shrink-0"></i>
@@ -886,7 +927,7 @@
                         <!-- Bamboo Centre -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
-                                <img src="./assect/images/place_bamboo_centre.jpg" alt="Bamboo Centre" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                                <img src="<?= getHighResImg('place_bamboo_centre.jpg', 'https://images.unsplash.com/photo-1710330758599-c4a3328c4c67?w=800&auto=format&fit=crop&q=85') ?>" alt="Bamboo Centre" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
                             <div class="py-1.5 px-1 bg-white border-t border-gray-100 flex items-center justify-center gap-1 text-center">
                                 <i class="fa-solid fa-location-dot text-[#F5B438] text-[9px] flex-shrink-0"></i>
@@ -897,7 +938,7 @@
                         <!-- Serenity Beach -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
-                                <img src="./assect/images/place_serenity_beach.jpg" alt="Serenity Beach" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                                <img src="<?= getHighResImg('place_serenity_beach.jpg', 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop&q=85') ?>" alt="Serenity Beach" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
                             <div class="py-1.5 px-1 bg-white border-t border-gray-100 flex items-center justify-center gap-1 text-center">
                                 <i class="fa-solid fa-location-dot text-[#F5B438] text-[9px] flex-shrink-0"></i>
@@ -926,7 +967,7 @@
                         <!-- Auroville Bakery -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
-                                <img src="./assect/images/cafe_auroville_bakery.jpg" alt="Auroville Bakery" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                                <img src="<?= getHighResImg('cafe_auroville_bakery.jpg', 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=800&auto=format&fit=crop&q=85') ?>" alt="Auroville Bakery" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
                             <div class="py-1.5 px-1 bg-white border-t border-gray-100 text-center">
                                 <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate block">Auroville Bakery</span>
@@ -936,7 +977,7 @@
                         <!-- Bread and Chocolate -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
-                                <img src="./assect/images/cafe_bread_chocolate.jpg" alt="Bread and Chocolate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                                <img src="<?= getHighResImg('cafe_bread_chocolate.jpg', 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&auto=format&fit=crop&q=85') ?>" alt="Bread and Chocolate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
                             <div class="py-1.5 px-1 bg-white border-t border-gray-100 text-center">
                                 <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate block">Bread and Chocolate</span>
@@ -946,7 +987,7 @@
                         <!-- Marc's Café -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
-                                <img src="./assect/images/cafe_marcs.jpg" alt="Marc's Café" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                                <img src="<?= getHighResImg('cafe_marcs.jpg', 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800&auto=format&fit=crop&q=85') ?>" alt="Marc's Café" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
                             <div class="py-1.5 px-1 bg-white border-t border-gray-100 text-center">
                                 <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate block">Marc's Café</span>
@@ -956,7 +997,7 @@
                         <!-- Tanto -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
-                                <img src="./assect/images/cafe_tanto.jpg" alt="Tanto" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                                <img src="<?= getHighResImg('cafe_tanto.jpg', 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&auto=format&fit=crop&q=85') ?>" alt="Tanto" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
                             <div class="py-1.5 px-1 bg-white border-t border-gray-100 text-center">
                                 <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate block">Tanto</span>
@@ -966,7 +1007,7 @@
                         <!-- Café 73 -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
-                                <img src="./assect/images/cafe_73.jpg" alt="Café 73" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                                <img src="<?= getHighResImg('cafe_73.jpg', 'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=800&auto=format&fit=crop&q=85') ?>" alt="Café 73" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
                             <div class="py-1.5 px-1 bg-white border-t border-gray-100 text-center">
                                 <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate block">Café 73</span>
@@ -983,7 +1024,7 @@
                     <!-- Image Left Side -->
                     <div class="relative w-full md:w-[62%] h-44 sm:h-52 md:h-auto min-h-[190px] overflow-hidden flex-shrink-0">
                         <img 
-                            src="./assect/images/pondicherry_hero.jpg" 
+                            src="<?= getHighResImg('pondicherry_hero.jpg', 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1000&auto=format&fit=crop&q=85') ?>" 
                             alt="White Town Pondicherry" 
                             class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
                             loading="lazy"
@@ -1039,7 +1080,7 @@
                         <!-- Promenade Beach -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
-                                <img src="./assect/images/place_promenade_beach.jpg" alt="Promenade Beach" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                                <img src="<?= getHighResImg('place_promenade_beach.jpg', 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop&q=85') ?>" alt="Promenade Beach" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
                             <div class="py-1.5 px-1 bg-white border-t border-gray-100 flex items-center justify-center gap-1 text-center">
                                 <i class="fa-solid fa-location-dot text-[#F5B438] text-[9px] flex-shrink-0"></i>
@@ -1050,7 +1091,7 @@
                         <!-- White & French Town -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
-                                <img src="./assect/images/place_french_town.jpg" alt="White & French Town" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                                <img src="<?= getHighResImg('place_french_town.jpg', 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&auto=format&fit=crop&q=85') ?>" alt="White & French Town" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
                             <div class="py-1.5 px-1 bg-white border-t border-gray-100 flex items-center justify-center gap-1 text-center">
                                 <i class="fa-solid fa-location-dot text-[#F5B438] text-[9px] flex-shrink-0"></i>
@@ -1061,7 +1102,7 @@
                         <!-- Lady of Angels Church -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
-                                <img src="./assect/images/place_church.jpg" alt="Lady of Angels Church" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                                <img src="<?= getHighResImg('place_church.jpg', 'https://images.unsplash.com/photo-1675427718764-44f43c3deadb?w=800&auto=format&fit=crop&q=85') ?>" alt="Lady of Angels Church" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
                             <div class="py-1.5 px-1 bg-white border-t border-gray-100 flex items-center justify-center gap-1 text-center">
                                 <i class="fa-solid fa-location-dot text-[#F5B438] text-[9px] flex-shrink-0"></i>
@@ -1072,7 +1113,7 @@
                         <!-- Manakula Vinayagar Temple -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
-                                <img src="./assect/images/place_temple.jpg" alt="Manakula Vinayagar Temple" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                                <img src="<?= getHighResImg('place_temple.jpg', 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&auto=format&fit=crop&q=85') ?>" alt="Manakula Vinayagar Temple" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
                             <div class="py-1.5 px-1 bg-white border-t border-gray-100 flex items-center justify-center gap-1 text-center">
                                 <i class="fa-solid fa-location-dot text-[#F5B438] text-[9px] flex-shrink-0"></i>
@@ -1083,7 +1124,7 @@
                         <!-- Paradise Island -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
-                                <img src="./assect/images/place_paradise_island.jpg" alt="Paradise Island" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                                <img src="<?= getHighResImg('place_paradise_island.jpg', 'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&auto=format&fit=crop&q=85') ?>" alt="Paradise Island" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
                             <div class="py-1.5 px-1 bg-white border-t border-gray-100 flex items-center justify-center gap-1 text-center">
                                 <i class="fa-solid fa-location-dot text-[#F5B438] text-[9px] flex-shrink-0"></i>
@@ -1112,7 +1153,7 @@
                         <!-- Indian Coffee House -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
-                                <img src="./assect/images/cafe_indian_coffee_house.jpg" alt="Indian Coffee House" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                                <img src="<?= getHighResImg('cafe_indian_coffee_house.jpg', 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800&auto=format&fit=crop&q=85') ?>" alt="Indian Coffee House" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
                             <div class="py-1.5 px-1 bg-white border-t border-gray-100 text-center">
                                 <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate block">Indian Coffee House</span>
@@ -1122,7 +1163,7 @@
                         <!-- Surguru -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
-                                <img src="./assect/images/cafe_surguru.jpg" alt="Surguru" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                                <img src="<?= getHighResImg('cafe_surguru.jpg', 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=800&auto=format&fit=crop&q=85') ?>" alt="Surguru" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
                             <div class="py-1.5 px-1 bg-white border-t border-gray-100 text-center">
                                 <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate block">Surguru</span>
@@ -1132,7 +1173,7 @@
                         <!-- Baker's Street -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
-                                <img src="./assect/images/cafe_bakers_street.jpg" alt="Baker's Street" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                                <img src="<?= getHighResImg('cafe_bakers_street.jpg', 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&auto=format&fit=crop&q=85') ?>" alt="Baker's Street" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
                             <div class="py-1.5 px-1 bg-white border-t border-gray-100 text-center">
                                 <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate block">Baker's Street</span>
@@ -1142,7 +1183,7 @@
                         <!-- Coromandel Café -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
-                                <img src="./assect/images/cafe_coromandel.jpg" alt="Coromandel Café" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                                <img src="<?= getHighResImg('cafe_coromandel.jpg', 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&auto=format&fit=crop&q=85') ?>" alt="Coromandel Café" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
                             <div class="py-1.5 px-1 bg-white border-t border-gray-100 text-center">
                                 <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate block">Coromandel Café</span>
@@ -1152,7 +1193,7 @@
                         <!-- Hotel Kamatchi Mess -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
-                                <img src="./assect/images/cafe_kamatchi_mess.jpg" alt="Hotel Kamatchi Mess" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                                <img src="<?= getHighResImg('cafe_kamatchi_mess.jpg', 'https://images.unsplash.com/photo-1610057099431-d73a1c9d2f2f?w=800&auto=format&fit=crop&q=85') ?>" alt="Hotel Kamatchi Mess" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                             </div>
                             <div class="py-1.5 px-1 bg-white border-t border-gray-100 text-center">
                                 <span class="text-[10px] sm:text-[11px] font-semibold text-[#182638] truncate block">Hotel Kamatchi Mess</span>
@@ -1175,54 +1216,253 @@
 
 
 
- <!-- Location Section -->
- <section id="location" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-                    <div class="text-center md:text-left mb-8">
-                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Location</h2>
-                        <div class="w-24 h-1 bg-teal-600 mx-auto md:mx-0"></div>
-                    </div>
-                    
-                    <div class="bg-gray-100 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Nearby Attractions</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <i class="fas fa-map-marker-alt text-teal-600 mt-1 mr-3"></i>
-                                <span>Promenade Beach - 10 min drive</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-map-marker-alt text-teal-600 mt-1 mr-3"></i>
-                                <span>Auroville - 15 min drive</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-map-marker-alt text-teal-600 mt-1 mr-3"></i>
-                                <span>White Town - 12 min drive</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-map-marker-alt text-teal-600 mt-1 mr-3"></i>
-                                <span>Pondicherry Railway Station - 8 min drive</span>
-                            </li>
-                        </ul>
+<?php
+// Ensure location assets are generated
+require_once __DIR__ . '/setup_location.php';
+$hasSunsetLeft = file_exists(__DIR__ . '/assect/images/location_sunset_left.jpg');
+$hasMapCard = file_exists(__DIR__ . '/assect/images/location_map_card.png');
+$sunsetImgUrl = $hasSunsetLeft ? './assect/images/location_sunset_left.jpg?v=' . filemtime(__DIR__ . '/assect/images/location_sunset_left.jpg') : 'https://images.unsplash.com/photo-1516472096803-187d3339b36f?w=1600&auto=format&fit=crop&q=85';
+$mapCardImgUrl = $hasMapCard ? './assect/images/location_map_card.png?v=' . filemtime(__DIR__ . '/assect/images/location_map_card.png') : './assect/images/location_banner_full.png';
+?>
+
+<!-- Premium UI Section: Explore Pondicherry & Our Location -->
+<section id="location" class="py-10 sm:py-14 lg:py-16 bg-[#FAF7F2] font-brand-sans border-t border-[#ECE5D8]">
+    <div class="max-w-[1440px] mx-auto px-3 sm:px-5 lg:px-6">
+        <!-- Main Panoramic Container Matching Mockup -->
+        <div class="relative overflow-hidden rounded-2xl lg:rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.25)] border border-gray-900/10 bg-[#121924] flex flex-col lg:flex-row items-stretch">
+            
+            <!-- ===================== LEFT SIDE: EXPLORE PONDICHERRY (~58.5% on desktop) ===================== -->
+            <div class="relative w-full lg:w-[58.5%] min-h-[300px] sm:min-h-[340px] lg:min-h-[360px] flex flex-col justify-between p-6 sm:p-8 lg:p-10 overflow-hidden group">
+                <!-- Background Sunset Ocean & Lighthouse Image -->
+                <div class="absolute inset-0 z-0">
+                    <img 
+                        src="<?= $sunsetImgUrl ?>" 
+                        alt="Pondicherry Promenade Beach Sunset & Lighthouse" 
+                        class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-1000 ease-out"
+                    />
+                    <!-- Subtle Dark Gradient Scrim to ensure crystal-clear text contrast on mobile & desktop -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30"></div>
+                </div>
+
+                <!-- Top Header Content -->
+                <div class="relative z-10">
+                    <p class="text-[#F5B438] text-[11px] sm:text-xs font-bold tracking-[0.24em] uppercase mb-2 select-none flex items-center gap-2">
+                        <span>EXPLORE PONDICHERRY</span>
+                    </p>
+                    <h3 class="font-brand-serif text-2xl sm:text-3xl lg:text-[38px] font-bold text-white leading-tight drop-shadow-md">
+                        Stay Close to<br class="hidden sm:inline" /> Beautiful Experiences
+                    </h3>
+                </div>
+
+                <!-- Bottom Feature Strip: 4 Key Landmarks with Driving Times -->
+                <div class="relative z-10 mt-6 sm:mt-8 pt-4 sm:pt-5 border-t border-white/20">
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-2 lg:gap-3">
+                        <!-- 1. Promenade Beach -->
+                        <div class="flex items-center gap-2.5 sm:pr-3 sm:border-r sm:border-white/20 group/item">
+                            <!-- Gold House/Gazebo Icon matching mockup -->
+                            <div class="text-[#F5B438] flex-shrink-0 transition-transform duration-300 group-hover/item:scale-110">
+                                <svg class="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 10l9-7 9 7v10a1 1 0 01-1 1H4a1 1 0 01-1-1V10z" />
+                                    <path d="M9 21V12h6v9" />
+                                    <circle cx="12" cy="7" r="1.5" />
+                                </svg>
+                            </div>
+                            <div class="min-w-0">
+                                <h4 class="text-white text-xs sm:text-[13px] font-bold truncate leading-tight">Promenade Beach</h4>
+                                <p class="text-gray-300 text-[10px] sm:text-xs font-medium">5 mins drive</p>
+                            </div>
+                        </div>
+
+                        <!-- 2. White Town -->
+                        <div class="flex items-center gap-2.5 sm:px-3 sm:border-r sm:border-white/20 group/item">
+                            <!-- Gold Heritage House Icon matching mockup -->
+                            <div class="text-[#F5B438] flex-shrink-0 transition-transform duration-300 group-hover/item:scale-110">
+                                <svg class="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 21h18" />
+                                    <path d="M5 21V9l7-6 7 6v12" />
+                                    <path d="M9 13h6" />
+                                    <path d="M10 21v-4h4v4" />
+                                    <circle cx="12" cy="7.5" r="1.5" />
+                                </svg>
+                            </div>
+                            <div class="min-w-0">
+                                <h4 class="text-white text-xs sm:text-[13px] font-bold truncate leading-tight">White Town</h4>
+                                <p class="text-gray-300 text-[10px] sm:text-xs font-medium">10 mins drive</p>
+                            </div>
+                        </div>
+
+                        <!-- 3. Auroville -->
+                        <div class="flex items-center gap-2.5 sm:px-3 sm:border-r sm:border-white/20 group/item">
+                            <!-- Gold Globe Icon matching mockup -->
+                            <div class="text-[#F5B438] flex-shrink-0 transition-transform duration-300 group-hover/item:scale-110">
+                                <svg class="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="2" y1="12" x2="22" y2="12" />
+                                    <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+                                </svg>
+                            </div>
+                            <div class="min-w-0">
+                                <h4 class="text-white text-xs sm:text-[13px] font-bold truncate leading-tight">Auroville</h4>
+                                <p class="text-gray-300 text-[10px] sm:text-xs font-medium">20 mins drive</p>
+                            </div>
+                        </div>
+
+                        <!-- 4. Paradise Beach -->
+                        <div class="flex items-center gap-2.5 sm:pl-3 group/item">
+                            <!-- Gold Pagoda/Hut Icon matching mockup -->
+                            <div class="text-[#F5B438] flex-shrink-0 transition-transform duration-300 group-hover/item:scale-110">
+                                <svg class="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2l8 6H4l8-6z" />
+                                    <path d="M4 8v3h16V8" />
+                                    <path d="M6 11v10h12V11" />
+                                    <path d="M10 21v-5h4v5" />
+                                </svg>
+                            </div>
+                            <div class="min-w-0">
+                                <h4 class="text-white text-xs sm:text-[13px] font-bold truncate leading-tight">Paradise Beach</h4>
+                                <p class="text-gray-300 text-[10px] sm:text-xs font-medium">20 mins drive</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="md:w-1/2">
-                    <div class="h-96 w-full bg-gray-200 rounded-lg overflow-hidden">
+            </div>
+
+            <!-- ===================== RIGHT SIDE: OUR LOCATION (~41.5% on desktop) ===================== -->
+            <div class="relative w-full lg:w-[41.5%] bg-[#121924] p-6 sm:p-7 lg:p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-white/15">
+                <div class="flex flex-col sm:flex-row items-stretch justify-between gap-6 h-full">
+                    <!-- Left Sub-Column: Location Information & Get Directions -->
+                    <div class="flex-1 flex flex-col justify-between">
+                        <div>
+                            <p class="text-[#F5B438] text-[11px] sm:text-xs font-bold tracking-[0.24em] uppercase mb-1.5 select-none">
+                                OUR LOCATION
+                            </p>
+                            <h3 class="font-brand-serif text-xl sm:text-2xl lg:text-[25px] font-bold text-white leading-tight mb-4">
+                                In the Heart of Pondicherry
+                            </h3>
+
+                            <div class="flex items-start gap-3 my-3">
+                                <i class="fa-solid fa-location-dot text-[#F5B438] text-2xl mt-0.5 flex-shrink-0"></i>
+                                <div>
+                                    <h4 class="text-white text-sm sm:text-base font-bold leading-snug">Auro Moon Residency</h4>
+                                    <p class="text-gray-400 text-xs sm:text-sm mt-0.5">Pondicherry, India</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <div class="mt-4 pt-2">
+                            <a 
+                                href="https://www.google.com/maps/dir/?api=1&destination=92,+12th+Cross+St,+Anna+Nagar,+Pondicherry,+605013" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                class="inline-flex items-center justify-center gap-2 px-6 py-2.5 sm:py-3 rounded-xl bg-[#F5B438] hover:bg-[#E5A122] text-[#121924] font-bold text-xs sm:text-sm shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 no-underline group select-none"
+                            >
+                                <span>Get Directions</span>
+                                <i class="fa-solid fa-arrow-right text-xs transition-transform duration-200 group-hover:translate-x-1"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Sub-Column: Styled Map Card -->
+                    <div class="w-full sm:w-[220px] lg:w-[230px] flex-shrink-0 flex flex-col justify-center">
+                        <a 
+                            href="https://www.google.com/maps/dir/?api=1&destination=92,+12th+Cross+St,+Anna+Nagar,+Pondicherry,+605013" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            class="group/map relative block rounded-2xl overflow-hidden border border-white/20 shadow-xl bg-[#E8ECEF] hover:border-[#F5B438] transition-all duration-300 no-underline"
+                            title="Click to open Google Maps navigation"
+                        >
+                            <!-- Styled Map Visual from Mockup -->
+                            <div class="relative w-full aspect-[4/3] sm:aspect-[3/2] overflow-hidden bg-gray-100 flex items-center justify-center">
+                                <?php if ($hasMapCard): ?>
+                                    <img src="<?= $mapCardImgUrl ?>" alt="Auro Moon Residency Location Map" class="w-full h-full object-cover group-hover/map:scale-105 transition-transform duration-500" />
+                                <?php else: ?>
+                                    <!-- Stylized fallback map representation matching mockup -->
+                                    <div class="relative w-full h-full bg-[#E5E9EC] p-3 flex flex-col justify-between overflow-hidden">
+                                        <!-- Street Grid Lines -->
+                                        <div class="absolute inset-0 opacity-40 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:16px_16px]"></div>
+                                        <!-- Ocean Coastline on the right -->
+                                        <div class="absolute top-0 right-0 bottom-0 w-1/3 bg-[#54C7EC] flex items-center justify-center">
+                                            <span class="text-[9px] font-bold text-[#14233C] text-center leading-tight">Pondicherry<br/>Beach</span>
+                                        </div>
+                                        <!-- Red Marker Pin with Ripple -->
+                                        <div class="relative z-10 flex items-center gap-1.5 mt-4 ml-2">
+                                            <div class="relative">
+                                                <i class="fa-solid fa-location-dot text-red-500 text-xl drop-shadow-md"></i>
+                                                <span class="absolute -top-1 -left-1 w-5 h-5 rounded-full bg-red-400/40 animate-ping"></span>
+                                            </div>
+                                            <span class="text-[10px] font-bold text-[#D32F2F] leading-tight">Auro Moon<br/>Residency</span>
+                                        </div>
+                                        <!-- White Town Bottom Label -->
+                                        <div class="relative z-10 text-center text-[10px] font-semibold text-gray-700">
+                                            White Town
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+
+                                <!-- Hover Overlay Hint -->
+                                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/map:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-1.5 text-white text-xs font-semibold">
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-[11px] text-[#F5B438]"></i>
+                                    <span>Open Maps</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Toggle Live Google Map Button -->
+                        <button 
+                            type="button" 
+                            id="toggleLiveMapBtn" 
+                            class="mt-2.5 text-[11px] text-[#F5B438] hover:text-[#d69829] flex items-center justify-center gap-1.5 transition-colors cursor-pointer bg-transparent border-none p-0"
+                        >
+                            <i class="fa-solid fa-map-location-dot text-xs"></i>
+                            <span id="toggleLiveMapText">View Interactive Google Map</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Expandable Live Interactive Google Map Frame -->
+                <div id="liveMapContainer" class="hidden mt-6 pt-5 border-t border-white/10 transition-all duration-300">
+                    <div class="w-full h-72 sm:h-80 rounded-xl overflow-hidden border border-white/20 shadow-inner bg-gray-900">
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243.97254453737554!2d79.80971806108442!3d11.93562946751948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a536174f703e3bd%3A0xc201ded8a0aaae5a!2s92%2C%2012th%20Cross%20St%2C%20Anna%20Nagar%2C%20Pondicherry%2C%20605013!5e0!3m2!1sen!2sin!4v1660889513828!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243.97254453737554!2d79.80971806108442!3d11.93562946751948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a536174f703e3bd%3A0xc201ded8a0aaae5a!2s92%2C%2012th%20Cross%20St%2C%20Anna%20Nagar%2C%20Pondicherry%2C%20605013!5e0!3m2!1sen!2sin!4v1660889513828!5m2!1sen!2sin" 
                             width="100%" 
                             height="100%" 
                             style="border:0;" 
                             allowfullscreen="" 
-                            loading="lazy"
-                            class="w-full h-full">
-                        </iframe>
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="w-full h-full"
+                        ></iframe>
                     </div>
                 </div>
             </div>
+
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- Toggle Interactive Map Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.getElementById('toggleLiveMapBtn');
+    const mapContainer = document.getElementById('liveMapContainer');
+    const toggleText = document.getElementById('toggleLiveMapText');
+
+    if (toggleBtn && mapContainer && toggleText) {
+        toggleBtn.addEventListener('click', function() {
+            const isHidden = mapContainer.classList.contains('hidden');
+            if (isHidden) {
+                mapContainer.classList.remove('hidden');
+                toggleText.textContent = 'Hide Interactive Map';
+            } else {
+                mapContainer.classList.add('hidden');
+                toggleText.textContent = 'View Interactive Google Map';
+            }
+        });
+    }
+});
+</script>
 
    <!-- <div style="background-color: white;">
    <div class="container">
