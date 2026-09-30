@@ -762,11 +762,10 @@
 
 
 <!-- Premium UI Section: Things to Do in Auroville & Pondicherry -->
-<section id="explore" class="py-16 md:py-24 bg-[#FAF7F2] font-brand-sans border-t border-[#ECE5D8]">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <!-- Header Row (Theme Pattern Matching Gallery) -->
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-10 sm:mb-12">
-            <!-- Title & Kicker -->
+<section id="explore" class="py-14 md:py-20 bg-[#FAF7F2] font-brand-sans border-t border-[#ECE5D8]">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header Row -->
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-8 sm:mb-10">
             <div>
                 <p class="text-[#B88028] text-xs sm:text-sm font-bold tracking-[0.24em] uppercase mb-2 select-none">
                     LOCAL GUIDE
@@ -774,238 +773,362 @@
                 <h2 class="font-brand-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2839] leading-tight">
                     Things to Do in Auroville & Pondicherry
                 </h2>
-                <!-- Golden Underline Bar -->
                 <div class="w-12 h-1 bg-[#DE9E36] rounded-full mt-3"></div>
             </div>
 
-            <!-- Plan Your Trip CTA Button -->
             <div class="flex-shrink-0">
-                <a href="./BookingPage.php" class="inline-flex items-center gap-2.5 px-6 sm:px-7 py-2.5 sm:py-3 rounded-xl border-2 border-[#DE9E36] bg-transparent hover:bg-[#DE9E36] text-[#1A2839] hover:text-[#1a140c] font-semibold text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-300 no-underline group select-none">
+                <a href="./BookingPage.php" class="inline-flex items-center gap-2.5 px-6 sm:px-7 py-2.5 sm:py-3 rounded-xl border-2 border-[#DE9E36] bg-transparent hover:bg-[#DE9E36] text-[#1A2839] hover:text-[#1a140c] font-semibold text-sm sm:text-base shadow-xs hover:shadow-md transition-all duration-300 no-underline group select-none">
                     <span>Plan Your Trip</span>
                     <i class="fa-solid fa-arrow-right text-sm transition-transform duration-300 group-hover:translate-x-1"></i>
                 </a>
             </div>
         </div>
 
-        <!-- 2 Destination Showcase Cards -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
-            <!-- Card 1: Auroville Highlights -->
-            <div class="bg-white rounded-3xl p-7 sm:p-9 border border-[#ECE5D8] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-                <div>
-                    <!-- Card Header -->
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-[#FAF3E7] text-[#DE9E36] flex items-center justify-center text-2xl flex-shrink-0 shadow-sm">
-                            <i class="fa-solid fa-leaf"></i>
-                        </div>
+        <!-- 2 Side-by-Side Highlight Cards (Auroville & Pondicherry) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+            <!-- ===================== AUROVILLE HIGHLIGHTS ===================== -->
+            <div class="bg-white rounded-3xl p-5 sm:p-7 border border-[#ECE5D8] shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between">
+                <!-- Top Hero Banner Card -->
+                <div class="relative overflow-hidden rounded-2xl border border-[#ECE5D8] bg-[#FAF5EB] flex flex-col sm:flex-row mb-6 group">
+                    <!-- Image Half with Wave Curve -->
+                    <div class="w-full sm:w-[54%] h-48 sm:h-auto min-h-[190px] relative overflow-hidden flex-shrink-0">
+                        <img 
+                            src="./assect/images/auroville_hero.jpg" 
+                            alt="Matrimandir Auroville" 
+                            class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                            loading="lazy"
+                        />
+                        <!-- Subtle Gradient Fade into content on desktop -->
+                        <div class="hidden sm:block absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-r from-transparent to-[#FAF5EB] pointer-events-none"></div>
+                    </div>
+
+                    <!-- Content Half -->
+                    <div class="w-full sm:w-[46%] p-4 sm:p-5 flex flex-col justify-between items-start">
                         <div>
-                            <h3 class="font-brand-serif text-2xl sm:text-3xl font-bold text-[#1A2839] leading-tight">
+                            <!-- Gold Leaf Icon Badge -->
+                            <div class="w-10 h-10 rounded-full bg-[#F3E7CF] text-[#DE9E36] flex items-center justify-center text-lg mb-2 shadow-2xs">
+                                <i class="fa-solid fa-leaf"></i>
+                            </div>
+                            <h3 class="font-brand-serif text-xl sm:text-2xl font-bold text-[#1A2839] leading-tight mb-1.5">
                                 Auroville Highlights
                             </h3>
-                            <p class="text-xs sm:text-sm text-[#8A7968] font-medium mt-0.5">
-                                Spiritual landmarks, sound gardens & artisan bakeries
+                            <p class="text-xs text-[#5C6874] leading-relaxed font-normal">
+                                Spiritual landmarks, sound gardens and artisan bakeries in a peaceful community.
                             </p>
                         </div>
+                        <a href="./BookingPage.php" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#DE9E36] bg-white hover:bg-[#DE9E36] text-[#1A2839] hover:text-[#1a140c] text-xs font-semibold shadow-2xs hover:shadow-xs transition-all duration-200 no-underline mt-3 group select-none">
+                            <span>Explore Auroville</span>
+                            <i class="fa-solid fa-arrow-right text-[10px] transition-transform duration-200 group-hover:translate-x-0.5"></i>
+                        </a>
                     </div>
+                </div>
 
-                    <!-- Divider -->
-                    <div class="w-full h-px bg-[#ECE5D8] mb-6"></div>
-
-                    <!-- Top Places -->
-                    <div class="mb-7">
-                        <h4 class="text-xs uppercase font-bold tracking-[0.2em] text-[#B88028] mb-3.5 flex items-center gap-2">
-                            <i class="fa-solid fa-location-dot text-[#DE9E36]"></i> Top Places to Visit
-                        </h4>
-                        <div class="flex flex-wrap gap-2.5">
-                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
-                                <i class="fa-solid fa-location-pin text-[#DE9E36] text-xs"></i> Visitor's Centre
-                            </span>
-                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
-                                <i class="fa-solid fa-sun text-[#DE9E36] text-xs"></i> Matrimandir
-                            </span>
-                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
-                                <i class="fa-solid fa-music text-[#DE9E36] text-xs"></i> Svaram Sound Garden
-                            </span>
-                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
-                                <i class="fa-solid fa-tree text-[#DE9E36] text-xs"></i> Bamboo Centre
-                            </span>
-                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
-                                <i class="fa-solid fa-water text-[#DE9E36] text-xs"></i> Serenity Beach
-                            </span>
+                <!-- Top Places to Visit in Auroville -->
+                <div class="mb-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-[#DE9E36] text-sm"></i>
+                            <h4 class="font-brand-serif text-sm sm:text-base font-bold text-[#1A2839]">
+                                Top Places to Visit in Auroville
+                            </h4>
                         </div>
+                        <a href="./Photos.php" class="text-xs font-semibold text-[#DE9E36] hover:text-[#b88028] flex items-center gap-1 no-underline transition-colors">
+                            <span>View All</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
                     </div>
 
-                    <!-- Recommended Cafes -->
-                    <div class="mb-7">
-                        <h4 class="text-xs uppercase font-bold tracking-[0.2em] text-[#B88028] mb-3.5 flex items-center gap-2">
-                            <i class="fa-solid fa-utensils text-[#DE9E36]"></i> Recommended Cafes & Dining
-                        </h4>
-                        <div class="space-y-3">
-                            <div>
-                                <span class="text-[11px] font-bold text-[#8A7968] uppercase tracking-wider block mb-1.5">Breakfast</span>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Auroville Bakery</span>
-                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Bread and Chocolate</span>
-                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Marc's Cafe</span>
-                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Coffee Break</span>
-                                </div>
+                    <div class="grid grid-cols-5 gap-2 sm:gap-2.5">
+                        <!-- Matrimandir -->
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
+                                <img src="./assect/images/place_matrimandir.jpg" alt="Matrimandir" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
                             </div>
-                            <div>
-                                <span class="text-[11px] font-bold text-[#8A7968] uppercase tracking-wider block mb-1.5">Lunch</span>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Tanto</span>
-                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Aurelec</span>
-                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Umami Kitchen</span>
-                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Cafe 73</span>
-                                </div>
+                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Matrimandir</span>
                             </div>
-                            <div>
-                                <span class="text-[11px] font-bold text-[#8A7968] uppercase tracking-wider block mb-1.5">Dinner</span>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Nowana</span>
-                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Tanto</span>
-                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Umami</span>
-                                </div>
+                        </div>
+
+                        <!-- Swaram Sound Garden -->
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
+                                <img src="./assect/images/place_swaram.jpg" alt="Swaram Sound Garden" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                            </div>
+                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Swaram Sound Garden</span>
+                            </div>
+                        </div>
+
+                        <!-- Visitor's Centre -->
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
+                                <img src="./assect/images/place_visitors_centre.jpg" alt="Visitor's Centre" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                            </div>
+                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Visitor's Centre</span>
+                            </div>
+                        </div>
+
+                        <!-- Bamboo Centre -->
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
+                                <img src="./assect/images/place_bamboo_centre.jpg" alt="Bamboo Centre" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                            </div>
+                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Bamboo Centre</span>
+                            </div>
+                        </div>
+
+                        <!-- Serenity Beach -->
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
+                                <img src="./assect/images/place_serenity_beach.jpg" alt="Serenity Beach" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                            </div>
+                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Serenity Beach</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Activities -->
-                <div class="pt-5 border-t border-[#ECE5D8]">
-                    <h4 class="text-xs uppercase font-bold tracking-[0.2em] text-[#B88028] mb-3.5 flex items-center gap-2">
-                        <i class="fa-solid fa-compass text-[#DE9E36]"></i> Popular Activities
-                    </h4>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                        <div class="flex items-center gap-2.5 text-xs sm:text-sm text-[#1A2839]">
-                            <i class="fa-solid fa-water text-[#DE9E36] w-4 text-center"></i>
-                            <span>Surfing</span>
+                <!-- Recommended Cafes & Dining in Auroville -->
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-utensils text-[#DE9E36] text-sm"></i>
+                            <h4 class="font-brand-serif text-sm sm:text-base font-bold text-[#1A2839]">
+                                Recommended Cafes & Dining in Auroville
+                            </h4>
                         </div>
-                        <div class="flex items-center gap-2.5 text-xs sm:text-sm text-[#1A2839]">
-                            <i class="fa-solid fa-bicycle text-[#DE9E36] w-4 text-center"></i>
-                            <span>E-Bike Cycling in Auroville</span>
+                        <a href="./Photos.php" class="text-xs font-semibold text-[#DE9E36] hover:text-[#b88028] flex items-center gap-1 no-underline transition-colors">
+                            <span>View All</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-5 gap-2 sm:gap-2.5">
+                        <!-- Auroville Bakery -->
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
+                                <img src="./assect/images/cafe_auroville_bakery.jpg" alt="Auroville Bakery" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                            </div>
+                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Auroville Bakery</span>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-2.5 text-xs sm:text-sm text-[#1A2839]">
-                            <i class="fa-solid fa-spa text-[#DE9E36] w-4 text-center"></i>
-                            <span>Massage in Kalarigram</span>
+
+                        <!-- Bread and Chocolate -->
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
+                                <img src="./assect/images/cafe_bread_chocolate.jpg" alt="Bread and Chocolate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                            </div>
+                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Bread and Chocolate</span>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-2.5 text-xs sm:text-sm text-[#1A2839]">
-                            <i class="fa-solid fa-headphones text-[#DE9E36] w-4 text-center"></i>
-                            <span>Sound Healing</span>
+
+                        <!-- Marc's Café -->
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
+                                <img src="./assect/images/cafe_marcs.jpg" alt="Marc's Café" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                            </div>
+                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Marc's Café</span>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-2.5 text-xs sm:text-sm text-[#1A2839] sm:col-span-2">
-                            <i class="fa-solid fa-horse text-[#DE9E36] w-4 text-center"></i>
-                            <span>Horse Riding from Red Earth</span>
+
+                        <!-- Tanto -->
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
+                                <img src="./assect/images/cafe_tanto.jpg" alt="Tanto" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                            </div>
+                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Tanto</span>
+                            </div>
+                        </div>
+
+                        <!-- Café 73 -->
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
+                                <img src="./assect/images/cafe_73.jpg" alt="Café 73" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                            </div>
+                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Café 73</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Card 2: Pondicherry Highlights -->
-            <div class="bg-white rounded-3xl p-7 sm:p-9 border border-[#ECE5D8] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-                <div>
-                    <!-- Card Header -->
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-[#FAF3E7] text-[#DE9E36] flex items-center justify-center text-2xl flex-shrink-0 shadow-sm">
-                            <i class="fa-solid fa-landmark"></i>
-                        </div>
+            <!-- ===================== PONDICHERRY HIGHLIGHTS ===================== -->
+            <div class="bg-white rounded-3xl p-5 sm:p-7 border border-[#ECE5D8] shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between">
+                <!-- Top Hero Banner Card -->
+                <div class="relative overflow-hidden rounded-2xl border border-[#ECE5D8] bg-[#FAF5EB] flex flex-col sm:flex-row mb-6 group">
+                    <!-- Image Half with Wave Curve -->
+                    <div class="w-full sm:w-[54%] h-48 sm:h-auto min-h-[190px] relative overflow-hidden flex-shrink-0">
+                        <img 
+                            src="./assect/images/pondicherry_hero.jpg" 
+                            alt="White Town Pondicherry" 
+                            class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                            loading="lazy"
+                        />
+                        <!-- Subtle Gradient Fade into content on desktop -->
+                        <div class="hidden sm:block absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-r from-transparent to-[#FAF5EB] pointer-events-none"></div>
+                    </div>
+
+                    <!-- Content Half -->
+                    <div class="w-full sm:w-[46%] p-4 sm:p-5 flex flex-col justify-between items-start">
                         <div>
-                            <h3 class="font-brand-serif text-2xl sm:text-3xl font-bold text-[#1A2839] leading-tight">
+                            <!-- Temple/Monument Icon Badge -->
+                            <div class="w-10 h-10 rounded-full bg-[#F3E7CF] text-[#DE9E36] flex items-center justify-center text-lg mb-2 shadow-2xs">
+                                <i class="fa-solid fa-building-columns"></i>
+                            </div>
+                            <h3 class="font-brand-serif text-xl sm:text-2xl font-bold text-[#1A2839] leading-tight mb-1.5">
                                 Pondicherry Highlights
                             </h3>
-                            <p class="text-xs sm:text-sm text-[#8A7968] font-medium mt-0.5">
-                                French colonial lanes, coastal promenades & heritage shrines
+                            <p class="text-xs text-[#5C6874] leading-relaxed font-normal">
+                                French colonial lanes, coastal promenades and heritage shrines.
                             </p>
                         </div>
+                        <a href="./BookingPage.php" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#DE9E36] bg-white hover:bg-[#DE9E36] text-[#1A2839] hover:text-[#1a140c] text-xs font-semibold shadow-2xs hover:shadow-xs transition-all duration-200 no-underline mt-3 group select-none">
+                            <span>Explore Pondicherry</span>
+                            <i class="fa-solid fa-arrow-right text-[10px] transition-transform duration-200 group-hover:translate-x-0.5"></i>
+                        </a>
                     </div>
+                </div>
 
-                    <!-- Divider -->
-                    <div class="w-full h-px bg-[#ECE5D8] mb-6"></div>
-
-                    <!-- Top Places -->
-                    <div class="mb-7">
-                        <h4 class="text-xs uppercase font-bold tracking-[0.2em] text-[#B88028] mb-3.5 flex items-center gap-2">
-                            <i class="fa-solid fa-location-dot text-[#DE9E36]"></i> Top Places to Visit
-                        </h4>
-                        <div class="flex flex-wrap gap-2.5">
-                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
-                                <i class="fa-solid fa-umbrella-beach text-[#DE9E36] text-xs"></i> Promenade Beach
-                            </span>
-                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
-                                <i class="fa-solid fa-house-chimney text-[#DE9E36] text-xs"></i> White & French Town
-                            </span>
-                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
-                                <i class="fa-solid fa-church text-[#DE9E36] text-xs"></i> Lady of Angels Church
-                            </span>
-                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
-                                <i class="fa-solid fa-om text-[#DE9E36] text-xs"></i> Manakula Vinayagar Temple
-                            </span>
-                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
-                                <i class="fa-solid fa-hands-praying text-[#DE9E36] text-xs"></i> Aurobindo Ashram
-                            </span>
-                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
-                                <i class="fa-solid fa-water text-[#DE9E36] text-xs"></i> Paradise Island
-                            </span>
-                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-[#FCFBF8] text-[#1A2839] border border-[#ECE5D8] hover:border-[#DE9E36] transition-colors">
-                                <i class="fa-solid fa-umbrella-beach text-[#DE9E36] text-xs"></i> Sand Dunes Beach
-                            </span>
+                <!-- Top Places to Visit in Pondicherry -->
+                <div class="mb-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-[#DE9E36] text-sm"></i>
+                            <h4 class="font-brand-serif text-sm sm:text-base font-bold text-[#1A2839]">
+                                Top Places to Visit in Pondicherry
+                            </h4>
                         </div>
+                        <a href="./Photos.php" class="text-xs font-semibold text-[#DE9E36] hover:text-[#b88028] flex items-center gap-1 no-underline transition-colors">
+                            <span>View All</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
                     </div>
 
-                    <!-- Recommended Cafes -->
-                    <div class="mb-7">
-                        <h4 class="text-xs uppercase font-bold tracking-[0.2em] text-[#B88028] mb-3.5 flex items-center gap-2">
-                            <i class="fa-solid fa-utensils text-[#DE9E36]"></i> Recommended Cafes & Dining
-                        </h4>
-                        <div class="space-y-3">
-                            <div>
-                                <span class="text-[11px] font-bold text-[#8A7968] uppercase tracking-wider block mb-1.5">Breakfast</span>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Indian Coffee House</span>
-                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Surguru</span>
-                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Baker's Street</span>
-                                </div>
+                    <div class="grid grid-cols-5 gap-2 sm:gap-2.5">
+                        <!-- Promenade Beach -->
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
+                                <img src="./assect/images/place_promenade_beach.jpg" alt="Promenade Beach" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
                             </div>
-                            <div>
-                                <span class="text-[11px] font-bold text-[#8A7968] uppercase tracking-wider block mb-1.5">Lunch</span>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Coromandel Cafe</span>
-                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Hotel Kamatchi Mess</span>
-                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Promenade</span>
-                                </div>
+                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Promenade Beach</span>
                             </div>
-                            <div>
-                                <span class="text-[11px] font-bold text-[#8A7968] uppercase tracking-wider block mb-1.5">Dinner</span>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Villa Shanti</span>
-                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Le Dupleix</span>
-                                    <span class="px-3 py-1 rounded-lg text-xs font-medium bg-[#FAF3E7] text-[#1A2839] border border-[#EADBCA]">Bay of Buddha</span>
-                                </div>
+                        </div>
+
+                        <!-- White & French Town -->
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
+                                <img src="./assect/images/place_french_town.jpg" alt="White & French Town" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                            </div>
+                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">White & French Town</span>
+                            </div>
+                        </div>
+
+                        <!-- Lady of Angels Church -->
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
+                                <img src="./assect/images/place_church.jpg" alt="Lady of Angels Church" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                            </div>
+                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Lady of Angels Church</span>
+                            </div>
+                        </div>
+
+                        <!-- Manakula Vinayagar Temple -->
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
+                                <img src="./assect/images/place_temple.jpg" alt="Manakula Vinayagar Temple" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                            </div>
+                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Manakula Vinayagar Temple</span>
+                            </div>
+                        </div>
+
+                        <!-- Paradise Island -->
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
+                                <img src="./assect/images/place_paradise_island.jpg" alt="Paradise Island" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                            </div>
+                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Paradise Island</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Activities -->
-                <div class="pt-5 border-t border-[#ECE5D8]">
-                    <h4 class="text-xs uppercase font-bold tracking-[0.2em] text-[#B88028] mb-3.5 flex items-center gap-2">
-                        <i class="fa-solid fa-compass text-[#DE9E36]"></i> Popular Activities
-                    </h4>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                        <div class="flex items-center gap-2.5 text-xs sm:text-sm text-[#1A2839]">
-                            <i class="fa-solid fa-person-swimming text-[#DE9E36] w-4 text-center"></i>
-                            <span>Scuba with Temple Adventures</span>
+                <!-- Recommended Cafes & Dining in Pondicherry -->
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-utensils text-[#DE9E36] text-sm"></i>
+                            <h4 class="font-brand-serif text-sm sm:text-base font-bold text-[#1A2839]">
+                                Recommended Cafes & Dining in Pondicherry
+                            </h4>
                         </div>
-                        <div class="flex items-center gap-2.5 text-xs sm:text-sm text-[#1A2839]">
-                            <i class="fa-solid fa-motorcycle text-[#DE9E36] w-4 text-center"></i>
-                            <span>Ride Around French Town</span>
+                        <a href="./Photos.php" class="text-xs font-semibold text-[#DE9E36] hover:text-[#b88028] flex items-center gap-1 no-underline transition-colors">
+                            <span>View All</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-5 gap-2 sm:gap-2.5">
+                        <!-- Indian Coffee House -->
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
+                                <img src="./assect/images/cafe_indian_coffee_house.jpg" alt="Indian Coffee House" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                            </div>
+                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Indian Coffee House</span>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-2.5 text-xs sm:text-sm text-[#1A2839]">
-                            <i class="fa-solid fa-ship text-[#DE9E36] w-4 text-center"></i>
-                            <span>Paradise Island Boat Ride</span>
+
+                        <!-- Surguru -->
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
+                                <img src="./assect/images/cafe_surguru.jpg" alt="Surguru" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                            </div>
+                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Surguru</span>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-2.5 text-xs sm:text-sm text-[#1A2839]">
-                            <i class="fa-solid fa-tree text-[#DE9E36] w-4 text-center"></i>
-                            <span>Mangrove Forest Boating</span>
+
+                        <!-- Baker's Street -->
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
+                                <img src="./assect/images/cafe_bakers_street.jpg" alt="Baker's Street" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                            </div>
+                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Baker's Street</span>
+                            </div>
+                        </div>
+
+                        <!-- Coromandel Café -->
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
+                                <img src="./assect/images/cafe_coromandel.jpg" alt="Coromandel Café" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                            </div>
+                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Coromandel Café</span>
+                            </div>
+                        </div>
+
+                        <!-- Hotel Kamatchi Mess -->
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#ECE5D8] bg-gray-100 shadow-2xs">
+                                <img src="./assect/images/cafe_kamatchi_mess.jpg" alt="Hotel Kamatchi Mess" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                            </div>
+                            <div class="w-full mt-1.5 py-1 px-1 bg-white rounded-lg border border-[#ECE5D8] shadow-2xs">
+                                <span class="text-[10px] sm:text-[11px] font-semibold text-[#1A2839] truncate block leading-tight">Hotel Kamatchi Mess</span>
+                            </div>
                         </div>
                     </div>
                 </div>
