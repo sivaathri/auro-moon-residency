@@ -37,6 +37,25 @@
 
 
     <style>
+      /* Custom Sleek Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(222, 158, 54, 0.45);
+        border-radius: 9999px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #DE9E36;
+      }
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(222, 158, 54, 0.45) transparent;
+      }
+
       .hero-bg-slide {
         position: absolute;
         inset: 0;
@@ -321,7 +340,7 @@
 <body style="background-color:#fff;">
     <?php include('navbar.php') ?>
     <!-- Exact Auro Moon Residency Hero Section -->
-    <section id="home" class="relative w-full h-[calc(100vh-80px)] min-h-[760px] flex items-center overflow-hidden font-brand-sans" style="height: calc(100vh - 80px); height: calc(100dvh - 80px);">
+    <section id="home" class="relative w-full flex items-center overflow-hidden font-brand-sans" style="height: calc(100vh - 80px); height: calc(100dvh - 80px); max-height: calc(100vh - 80px);">
         <!-- Background Image Container -->
         <div id="heroBgContainer" class="absolute inset-0 overflow-hidden pointer-events-none">
             <div id="heroSlide0" class="hero-bg-slide" style="background-image: url('./assect/images/herobg2.png'); transform: translateX(0%) translateZ(0);"></div>
