@@ -54,7 +54,7 @@ $statement->execute();
                         <div class="col-md-4" style="align-self: center; color:darkslategray;">
                             <div class=" fs-4 fw-bold"><span><?php echo $row['name']; ?></span></div>
                             <div class="fw-bold" data-bs-toggle="tooltip" title="MOBILE NUMBER!"><?php echo $row['mobnumber']; ?></div>
-                            <div class="fs-5 fw-bold" data-bs-toggle="tooltip" title="AAHAR NUMBER!"><?php echo $row['aadhrno']; ?></div>
+                            <div class="fs-5 fw-bold" data-bs-toggle="tooltip" title="AADHAR NUMBER!"><?php echo $row['aadhrno']; ?></div>
                             <?php if (!empty($row['aadhaar_pdf'])): ?>
                                 <a href="<?php echo htmlspecialchars($row['aadhaar_pdf']); ?>" target="_blank" style="display:inline-block;">
                                     <img src="assect/logo/pdf-icon.png" alt="PDF" style="width:48px; height:48px; vertical-align:middle;">
