@@ -7,8 +7,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 /* font-family: 'Permanent Marker', cursive; */
 
-body {
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
     background-color: #fff;
+    -webkit-text-size-adjust: 100%;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 .text-green {

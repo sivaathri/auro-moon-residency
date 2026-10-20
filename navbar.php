@@ -40,18 +40,18 @@ $isCalendar = ($currentPage === 'Calendar.php');
 </style>
 
 <header class="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-[0_2px_15px_rgba(0,0,0,0.04)] font-brand-sans">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
             <!-- Brand Logo -->
-            <a href="./" class="flex items-center gap-3 group no-underline">
-                <div class="w-12 h-12 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+            <a href="./" class="flex items-center gap-2.5 sm:gap-3 group no-underline">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
                     <img src="./assect/logo/auro_moon_logo.png" alt="Auro Moon Logo" class="w-full h-full object-contain" />
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-brand-serif text-2xl md:text-[26px] font-bold italic text-[#1A2839] tracking-tight leading-none">
+                    <span class="font-brand-serif text-xl sm:text-2xl md:text-[26px] font-bold italic text-[#1A2839] tracking-tight leading-none">
                         Auro Moon
                     </span>
-                    <span class="text-[9.5px] uppercase font-semibold text-[#1A2839] tracking-[0.28em] mt-1 leading-none">
+                    <span class="text-[8.5px] sm:text-[9.5px] uppercase font-semibold text-[#1A2839] tracking-[0.28em] mt-1 leading-none">
                         RESIDENCY
                     </span>
                 </div>
@@ -117,7 +117,7 @@ $isCalendar = ($currentPage === 'Calendar.php');
     <div id="mobileMenuOverlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
 
     <!-- Mobile Drawer -->
-    <div id="mobileMenu" class="fixed top-0 right-0 w-[290px] max-w-[85vw] h-full bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between p-6">
+    <div id="mobileMenu" class="fixed top-0 right-0 w-[290px] max-w-[85vw] h-full bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between p-6 overflow-y-auto">
         <div>
             <!-- Header -->
             <div class="flex items-center justify-between pb-5 border-b border-gray-100">

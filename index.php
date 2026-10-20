@@ -340,7 +340,7 @@
 <body style="background-color:#fff;">
     <?php include('navbar.php') ?>
     <!-- Exact Auro Moon Residency Hero Section -->
-    <section id="home" class="relative w-full flex items-center overflow-hidden font-brand-sans" style="height: calc(100vh - 80px); height: calc(100dvh - 80px); max-height: calc(100vh - 80px);">
+    <section id="home" class="relative w-full flex items-center overflow-hidden font-brand-sans min-h-[580px] sm:min-h-[640px] lg:h-[calc(100vh-80px)] lg:min-h-[720px] py-12 lg:py-0">
         <!-- Background Image Container -->
         <div id="heroBgContainer" class="absolute inset-0 overflow-hidden pointer-events-none">
             <div id="heroSlide0" class="hero-bg-slide" style="background-image: url('./assect/images/herobg3.png'); transform: translateX(0%) translateZ(0);"></div>
@@ -350,25 +350,25 @@
 
 
         <!-- Main Hero Overlay Content -->
-        <div class="relative z-10 w-full px-6 sm:px-10 md:px-14 lg:px-36 py-10">
+        <div class="relative z-10 w-full px-4 sm:px-8 md:px-14 lg:px-24 xl:px-36 py-6 sm:py-10">
             <div class="max-w-2xl text-left">
                 <!-- Eyebrow Subtitle -->
-                <p class="text-[#E8C782] text-xs sm:text-sm font-semibold tracking-[0.24em] uppercase mb-3.5 select-none font-brand-sans">
+                <p class="text-[#E8C782] text-xs sm:text-sm font-semibold tracking-[0.24em] uppercase mb-2.5 sm:mb-3.5 select-none font-brand-sans">
                     A PEACEFUL HOMESTAY IN
                 </p>
 
                 <!-- Hero Title -->
-                <h1 class="font-brand-serif text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-normal text-white leading-[1.08] mb-4 drop-shadow-[0_2px_14px_rgba(0,0,0,0.4)] select-none">
+                <h1 class="font-brand-serif text-3xl min-[400px]:text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-normal text-white leading-[1.1] sm:leading-[1.08] mb-3 sm:mb-4 drop-shadow-[0_2px_14px_rgba(0,0,0,0.4)] select-none">
                     Auro Moon<br>Residency
                 </h1>
 
                 <!-- Tagline -->
-                <p class="font-brand-serif text-xl sm:text-2xl text-white/95 font-light leading-snug mb-8 max-w-xl">
+                <p class="font-brand-serif text-lg sm:text-xl md:text-2xl text-white/95 font-light leading-snug mb-6 sm:mb-8 max-w-xl">
                     Feel at Home in the Heart of Pondicherry
                 </p>
 
                 <!-- 3 Feature Badges -->
-                <div class="flex items-center gap-6 sm:gap-9 mb-9 flex-wrap select-none">
+                <div class="flex items-center gap-4 sm:gap-7 md:gap-9 mb-7 sm:mb-9 flex-wrap select-none">
                     <!-- Entire Property -->
                     <div class="flex items-center gap-3">
                         <div class="w-8 h-8 flex-shrink-0 flex items-center justify-center">
@@ -890,7 +890,7 @@ if (!function_exists('getHighResImg')) {
                         </a>
                     </div>
 
-                    <div class="grid grid-cols-5 gap-2 sm:gap-2.5">
+                    <div class="grid grid-cols-2 min-[460px]:grid-cols-3 md:grid-cols-5 lg:grid-cols-3 xl:grid-cols-5 gap-2 sm:gap-2.5">
                         <!-- Matrimandir -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
@@ -963,7 +963,7 @@ if (!function_exists('getHighResImg')) {
                         </a>
                     </div>
 
-                    <div class="grid grid-cols-5 gap-2 sm:gap-2.5">
+                    <div class="grid grid-cols-2 min-[460px]:grid-cols-3 md:grid-cols-5 lg:grid-cols-3 xl:grid-cols-5 gap-2 sm:gap-2.5">
                         <!-- Auroville Bakery -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
@@ -1076,7 +1076,7 @@ if (!function_exists('getHighResImg')) {
                         </a>
                     </div>
 
-                    <div class="grid grid-cols-5 gap-2 sm:gap-2.5">
+                    <div class="grid grid-cols-2 min-[460px]:grid-cols-3 md:grid-cols-5 lg:grid-cols-3 xl:grid-cols-5 gap-2 sm:gap-2.5">
                         <!-- Promenade Beach -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
@@ -1149,7 +1149,7 @@ if (!function_exists('getHighResImg')) {
                         </a>
                     </div>
 
-                    <div class="grid grid-cols-5 gap-2 sm:gap-2.5">
+                    <div class="grid grid-cols-2 min-[460px]:grid-cols-3 md:grid-cols-5 lg:grid-cols-3 xl:grid-cols-5 gap-2 sm:gap-2.5">
                         <!-- Indian Coffee House -->
                         <a href="./Photos.php" class="group flex flex-col rounded-xl overflow-hidden border border-gray-200/90 bg-white shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 no-underline">
                             <div class="w-full aspect-[16/10] overflow-hidden bg-gray-100">
