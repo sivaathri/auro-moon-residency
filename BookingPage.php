@@ -242,48 +242,48 @@ if (isset($_POST['submit'])) {
     </style>
 </head>
 
-<body class="bg-[#FBF8F3] font-brand-sans text-[#142132] antialiased min-h-screen flex flex-col">
+<body class="bg-[#FAF6F1] font-brand-sans text-[#142132] antialiased min-h-screen flex flex-col">
     <?php include('navbar.php') ?>
 
     <!-- Master Panoramic Booking Section (Exact Reference Mockup Layout) -->
-    <main class="relative flex-1 w-full overflow-hidden bg-[#FBF8F3]">
+    <main class="relative flex-1 w-full overflow-hidden bg-[#FAF6F1] flex flex-col justify-between">
         
         <!-- Left Background Villa Terrace Photo (Desktop) -->
-        <div class="absolute inset-y-0 left-0 w-full lg:w-[58%] xl:w-[56%] bg-cover bg-left lg:bg-center bg-no-repeat pointer-events-none z-0" style="background-image: url('./assect/images/booking_terrace_bg.jpg');">
+        <div class="absolute inset-y-0 left-0 w-full lg:w-[60%] xl:w-[57%] bg-cover bg-left lg:bg-center bg-no-repeat pointer-events-none z-0" style="background-image: url('./assect/images/booking_terrace_bg.jpg');">
             <!-- Organic Right Fade into Ivory Background -->
-            <div class="absolute inset-y-0 right-0 w-36 lg:w-48 bg-gradient-to-r from-transparent to-[#FBF8F3] hidden lg:block"></div>
+            <div class="absolute inset-y-0 right-0 w-44 lg:w-64 bg-gradient-to-r from-transparent via-[#FAF6F1]/70 to-[#FAF6F1] hidden lg:block"></div>
             <!-- Top Fade -->
-            <div class="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#FBF8F3]/90 via-[#FBF8F3]/40 to-transparent hidden lg:block"></div>
-            <!-- Bottom Fade -->
-            <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#FBF8F3] via-[#FBF8F3]/60 to-transparent hidden lg:block"></div>
+            <div class="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#FAF6F1]/80 to-transparent hidden lg:block"></div>
+            <!-- Bottom Fade into bottom bar -->
+            <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#FAF6F1] to-transparent hidden lg:block"></div>
             <!-- Mobile Backdrop Overlay for legibility -->
-            <div class="absolute inset-0 bg-[#FBF8F3]/85 lg:hidden block"></div>
+            <div class="absolute inset-0 bg-[#FAF6F1]/85 lg:hidden block"></div>
         </div>
 
         <!-- Foreground Content Container -->
-        <div class="relative z-10 w-full max-w-[1650px] 2xl:max-w-[1740px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-14 py-8 sm:py-12 lg:py-14">
+        <div class="relative z-10 w-full max-w-[1580px] 2xl:max-w-[1680px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-14 pt-8 sm:pt-10 lg:pt-12 pb-10 sm:pb-12">
             
-            <div class="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-10 lg:gap-10 xl:gap-16">
+            <div class="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-10 lg:gap-10 xl:gap-14">
                 
                 <!-- ===================== LEFT SIDE: EDITORIAL HERO & TRUST BADGES ===================== -->
-                <div class="w-full lg:w-[48%] xl:w-[46%] pt-2 lg:pt-6">
+                <div class="w-full lg:w-[48%] xl:w-[46%] pt-2 lg:pt-5">
                     
                     <!-- Kicker: PLAN YOUR GETAWAY with gold bar -->
-                    <div class="flex items-center gap-3 mb-3 sm:mb-4">
-                        <span class="text-[#B88028] text-xs sm:text-[13px] font-bold tracking-[0.24em] uppercase select-none">
+                    <div class="flex items-center gap-3 mb-3.5 sm:mb-4">
+                        <span class="text-[#AA6F21] text-xs sm:text-[13px] font-bold tracking-[0.24em] uppercase select-none">
                             PLAN YOUR GETAWAY
                         </span>
-                        <span class="w-12 h-[2px] bg-[#B88028] rounded-full"></span>
+                        <span class="w-12 h-[1.5px] bg-[#AA6F21] rounded-full"></span>
                     </div>
 
                     <!-- Main Hero Title -->
-                    <h1 class="font-brand-serif text-4xl sm:text-5xl md:text-6xl lg:text-[62px] xl:text-[68px] font-bold text-[#14233C] leading-[1.08] mb-4 sm:mb-5 tracking-tight">
+                    <h1 class="font-brand-serif text-4xl sm:text-5xl md:text-6xl lg:text-[60px] xl:text-[66px] font-bold text-[#112A24] leading-[1.08] mb-4 sm:mb-5 tracking-tight">
                         Reserve Your<br>
-                        <span class="text-[#C59239]">Peaceful Stay</span>
+                        <span class="text-[#AA6F21]">Peaceful Stay</span>
                     </h1>
 
                     <!-- Description -->
-                    <p class="text-[#4E5C6E] text-base sm:text-lg leading-relaxed max-w-xl mb-8 sm:mb-10 font-normal">
+                    <p class="text-[#556370] text-sm sm:text-base leading-relaxed max-w-lg mb-8 sm:mb-10 font-normal">
                         A serene homestay near Auroville, surrounded by nature, comfort and calm. Book your stay and experience the beauty of Pondicherry at Auro Moon Residency.
                     </p>
 
@@ -292,38 +292,38 @@ if (isset($_POST['submit'])) {
                         
                         <!-- Badge 1: Calm Surroundings -->
                         <div class="flex items-center gap-3">
-                            <div class="w-11 h-11 rounded-full bg-[#FAF3E7] border border-[#EEDBBA] text-[#C59239] flex items-center justify-center flex-shrink-0 shadow-xs">
-                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <div class="w-11 h-11 rounded-full bg-[#F3ECE0] border border-[#E6DAC8] text-[#AA6F21] flex items-center justify-center flex-shrink-0 shadow-xs">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
                                     <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
                                 </svg>
                             </div>
-                            <div class="text-[#14233C] text-xs sm:text-sm font-bold leading-tight font-brand-sans">
+                            <div class="text-[#1B2A36] text-xs sm:text-[13px] font-bold leading-tight font-brand-sans">
                                 Calm<br>Surroundings
                             </div>
                         </div>
 
                         <!-- Badge 2: Clean & Comfortable -->
                         <div class="flex items-center gap-3">
-                            <div class="w-11 h-11 rounded-full bg-[#FAF3E7] border border-[#EEDBBA] text-[#C59239] flex items-center justify-center flex-shrink-0 shadow-xs">
-                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <div class="w-11 h-11 rounded-full bg-[#F3ECE0] border border-[#E6DAC8] text-[#AA6F21] flex items-center justify-center flex-shrink-0 shadow-xs">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M12 3a9 9 0 0 0 0 18c4.97 0 9-4.03 9-9 0-4.97-4.03-9-9-9Z"/>
                                     <path d="M12 7c-2 2-3 4-3 5a3 3 0 0 0 6 0c0-1-1-3-3-5Z"/>
                                 </svg>
                             </div>
-                            <div class="text-[#14233C] text-xs sm:text-sm font-bold leading-tight font-brand-sans">
+                            <div class="text-[#1B2A36] text-xs sm:text-[13px] font-bold leading-tight font-brand-sans">
                                 Clean &amp;<br>Comfortable
                             </div>
                         </div>
 
                         <!-- Badge 3: A Memorable Stay Experience -->
                         <div class="flex items-center gap-3">
-                            <div class="w-11 h-11 rounded-full bg-[#FAF3E7] border border-[#EEDBBA] text-[#C59239] flex items-center justify-center flex-shrink-0 shadow-xs">
-                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <div class="w-11 h-11 rounded-full bg-[#F3ECE0] border border-[#E6DAC8] text-[#AA6F21] flex items-center justify-center flex-shrink-0 shadow-xs">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
                                 </svg>
                             </div>
-                            <div class="text-[#14233C] text-xs sm:text-sm font-bold leading-tight font-brand-sans">
+                            <div class="text-[#1B2A36] text-xs sm:text-[13px] font-bold leading-tight font-brand-sans">
                                 A Memorable<br>Stay Experience
                             </div>
                         </div>
@@ -333,25 +333,28 @@ if (isset($_POST['submit'])) {
                 </div>
 
                 <!-- ===================== RIGHT SIDE: THE EXACT FLOATING BOOKING FORM CARD ===================== -->
-                <div class="w-full lg:w-[540px] xl:w-[580px] 2xl:w-[610px] flex-shrink-0">
-                    <div class="bg-white rounded-3xl p-6 sm:p-8 lg:p-9 shadow-[0_22px_60px_rgba(20,35,60,0.08)] border border-[#ECE5D8] relative z-20">
+                <div class="w-full lg:w-[530px] xl:w-[570px] 2xl:w-[600px] flex-shrink-0">
+                    <div class="bg-white rounded-[26px] p-6 sm:p-7 lg:p-8 shadow-[0_20px_55px_rgba(20,35,50,0.07)] border border-[#ECE6DC] relative z-20">
                         
-                        <!-- Card Header Row -->
-                        <div class="flex items-start justify-between pb-6 mb-6 border-b border-gray-100 gap-4">
+                        <!-- Card Header Row (Clean without dividing line) -->
+                        <div class="flex items-center justify-between pb-5 mb-1 gap-4">
                             <!-- Left Title -->
                             <div>
-                                <h2 class="font-brand-serif text-3xl sm:text-[34px] font-bold text-[#14233C] leading-none tracking-tight">
+                                <h2 class="font-brand-serif text-3xl sm:text-[33px] font-bold text-[#112A24] leading-tight tracking-tight">
                                     Booking Form
                                 </h2>
                             </div>
                             <!-- Right Golden Leaf & Caption -->
                             <div class="flex items-center gap-2.5 text-right flex-shrink-0">
-                                <div class="w-8 h-8 rounded-full bg-[#FAF3E7] flex items-center justify-center text-[#DEAA52]">
-                                    <i class="fa-solid fa-leaf text-sm"></i>
+                                <div class="text-[#AA6F21]">
+                                    <svg class="w-6 h-6 sm:w-7 sm:h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+                                    </svg>
                                 </div>
-                                <div class="text-[11px] sm:text-xs text-[#5D6B78] leading-tight text-left">
+                                <div class="text-[11px] sm:text-xs text-[#697887] leading-tight text-left">
                                     Your peaceful stay<br>
-                                    <span class="text-[#14233C] font-semibold">is just a few details away</span>
+                                    <span class="text-[#1B2A36] font-medium">is just a few details away</span>
                                 </div>
                             </div>
                         </div>
@@ -364,7 +367,7 @@ if (isset($_POST['submit'])) {
                             <input type="hidden" name="notes" id="notes" value="Rooms are Booked">
 
                             <!-- Row 1: Full Name & Mobile Number -->
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-3.5">
                                 <!-- Full Name -->
                                 <div>
                                     <label for="name" class="block text-xs font-bold text-[#1E2C3F] mb-1.5">
@@ -372,7 +375,7 @@ if (isset($_POST['submit'])) {
                                     </label>
                                     <div class="relative">
                                         <i class="fa-regular fa-user absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
-                                        <input type="text" id="name" name="name" required placeholder="Enter your full name" pattern="^[A-Za-z ]+$" class="booking-input w-full pl-9 pr-3.5 py-3 rounded-xl border border-gray-200 bg-white text-xs sm:text-sm text-[#14233C] placeholder-gray-400 transition-all duration-200" />
+                                        <input type="text" id="name" name="name" required placeholder="Enter your full name" pattern="^[A-Za-z ]+$" class="booking-input w-full pl-9 pr-3.5 py-2.5 sm:py-3 rounded-xl border border-[#DFE4EA] bg-white text-xs sm:text-sm text-[#14233C] placeholder-gray-400 transition-all duration-200" />
                                     </div>
                                     <small class="invalid-feedback text-xs text-red-500 hidden mt-1">Please enter your Name correctly (letters only).</small>
                                 </div>
@@ -384,14 +387,14 @@ if (isset($_POST['submit'])) {
                                     </label>
                                     <div class="relative">
                                         <i class="fa-solid fa-phone absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
-                                        <input type="tel" id="mob" name="mobnumber" required placeholder="Enter mobile number" pattern="[6-9]{1}[0-9]{9}" class="booking-input w-full pl-9 pr-3.5 py-3 rounded-xl border border-gray-200 bg-white text-xs sm:text-sm text-[#14233C] placeholder-gray-400 transition-all duration-200" />
+                                        <input type="tel" id="mob" name="mobnumber" required placeholder="Enter mobile number" pattern="[6-9]{1}[0-9]{9}" class="booking-input w-full pl-9 pr-3.5 py-2.5 sm:py-3 rounded-xl border border-[#DFE4EA] bg-white text-xs sm:text-sm text-[#14233C] placeholder-gray-400 transition-all duration-200" />
                                     </div>
                                     <small class="invalid-feedback text-xs text-red-500 hidden mt-1">Please enter a valid 10-digit mobile number.</small>
                                 </div>
                             </div>
 
                             <!-- Row 2: Email Address & Guests -->
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-3.5">
                                 <!-- Email Address -->
                                 <div>
                                     <label for="email" class="block text-xs font-bold text-[#1E2C3F] mb-1.5">
@@ -399,7 +402,7 @@ if (isset($_POST['submit'])) {
                                     </label>
                                     <div class="relative">
                                         <i class="fa-regular fa-envelope absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
-                                        <input type="email" id="email" name="email" required placeholder="Enter your email address" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$" class="booking-input w-full pl-9 pr-3.5 py-3 rounded-xl border border-gray-200 bg-white text-xs sm:text-sm text-[#14233C] placeholder-gray-400 transition-all duration-200" />
+                                        <input type="email" id="email" name="email" required placeholder="Enter your email address" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$" class="booking-input w-full pl-9 pr-3.5 py-2.5 sm:py-3 rounded-xl border border-[#DFE4EA] bg-white text-xs sm:text-sm text-[#14233C] placeholder-gray-400 transition-all duration-200" />
                                     </div>
                                     <small class="invalid-feedback text-xs text-red-500 hidden mt-1">Please enter a valid Email ending with .com</small>
                                 </div>
@@ -411,7 +414,7 @@ if (isset($_POST['submit'])) {
                                     </label>
                                     <div class="relative">
                                         <i class="fa-solid fa-users absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
-                                        <select id="guests" name="guests" required class="booking-input w-full pl-9 pr-8 py-3 rounded-xl border border-gray-200 bg-white text-xs sm:text-sm text-[#14233C] transition-all duration-200 appearance-none cursor-pointer">
+                                        <select id="guests" name="guests" required class="booking-input w-full pl-9 pr-8 py-2.5 sm:py-3 rounded-xl border border-[#DFE4EA] bg-white text-xs sm:text-sm text-[#14233C] transition-all duration-200 appearance-none cursor-pointer">
                                             <option value="" disabled selected>Select number of guests</option>
                                             <option value="1-2 Guests">1 - 2 Guests</option>
                                             <option value="3-4 Guests">3 - 4 Guests</option>
@@ -426,7 +429,7 @@ if (isset($_POST['submit'])) {
                             </div>
 
                             <!-- Row 3: Check-In & Check-Out -->
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-3.5">
                                 <!-- Check-In -->
                                 <div>
                                     <label for="check-in" class="block text-xs font-bold text-[#1E2C3F] mb-1.5">
@@ -434,7 +437,7 @@ if (isset($_POST['submit'])) {
                                     </label>
                                     <div class="relative">
                                         <i class="fa-regular fa-calendar absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
-                                        <input type="text" id="check-in" name="checkin" required placeholder="Select check-in date" autocomplete="off" class="checkInDate booking-input w-full pl-9 pr-9 py-3 rounded-xl border border-gray-200 bg-white text-xs sm:text-sm text-[#14233C] placeholder-gray-400 transition-all duration-200 cursor-pointer" />
+                                        <input type="text" id="check-in" name="checkin" required placeholder="Select check-in date" autocomplete="off" class="checkInDate booking-input w-full pl-9 pr-9 py-2.5 sm:py-3 rounded-xl border border-[#DFE4EA] bg-white text-xs sm:text-sm text-[#14233C] placeholder-gray-400 transition-all duration-200 cursor-pointer" />
                                         <i class="fa-regular fa-calendar-days absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
                                     </div>
                                     <small class="invalid-feedback text-xs text-red-500 hidden mt-1">Please select a Check-In date.</small>
@@ -447,7 +450,7 @@ if (isset($_POST['submit'])) {
                                     </label>
                                     <div class="relative">
                                         <i class="fa-regular fa-calendar absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
-                                        <input type="text" id="check-out" name="checkout" required placeholder="Select check-out date" autocomplete="off" class="checkOutDate booking-input w-full pl-9 pr-9 py-3 rounded-xl border border-gray-200 bg-white text-xs sm:text-sm text-[#14233C] placeholder-gray-400 transition-all duration-200 cursor-pointer" />
+                                        <input type="text" id="check-out" name="checkout" required placeholder="Select check-out date" autocomplete="off" class="checkOutDate booking-input w-full pl-9 pr-9 py-2.5 sm:py-3 rounded-xl border border-[#DFE4EA] bg-white text-xs sm:text-sm text-[#14233C] placeholder-gray-400 transition-all duration-200 cursor-pointer" />
                                         <i class="fa-regular fa-calendar-days absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
                                     </div>
                                     <small class="invalid-feedback text-xs text-red-500 hidden mt-1">Please select a Check-Out date.</small>
@@ -460,19 +463,19 @@ if (isset($_POST['submit'])) {
                                     Identity Document (PDF) <span class="text-red-500">*</span>
                                 </label>
                                 
-                                <div id="dropZone" class="relative border-2 border-dashed border-gray-200 hover:border-[#16443C] bg-[#FAFAFA] hover:bg-[#F6FAF8] rounded-2xl p-5 text-center transition-all duration-200 cursor-pointer group">
+                                <div id="dropZone" class="relative border border-dashed border-[#D1D8E0] hover:border-[#194643] bg-[#FBFBFC] hover:bg-[#F4F8F6] rounded-2xl p-4 sm:p-5 text-center transition-all duration-200 cursor-pointer group">
                                     <input type="file" id="aad_pdf" name="aad_pdf" accept="application/pdf" required class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
                                     
                                     <div class="flex items-center justify-center gap-4 text-left pointer-events-none">
-                                        <!-- Soft green tinted circle with cloud upload icon -->
-                                        <div class="w-12 h-12 rounded-full bg-[#E5EFE9] text-[#16443C] flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-105 transition-transform duration-200 shadow-2xs">
+                                        <!-- Soft green circular badge with cloud upload icon -->
+                                        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#E3ECE7] text-[#194643] flex items-center justify-center text-lg sm:text-xl flex-shrink-0 group-hover:scale-105 transition-transform duration-200 shadow-2xs">
                                             <i class="fa-solid fa-cloud-arrow-up"></i>
                                         </div>
                                         <div>
                                             <div class="text-xs sm:text-[13px] text-[#14233C]">
-                                                <span class="font-bold text-[#14233C] underline underline-offset-2">Click to upload</span> or <span class="font-semibold text-gray-600">drag and drop</span>
+                                                <span class="font-bold text-[#14233C] underline underline-offset-2">Click to upload</span> <span class="font-semibold text-gray-500">or drag and drop</span>
                                             </div>
-                                            <div class="text-[11px] text-[#6F7D8C] mt-0.5">
+                                            <div class="text-[11.5px] text-[#697887] mt-0.5">
                                                 Aadhaar, Driving Licence, Passport, PAN or Voter ID
                                             </div>
                                             <div class="text-[10px] text-gray-400 mt-0.5 font-medium">
@@ -482,7 +485,7 @@ if (isset($_POST['submit'])) {
                                     </div>
 
                                     <!-- Uploaded File Badge (Reveals dynamically) -->
-                                    <div id="fileInfoBadge" class="hidden mt-3 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF5EF] border border-[#BCE2CD] text-[#16443C] text-xs font-semibold">
+                                    <div id="fileInfoBadge" class="hidden mt-3 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF5EF] border border-[#BCE2CD] text-[#194643] text-xs font-semibold">
                                         <i class="fa-solid fa-circle-check text-green-600"></i>
                                         <span id="fileNameLabel" class="truncate max-w-[240px]">Document Selected</span>
                                     </div>
@@ -491,15 +494,15 @@ if (isset($_POST['submit'])) {
                             </div>
 
                             <!-- Security Assurance Note -->
-                            <div class="flex items-center gap-2 mb-6">
-                                <i class="fa-solid fa-circle-check text-[#16443C] text-sm flex-shrink-0"></i>
-                                <span class="text-[11.5px] text-[#526071] font-medium leading-tight">
+                            <div class="flex items-center gap-2 mb-5">
+                                <i class="fa-solid fa-circle-check text-[#194643] text-sm flex-shrink-0"></i>
+                                <span class="text-[11px] sm:text-[11.5px] text-[#556372] font-medium leading-tight">
                                     Your documents are secure and will only be used for booking verification.
                                 </span>
                             </div>
 
                             <!-- Submit Button -->
-                            <button type="submit" name="submit" class="w-full py-4 rounded-xl bg-[#16443C] hover:bg-[#10342E] text-white font-bold text-sm sm:text-base shadow-[0_6px_20px_rgba(22,68,60,0.3)] hover:shadow-[0_10px_28px_rgba(22,68,60,0.45)] hover:-translate-y-0.5 transition-all duration-200 cursor-pointer border-0 flex items-center justify-center gap-2.5">
+                            <button type="submit" name="submit" class="w-full py-3.5 sm:py-4 rounded-xl bg-[#194643] hover:bg-[#123533] text-white font-bold text-sm sm:text-[15px] shadow-[0_8px_22px_rgba(25,70,67,0.3)] hover:shadow-[0_12px_28px_rgba(25,70,67,0.45)] hover:-translate-y-0.5 transition-all duration-200 cursor-pointer border-0 flex items-center justify-center gap-2.5">
                                 <span>Confirm Booking Request</span>
                                 <i class="fa-solid fa-arrow-right text-xs"></i>
                             </button>
@@ -510,53 +513,55 @@ if (isset($_POST['submit'])) {
 
             </div>
 
-            <!-- ===================== BOTTOM TRUST BAR ===================== -->
-            <div class="mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-[#ECE5D8] grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto relative z-10">
+        </div>
+
+        <!-- Delicate Botanical Foliage Illustration Watermark (Bottom Right) -->
+        <div class="absolute bottom-16 right-0 w-64 sm:w-80 pointer-events-none z-0 opacity-25 select-none hidden sm:block">
+            <svg viewBox="0 0 300 300" fill="none" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 300 300 C 240 220 180 160 80 140 C 130 180 200 240 300 300 Z" fill="#AA6F21" />
+                <path d="M 280 230 C 230 170 170 120 70 100 C 120 140 190 200 280 230 Z" fill="#AA6F21" opacity="0.7" />
+                <path d="M 240 180 C 200 130 150 90 60 70 C 110 110 170 160 240 180 Z" fill="#AA6F21" opacity="0.5" />
+            </svg>
+        </div>
+
+        <!-- ===================== FULL-WIDTH DEDICATED BOTTOM TRUST STRIP ===================== -->
+        <div class="w-full bg-[#F2EFE7] border-t border-[#E6E0D2] py-4 sm:py-5 px-4 sm:px-8 relative z-20">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-[#DED7C5]">
                 
                 <!-- Trust 1: Secure details -->
-                <div class="flex items-center gap-3.5">
-                    <div class="w-11 h-11 rounded-full bg-[#FAF3E7] text-[#C59239] flex items-center justify-center text-lg flex-shrink-0 shadow-2xs">
+                <div class="flex items-center gap-3.5 justify-start md:justify-center md:px-6">
+                    <div class="w-10 h-10 rounded-full bg-[#EAE3D5] text-[#AA6F21] flex items-center justify-center text-base flex-shrink-0">
                         <i class="fa-solid fa-shield-halved"></i>
                     </div>
                     <div>
-                        <h4 class="font-brand-serif text-base font-bold text-[#14233C]">Secure details</h4>
-                        <p class="text-xs text-[#6F7D8C] mt-0.5">Your information is safe with us</p>
+                        <h4 class="font-brand-serif text-sm sm:text-[15px] font-bold text-[#14233C] leading-snug">Secure details</h4>
+                        <p class="text-[11px] sm:text-xs text-[#697887]">Your information is safe with us</p>
                     </div>
                 </div>
 
                 <!-- Trust 2: Personal assistance -->
-                <div class="flex items-center gap-3.5 md:border-l md:border-[#ECE5D8] md:pl-8">
-                    <div class="w-11 h-11 rounded-full bg-[#FAF3E7] text-[#C59239] flex items-center justify-center text-lg flex-shrink-0 shadow-2xs">
+                <div class="flex items-center gap-3.5 justify-start md:justify-center md:px-6 pt-4 md:pt-0">
+                    <div class="w-10 h-10 rounded-full bg-[#EAE3D5] text-[#AA6F21] flex items-center justify-center text-base flex-shrink-0">
                         <i class="fa-solid fa-headphones"></i>
                     </div>
                     <div>
-                        <h4 class="font-brand-serif text-base font-bold text-[#14233C]">Personal assistance</h4>
-                        <p class="text-xs text-[#6F7D8C] mt-0.5">We're here to help you</p>
+                        <h4 class="font-brand-serif text-sm sm:text-[15px] font-bold text-[#14233C] leading-snug">Personal assistance</h4>
+                        <p class="text-[11px] sm:text-xs text-[#697887]">We're here to help you</p>
                     </div>
                 </div>
 
                 <!-- Trust 3: Peaceful stay -->
-                <div class="flex items-center gap-3.5 md:border-l md:border-[#ECE5D8] md:pl-8">
-                    <div class="w-11 h-11 rounded-full bg-[#FAF3E7] text-[#C59239] flex items-center justify-center text-lg flex-shrink-0 shadow-2xs">
+                <div class="flex items-center gap-3.5 justify-start md:justify-center md:px-6 pt-4 md:pt-0">
+                    <div class="w-10 h-10 rounded-full bg-[#EAE3D5] text-[#AA6F21] flex items-center justify-center text-base flex-shrink-0">
                         <i class="fa-solid fa-spa"></i>
                     </div>
                     <div>
-                        <h4 class="font-brand-serif text-base font-bold text-[#14233C]">Peaceful stay</h4>
-                        <p class="text-xs text-[#6F7D8C] mt-0.5">A calm and memorable experience</p>
+                        <h4 class="font-brand-serif text-sm sm:text-[15px] font-bold text-[#14233C] leading-snug">Peaceful stay</h4>
+                        <p class="text-[11px] sm:text-xs text-[#697887]">A calm and memorable experience</p>
                     </div>
                 </div>
 
             </div>
-
-        </div>
-
-        <!-- Delicate Botanical Foliage Illustration Watermark (Bottom Right) -->
-        <div class="absolute bottom-0 right-0 w-64 sm:w-80 pointer-events-none z-0 opacity-20 select-none">
-            <svg viewBox="0 0 300 300" fill="none" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 300 300 C 240 220 180 160 80 140 C 130 180 200 240 300 300 Z" fill="#C59239" />
-                <path d="M 280 230 C 230 170 170 120 70 100 C 120 140 190 200 280 230 Z" fill="#C59239" opacity="0.7" />
-                <path d="M 240 180 C 200 130 150 90 60 70 C 110 110 170 160 240 180 Z" fill="#C59239" opacity="0.5" />
-            </svg>
         </div>
 
     </main>
