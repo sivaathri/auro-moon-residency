@@ -184,6 +184,31 @@ if (isset($_POST['submit'])) {
             -webkit-text-fill-color: transparent;
         }
 
+        /* Gold CTA Button - Prevent Bootstrap link hover blue override */
+        .gold-btn,
+        .gold-btn:link,
+        .gold-btn:visited {
+            background-color: #E5A93C !important;
+            color: #1e170d !important;
+            text-decoration: none !important;
+            transition: all 0.25s ease;
+        }
+        .gold-btn:hover,
+        .gold-btn:focus,
+        .gold-btn:active {
+            background-color: #d69829 !important;
+            color: #1e170d !important;
+            text-decoration: none !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(229, 169, 60, 0.35);
+        }
+        .gold-btn *,
+        .gold-btn:hover *,
+        .gold-btn:focus * {
+            color: #1e170d !important;
+            text-decoration: none !important;
+        }
+
         /* Push Left Editorial Column to the right into the open sunrise/cream area */
         @media (min-width: 1024px) {
             .hero-editorial-column {
