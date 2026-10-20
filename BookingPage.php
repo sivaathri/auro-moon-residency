@@ -261,7 +261,7 @@ if (isset($_POST['submit'])) {
         </div>
 
         <!-- Foreground Content Container -->
-        <div class="relative z-10 w-full max-w-[1580px] 2xl:max-w-[1680px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-14 pt-8 sm:pt-10 lg:pt-12 pb-10 sm:pb-12">
+        <div class="relative z-10 w-full max-w-[1640px] 2xl:max-w-[1720px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 pt-8 sm:pt-10 lg:pt-12 pb-10 sm:pb-12">
             
             <div class="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-10 lg:gap-10 xl:gap-14">
                 
