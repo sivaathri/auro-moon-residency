@@ -682,7 +682,7 @@
 
                 <!-- Book Your Stay CTA Button -->
                 <div class="flex-shrink-0">
-                    <a href="./BookingPage.php" class="inline-flex items-center gap-2.5 px-6 sm:px-7 py-2.5 sm:py-3 rounded-xl border-2 border-[#DE9E36] bg-transparent hover:bg-[#DE9E36] text-[#1A2839] hover:text-[#1a140c] font-semibold text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-300 no-underline group select-none">
+                    <a href="./BookingPage.php" class="amenities-book-btn inline-flex items-center gap-2.5 px-6 sm:px-7 py-2.5 sm:py-3 rounded-xl border-2 border-[#DE9E36] bg-transparent hover:bg-[#DE9E36] text-[#1A2839] hover:text-[#1a140c] font-semibold text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-300 no-underline group select-none">
                         <span>Book Your Stay</span>
                         <i class="fa-solid fa-arrow-right text-sm transition-transform duration-300 group-hover:translate-x-1"></i>
                     </a>
@@ -857,7 +857,7 @@ if (!function_exists('getHighResImg')) {
             </div>
 
             <div class="flex-shrink-0">
-                <a href="./BookingPage.php" class="inline-flex items-center gap-2.5 px-6 sm:px-7 py-2.5 sm:py-3 rounded-xl border-2 border-[#DE9E36] bg-transparent hover:bg-[#DE9E36] text-[#1A2839] hover:text-[#1a140c] font-semibold text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-300 no-underline group select-none">
+                <a href="./BookingPage.php" class="amenities-book-btn inline-flex items-center gap-2.5 px-6 sm:px-7 py-2.5 sm:py-3 rounded-xl border-2 border-[#DE9E36] bg-transparent hover:bg-[#DE9E36] text-[#1A2839] hover:text-[#1a140c] font-semibold text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-300 no-underline group select-none">
                     <span>Plan Your Trip</span>
                     <i class="fa-solid fa-arrow-right text-sm transition-transform duration-300 group-hover:translate-x-1"></i>
                 </a>

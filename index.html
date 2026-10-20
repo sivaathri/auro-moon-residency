@@ -356,6 +356,44 @@
         color: #1e170d !important;
         text-decoration: none !important;
     }
+
+    /* Stop Bootstrap a:hover from turning gold CTA buttons blue */
+    .hero-book-btn,
+    .hero-book-btn:link,
+    .hero-book-btn:visited,
+    .hero-book-btn:hover,
+    .hero-book-btn:focus,
+    .hero-book-btn:active,
+    .hero-book-btn *,
+    .hero-book-btn:hover *,
+    .hero-book-btn:focus * {
+        color: #ffffff !important;
+        text-decoration: none !important;
+    }
+    .about-book-btn,
+    .about-book-btn:link,
+    .about-book-btn:visited,
+    .about-book-btn:hover,
+    .about-book-btn:focus,
+    .about-book-btn:active,
+    .about-book-btn *,
+    .about-book-btn:hover * {
+        color: #1a140c !important;
+        text-decoration: none !important;
+    }
+    .amenities-book-btn,
+    .amenities-book-btn:link,
+    .amenities-book-btn:visited {
+        color: #1A2839 !important;
+        text-decoration: none !important;
+    }
+    .amenities-book-btn:hover,
+    .amenities-book-btn:focus,
+    .amenities-book-btn:active,
+    .amenities-book-btn:hover * {
+        color: #1a140c !important;
+        text-decoration: none !important;
+    }
 </style>
 
 <header class="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-[0_2px_15px_rgba(0,0,0,0.04)] font-brand-sans">
@@ -611,7 +649,7 @@
                 </div>
 
                 <!-- CTA Button -->
-                <a href="./BookingPage.php" class="inline-flex items-center gap-3 px-8 py-3.5 bg-[#E5A93C] hover:bg-[#d69829] text-[#FFFDF7] font-semibold text-base sm:text-lg rounded-xl shadow-[0_4px_20px_rgba(229,169,60,0.4)] hover:shadow-[0_6px_25px_rgba(229,169,60,0.55)] hover:-translate-y-0.5 transition-all duration-200 no-underline font-brand-sans group select-none">
+                <a href="./BookingPage.php" class="hero-book-btn inline-flex items-center gap-3 px-8 py-3.5 bg-[#E5A93C] hover:bg-[#d69829] text-[#FFFDF7] font-semibold text-base sm:text-lg rounded-xl shadow-[0_4px_20px_rgba(229,169,60,0.4)] hover:shadow-[0_6px_25px_rgba(229,169,60,0.55)] hover:-translate-y-0.5 transition-all duration-200 no-underline font-brand-sans group select-none">
                     <span>Book Your Stay</span>
                     <i class="fa-solid fa-arrow-right-long text-base transition-transform duration-200 group-hover:translate-x-1"></i>
                 </a>
@@ -732,7 +770,7 @@
                     </p>
 
                     <!-- CTA Button -->
-                    <a href="./BookingPage.php" class="inline-flex items-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-[#E5A93C] hover:bg-[#d69829] text-[#1a140c] font-semibold text-sm sm:text-base rounded-xl shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 no-underline font-brand-sans group select-none">
+                    <a href="./BookingPage.php" class="about-book-btn inline-flex items-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-[#E5A93C] hover:bg-[#d69829] text-[#1a140c] font-semibold text-sm sm:text-base rounded-xl shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 no-underline font-brand-sans group select-none">
                         <i class="fa-regular fa-calendar-days text-base"></i>
                         <span>Book Your Stay</span>
                         <i class="fa-solid fa-arrow-right-long text-sm transition-transform duration-200 group-hover:translate-x-1"></i>
@@ -847,7 +885,7 @@
 
                 <!-- Book Your Stay CTA Button -->
                 <div class="flex-shrink-0">
-                    <a href="./BookingPage.php" class="inline-flex items-center gap-2.5 px-6 sm:px-7 py-2.5 sm:py-3 rounded-xl border-2 border-[#DE9E36] bg-transparent hover:bg-[#DE9E36] text-[#1A2839] hover:text-[#1a140c] font-semibold text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-300 no-underline group select-none">
+                    <a href="./BookingPage.php" class="amenities-book-btn inline-flex items-center gap-2.5 px-6 sm:px-7 py-2.5 sm:py-3 rounded-xl border-2 border-[#DE9E36] bg-transparent hover:bg-[#DE9E36] text-[#1A2839] hover:text-[#1a140c] font-semibold text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-300 no-underline group select-none">
                         <span>Book Your Stay</span>
                         <i class="fa-solid fa-arrow-right text-sm transition-transform duration-300 group-hover:translate-x-1"></i>
                     </a>
