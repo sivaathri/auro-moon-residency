@@ -184,6 +184,14 @@ if (isset($_POST['submit'])) {
             -webkit-text-fill-color: transparent;
         }
 
+        /* Push Left Editorial Column to the right into the open sunrise/cream area */
+        @media (min-width: 1024px) {
+            .hero-editorial-column {
+                margin-left: auto !important;
+                margin-right: clamp(1rem, 3.5vw, 3.5rem) !important;
+            }
+        }
+
         /* Custom jQuery DatePicker Luxury Styling */
         .ui-datepicker {
             background-color: #ffffff !important;
@@ -266,7 +274,7 @@ if (isset($_POST['submit'])) {
             <div class="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-10 lg:gap-10 xl:gap-14">
                 
                 <!-- ===================== LEFT SIDE: EDITORIAL HERO & TRUST BADGES ===================== -->
-                <div class="w-full lg:flex-1 max-w-2xl pt-2 lg:pt-5 pl-4 sm:pl-8 md:pl-16 lg:pl-32 xl:pl-48 2xl:pl-60">
+                <div class="hero-editorial-column w-full lg:flex-initial lg:w-auto lg:max-w-xl xl:max-w-2xl pt-6 lg:pt-20 xl:pt-28 2xl:pt-32 px-4 sm:px-6 lg:px-0">
                     
                     <!-- Kicker: PLAN YOUR GETAWAY with gold bar -->
                     <div class="flex items-center gap-3 mb-3.5 sm:mb-4">
