@@ -10,7 +10,12 @@ if (isset($_POST["eqSubmit"])) {
     $userName   = $_POST["userName"];
     $userMailId = $_POST["userEmail"];
     $userPhNum  = $_POST["userPhnumber"];
+    $stayDates  = isset($_POST["stayDates"]) ? trim($_POST["stayDates"]) : '';
     $userMsg    = $_POST["userMsg"];
+
+    if (!empty($stayDates)) {
+        $userMsg = "[Requested Stay Dates: " . $stayDates . "]\n\n" . $userMsg;
+    }
 
     // ------------------------------------------
     // 2️⃣ CAPTCHA VALIDATION

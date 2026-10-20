@@ -1,202 +1,280 @@
+<?php
+// Auro Moon Residency - Luxury Contact Page
+?>
 <!DOCTYPE html>
- <html lang="en">
- <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auro Moon Residency || Contact Us</title>
     <link rel="shortcut icon" href="./assect/logo/auro_moon_logo.png" type="image/png">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-   
-   <style>#contactUs {
-  background: #f8f9fa;
-}
 
-.card {
-  background-color: #fff;
-  transition: all 0.3s ease-in-out;
-}
-
-.card:hover {
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: #adb5bd;
-}
-
-button:focus {
-  outline: none !important;
-  box-shadow: #127873;
-}
-.btn-custom-green {
-  background-color: #127873 !important;
-  color: #ffffff !important;
-  border: none !important;
-  box-shadow: 0 4px 12px rgba(18, 120, 115, 0.2);
-  transition: all 0.3s ease-in-out;
-}
-
-.btn-custom-green:hover {
-  background-color: #127873 !important;
-  color: #ffffff !important;
-  box-shadow: 0 6px 18px rgba(18, 120, 115, 0.4);
-}
-
-
-
-
-</style>
- </head>
- <body>
- <?php include('navbar.php') ?>
- <div id="contactUs" class="py-5">
- <section id="contactUs" class="py-5 bg-light">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-6 col-md-8 col-12">
-        <div class="card shadow rounded-4 p-4 border-0">
-          <h3 class="text-center fw-bold mb-2">Contact Us</h3>
-          <p class="text-center text-muted mb-4">
-            Please fill in the details below, submit the form and we will
-            process your enquiry as quickly as possible.
-          </p>
-          <form method="POST" action="contactBackend.php" class="needs-validation" novalidate>
-            <div class="mb-3">
-              <label for="name" class="form-label fw-semibold">Full Name</label>
-              <input type="text" class="form-control rounded-3 shadow-sm" id="name" name="userName" placeholder="Enter your name" required>
-              <div class="invalid-feedback">Please enter your name.</div>
-            </div>
-            <div class="mb-3">
-              <label for="userEmail" class="form-label fw-semibold">Email Address</label>
-              <input type="email" class="form-control rounded-3 shadow-sm" id="userEmail" name="userEmail" placeholder="Enter your email" required>
-              <div class="invalid-feedback">Please enter a valid email address.</div>
-            </div>
-            <div class="mb-3">
-              <label for="phoneNumber" class="form-label fw-semibold">Phone Number</label>
-              <input type="tel" class="form-control rounded-3 shadow-sm" id="phoneNumber" name="userPhnumber" pattern="(\d{10}|\d{12})" placeholder="10 or 12-digit phone number" required>
-              <div class="invalid-feedback">Please enter a valid 10-digit Indian number (starting with 6-9) or 12-digit UK number (starting with 44).</div>
-            </div>
-            <div class="mb-3">
-              <label for="messageBox" class="form-label fw-semibold">Message</label>
-              <textarea class="form-control rounded-3 shadow-sm" id="messageBox" name="userMsg" rows="4" placeholder="Write your message..." required></textarea>
-              <div class="invalid-feedback">Please enter your message.</div>
-            </div>
-            <div class="mb-3 d-flex justify-content-center">
-    <div class="g-recaptcha" data-sitekey="6LdsiREsAAAAAM3isEuk3H58_tNgxF-Y2Xjopda3"></div>
-</div>
-
-<div class="d-flex justify-content-center mt-3">
-    <button type="submit" name="eqSubmit" class="btn btn-custom-green rounded-pill px-4 py-2 fw-semibold">
-        Submit
-    </button>
-</div>
-
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-    </div>
-
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        // (function() {
-        //     'use strict'
-
-        //     var forms = document.querySelectorAll('.needs-validation')
-
-        //     Array.prototype.slice.call(forms)
-        //         .forEach(function(form) {
-        //             form.addEventListener('submit', function(event) {
-        //                 if (!form.checkValidity()) {
-        //                     event.preventDefault()
-        //                     event.stopPropagation()
-        //                 }
-
-        //                 form.classList.add('was-validated')
-        //             }, false)
-        //         })
-        // })()
-
-        
-    (function () {
-        'use strict'
-        var forms = document.querySelectorAll('.needs-validation');
-        Array.prototype.slice.call(forms).forEach(function (form) {
-            var nameInput = form.querySelector('#name');
-            var messageInput = form.querySelector('#messageBox');
-            var emailInput = form.querySelector('#userEmail');
-            var phoneInput = form.querySelector('#phoneNumber');
-
-            function validateTrimmed(input) {
-                if (!input) return;
-                var trimmed = input.value.trim();
-                input.classList.remove('is-valid', 'is-invalid');
-                if (trimmed === "") {
-                    input.value = "";
-                    input.classList.add('is-invalid');
-                } else if (input === phoneInput) {
-                    // Custom phone validation: 10 digits (India, starts 6-9) or 12 digits (UK, starts 44)
-                    var phonePatternIndia = /^[6-9][0-9]{9}$/;
-                    var phonePatternUK = /^44[0-9]{10}$/;
-                    if (phonePatternIndia.test(trimmed) || phonePatternUK.test(trimmed)) {
-                        input.classList.add('is-valid');
-                        return;
-                    } else {
-                        input.classList.add('is-invalid');
-                        return;
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'brand-serif': ['"Playfair Display"', '"Cormorant Garamond"', 'Georgia', 'serif'],
+                        'brand-sans': ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
                     }
-                } else if (input.checkValidity()) {
-                    input.classList.add('is-valid');
                 }
             }
-
-            if (nameInput) {
-                nameInput.addEventListener('input', function() {
-                    validateTrimmed(nameInput);
-                });
-            }
-            if (messageInput) {
-                messageInput.addEventListener('input', function() {
-                    validateTrimmed(messageInput);
-                });
-            }
-            if (emailInput) {
-                emailInput.addEventListener('input', function() {
-                    validateTrimmed(emailInput);
-                });
-            }
-            if (phoneInput) {
-                phoneInput.addEventListener('input', function() {
-                    validateTrimmed(phoneInput);
-                });
-            }
-
-            form.addEventListener('submit', function (event) {
-                validateTrimmed(nameInput);
-                validateTrimmed(messageInput);
-                validateTrimmed(emailInput);
-                validateTrimmed(phoneInput);
-                if (!form.checkValidity() ||
-                    (nameInput && nameInput.value.trim() === "") ||
-                    (messageInput && messageInput.value.trim() === "") ||
-                    (emailInput && emailInput.value.trim() === "") ||
-                    (phoneInput && phoneInput.value.trim() === "")
-                ) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-            }, false);
-        });
-    })();
-
-
+        }
     </script>
 
+    <!-- Google reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
- </body>
- <?php include('Footer.php') ?>
- </html>
+    <style>
+        .font-brand-serif {
+            font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+        }
+        .font-brand-sans {
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-[#FAF7F2] font-brand-sans text-[#142132] m-0 p-0 antialiased flex flex-col min-h-screen">
+
+    <!-- Header Navigation -->
+    <?php include('navbar.php'); ?>
+
+    <!-- ======================================================== -->
+    <!-- MASTER PANORAMIC CONTACT SECTION MATCHING MOCKUP EXACTLY -->
+    <!-- ======================================================== -->
+    <main class="relative flex-1 w-full overflow-hidden bg-[#FAF7F2]">
+        
+        <!-- Right Background Villa Entrance Photo (Desktop) -->
+        <div class="absolute inset-y-0 right-0 w-full lg:w-[50%] xl:w-[48%] bg-cover bg-center bg-no-repeat pointer-events-none z-0 hidden lg:block" style="background-image: url('./assect/images/contact_villa_bg.jpg');">
+            <!-- Subtle gradient scrim at left edge of image to ensure smooth blend with SVG curve -->
+            <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#FAF7F2] to-transparent"></div>
+        </div>
+
+        <!-- Organic Sweeping Cream Arch & Golden Accents Overlay (Desktop) -->
+        <svg class="absolute inset-y-0 left-0 w-full lg:w-[68%] xl:w-[65%] h-full pointer-events-none z-10 hidden lg:block" viewBox="0 0 760 900" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="curveGoldStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#E2B35B" stop-opacity="0.95" />
+                    <stop offset="50%" stop-color="#C59239" stop-opacity="0.85" />
+                    <stop offset="100%" stop-color="#8F5D15" stop-opacity="0.5" />
+                </linearGradient>
+                <linearGradient id="bottomGoldSweep" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#DEAA52" stop-opacity="0.8" />
+                    <stop offset="60%" stop-color="#C59239" stop-opacity="0.4" />
+                    <stop offset="100%" stop-color="#FAF7F2" stop-opacity="0" />
+                </linearGradient>
+            </defs>
+
+            <!-- Solid Cream Fill creating the sweeping arch dividing the two halves -->
+            <path d="M 0 0 L 530 0 C 600 130 730 360 710 560 C 690 710 635 820 540 900 L 0 900 Z" fill="#FAF7F2" />
+            
+            <!-- Outer Golden Stroke Along the Sweeping Arch -->
+            <path d="M 530 0 C 600 130 730 360 710 560 C 690 710 635 820 540 900" stroke="url(#curveGoldStroke)" stroke-width="2.5" />
+            
+            <!-- Delicate Parallel Shimmer Accent -->
+            <path d="M 525 0 C 595 130 725 360 705 560 C 685 710 630 820 535 900" stroke="#FFFFFF" stroke-width="1.2" stroke-opacity="0.6" />
+
+            <!-- Golden Crescent Flourish at Bottom-Right Corner of Arch -->
+            <path d="M 440 900 C 570 880 660 810 700 700 C 670 810 580 875 440 900 Z" fill="url(#bottomGoldSweep)" />
+        </svg>
+
+        <!-- Bottom-Left Delicate Botanical Lotus Line Art Watermark -->
+        <div class="absolute -bottom-6 -left-6 w-52 sm:w-64 lg:w-80 pointer-events-none z-0 opacity-25 select-none">
+            <svg viewBox="0 0 220 220" fill="none" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 10 210 C 35 160 80 130 140 140 C 95 175 50 205 10 210 Z" stroke="#C59239" stroke-width="1.6" />
+                <path d="M 10 210 C 18 140 55 90 115 65 C 100 120 65 175 10 210 Z" stroke="#C59239" stroke-width="1.6" />
+                <path d="M 10 210 C 2 130 25 65 80 20 C 75 90 45 155 10 210 Z" stroke="#C59239" stroke-width="1.6" />
+                <path d="M 60 150 Q 95 110 140 85" stroke="#C59239" stroke-width="1" stroke-dasharray="3 3" />
+                <path d="M 45 175 Q 85 135 125 120" stroke="#C59239" stroke-width="1" stroke-dasharray="3 3" />
+            </svg>
+        </div>
+
+        <!-- Mobile Villa Entrance Banner (Visible on mobile/tablet screens < lg) -->
+        <div class="relative w-full h-64 sm:h-80 bg-cover bg-center lg:hidden block overflow-hidden" style="background-image: url('./assect/images/contact_villa_bg.jpg');">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#FAF7F2] via-transparent to-black/25"></div>
+        </div>
+
+        <!-- Main Content Foreground Container -->
+        <div class="relative z-20 w-full max-w-[1650px] 2xl:max-w-[1740px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-10 sm:py-14 lg:py-16">
+            
+            <!-- ===================== TOP HEADER AREA ===================== -->
+            <div class="mb-8 sm:mb-10 lg:mb-12 max-w-xl">
+                <!-- Uppercase gold tracking label -->
+                <span class="text-[11px] sm:text-xs font-bold uppercase tracking-[0.25em] text-[#C59239] block mb-2 font-brand-sans">
+                    GET IN TOUCH
+                </span>
+                <!-- Contact Us Main Headline -->
+                <h1 class="font-brand-serif text-4xl sm:text-5xl lg:text-[54px] font-bold tracking-tight text-[#101B2B] leading-none mb-3.5">
+                    Contact <span class="text-[#D49B35]">Us</span>
+                </h1>
+                <!-- Subtitle paragraph -->
+                <p class="text-sm sm:text-[15px] text-[#525D6C] leading-relaxed max-w-lg mb-4 font-normal">
+                    We're here to help you with your stay at Auro Moon Residency.<br class="hidden sm:inline" />
+                    Feel free to reach out for bookings, queries or any assistance.
+                </p>
+                <!-- Golden accent bar -->
+                <div class="w-12 h-[2.5px] bg-[#D49B35] rounded-full"></div>
+            </div>
+
+            <!-- ===================== MAIN TWO-COLUMN SPLIT ===================== -->
+            <div class="flex flex-col lg:flex-row items-start gap-8 lg:gap-10 xl:gap-14">
+                
+                <!-- ===================== LEFT: 4 INFO CARDS + FOLLOW US ===================== -->
+                <div class="w-full lg:w-[320px] xl:w-[340px] flex-shrink-0 flex flex-col gap-3.5">
+                    
+                    <!-- 1. Call Us Card -->
+                    <div class="flex items-start gap-3.5 p-3.5 sm:p-4 rounded-2xl bg-white/90 backdrop-blur-sm border border-stone-200/80 shadow-[0_4px_18px_rgba(0,0,0,0.03)] hover:border-[#D49B35]/50 hover:shadow-md transition-all duration-200">
+                        <div class="w-10 h-10 rounded-full bg-[#F6ECD8] flex items-center justify-center flex-shrink-0 text-[#8C5D19]">
+                            <i class="fa-solid fa-phone text-sm"></i>
+                        </div>
+                        <div class="min-w-0 flex-1">
+                            <span class="text-[11px] font-bold text-gray-500 block uppercase tracking-wide leading-tight">Call Us</span>
+                            <a href="tel:9876543210" class="text-sm sm:text-[15px] font-bold text-[#142132] hover:text-[#C59239] transition-colors leading-snug block mt-0.5 no-underline">
+                                +91 98765 43210
+                            </a>
+                            <span class="text-[11px] text-gray-400 block mt-0.5 leading-tight">Mon - Sun, 9:00 AM - 9:00 PM</span>
+                        </div>
+                    </div>
+
+                    <!-- 2. Email Us Card -->
+                    <div class="flex items-start gap-3.5 p-3.5 sm:p-4 rounded-2xl bg-white/90 backdrop-blur-sm border border-stone-200/80 shadow-[0_4px_18px_rgba(0,0,0,0.03)] hover:border-[#D49B35]/50 hover:shadow-md transition-all duration-200">
+                        <div class="w-10 h-10 rounded-full bg-[#F6ECD8] flex items-center justify-center flex-shrink-0 text-[#8C5D19]">
+                            <i class="fa-solid fa-envelope text-sm"></i>
+                        </div>
+                        <div class="min-w-0 flex-1">
+                            <span class="text-[11px] font-bold text-gray-500 block uppercase tracking-wide leading-tight">Email Us</span>
+                            <a href="mailto:info@auromoonresidency.com" class="text-sm sm:text-[15px] font-bold text-[#142132] hover:text-[#C59239] transition-colors leading-snug block mt-0.5 no-underline break-all">
+                                info@auromoonresidency.com
+                            </a>
+                            <span class="text-[11px] text-gray-400 block mt-0.5 leading-tight">We'll respond within 24 hours</span>
+                        </div>
+                    </div>
+
+                    <!-- 3. Our Location Card -->
+                    <div class="flex items-start gap-3.5 p-3.5 sm:p-4 rounded-2xl bg-white/90 backdrop-blur-sm border border-stone-200/80 shadow-[0_4px_18px_rgba(0,0,0,0.03)] hover:border-[#D49B35]/50 hover:shadow-md transition-all duration-200">
+                        <div class="w-10 h-10 rounded-full bg-[#F6ECD8] flex items-center justify-center flex-shrink-0 text-[#8C5D19]">
+                            <i class="fa-solid fa-location-dot text-sm"></i>
+                        </div>
+                        <div class="min-w-0 flex-1">
+                            <span class="text-[11px] font-bold text-gray-500 block uppercase tracking-wide leading-tight">Our Location</span>
+                            <span class="text-sm sm:text-[15px] font-bold text-[#142132] block leading-snug mt-0.5">Auro Moon Residency</span>
+                            <span class="text-xs text-[#525D6C] block mt-0.5 leading-tight">Pondicherry, India</span>
+                            <span class="text-[11px] text-gray-400 block mt-0.5 leading-tight">Close to beach &amp; major attractions</span>
+                        </div>
+                    </div>
+
+                    <!-- 4. Chat on WhatsApp Card -->
+                    <div class="flex items-start gap-3.5 p-3.5 sm:p-4 rounded-2xl bg-white/90 backdrop-blur-sm border border-stone-200/80 shadow-[0_4px_18px_rgba(0,0,0,0.03)] hover:border-[#D49B35]/50 hover:shadow-md transition-all duration-200">
+                        <div class="w-10 h-10 rounded-full bg-[#F6ECD8] flex items-center justify-center flex-shrink-0 text-[#8C5D19]">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                        </div>
+                        <div class="min-w-0 flex-1">
+                            <span class="text-[11px] font-bold text-gray-500 block uppercase tracking-wide leading-tight">Chat on WhatsApp</span>
+                            <a href="https://wa.me/918098299921?text=Hello%20Auro%20Moon%20Residency%2C%20I%20would%20like%20to%20enquire%20about%20room%20availability%20and%20rates." target="_blank" rel="noopener noreferrer" class="text-sm sm:text-[15px] font-bold text-[#142132] hover:text-[#C59239] transition-colors leading-snug block mt-0.5 no-underline">
+                                +91 98765 43210
+                            </a>
+                            <span class="text-[11px] text-gray-400 block mt-0.5 leading-tight">Quick response</span>
+                        </div>
+                    </div>
+
+                    <!-- Follow Us Row -->
+                    <div class="flex items-center gap-3 pt-2 pl-1">
+                        <span class="text-xs font-bold text-[#142132]">Follow Us</span>
+                        <div class="flex items-center gap-2.5">
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-[#F6ECD8] hover:bg-[#EBDBC8] text-[#8C5D19] flex items-center justify-center text-xs transition-all shadow-sm no-underline" title="Instagram">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-[#F6ECD8] hover:bg-[#EBDBC8] text-[#8C5D19] flex items-center justify-center text-xs transition-all shadow-sm no-underline" title="Facebook">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="https://wa.me/918098299921" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-[#F6ECD8] hover:bg-[#EBDBC8] text-[#8C5D19] flex items-center justify-center text-xs transition-all shadow-sm no-underline" title="WhatsApp">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=92,+12th+Cross+St,+Anna+Nagar,+Pondicherry,+605013" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-[#F6ECD8] hover:bg-[#EBDBC8] text-[#8C5D19] flex items-center justify-center text-xs transition-all shadow-sm no-underline" title="Directions on Google Maps">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ===================== RIGHT: "SEND US A MESSAGE" FORM CARD ===================== -->
+                <div class="w-full lg:max-w-lg xl:max-w-xl flex-shrink-0">
+                    <div class="bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-stone-200/70 p-6 sm:p-8 lg:p-9 relative z-20">
+                        <h3 class="font-brand-serif text-2xl sm:text-[26px] font-bold text-[#101B2B] leading-tight m-0">
+                            Send Us a Message
+                        </h3>
+                        <p class="text-xs sm:text-[13px] text-gray-500 mt-1.5 mb-2 font-normal">
+                            Fill in the details and we'll get back to you soon.
+                        </p>
+                        <div class="w-10 h-[2.5px] bg-[#D49B35] rounded-full mb-6"></div>
+
+                        <form method="POST" action="contactBackend.php" class="space-y-4 m-0" id="contactUsForm">
+                            
+                            <!-- Row 1: Name and Email -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                                <div class="relative">
+                                    <i class="fa-regular fa-user absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
+                                    <input type="text" name="userName" required placeholder="Your Name *" class="w-full pl-9 pr-3.5 py-3 bg-[#FAF8F5] border border-stone-200/90 rounded-xl text-xs sm:text-sm text-[#142132] placeholder-gray-400 outline-none focus:bg-white focus:border-[#D49B35] focus:ring-2 focus:ring-[#D49B35]/20 transition-all duration-200" />
+                                </div>
+                                <div class="relative">
+                                    <i class="fa-regular fa-envelope absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
+                                    <input type="email" name="userEmail" required placeholder="Your Email *" class="w-full pl-9 pr-3.5 py-3 bg-[#FAF8F5] border border-stone-200/90 rounded-xl text-xs sm:text-sm text-[#142132] placeholder-gray-400 outline-none focus:bg-white focus:border-[#D49B35] focus:ring-2 focus:ring-[#D49B35]/20 transition-all duration-200" />
+                                </div>
+                            </div>
+
+                            <!-- Row 2: Phone and Stay Dates -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                                <div class="relative">
+                                    <i class="fa-solid fa-phone absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
+                                    <input type="tel" name="userPhnumber" placeholder="Phone Number" class="w-full pl-9 pr-3.5 py-3 bg-[#FAF8F5] border border-stone-200/90 rounded-xl text-xs sm:text-sm text-[#142132] placeholder-gray-400 outline-none focus:bg-white focus:border-[#D49B35] focus:ring-2 focus:ring-[#D49B35]/20 transition-all duration-200" />
+                                </div>
+                                <div class="relative">
+                                    <i class="fa-regular fa-calendar absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
+                                    <input type="text" name="stayDates" placeholder="Stay Dates (Optional)" class="w-full pl-9 pr-3.5 py-3 bg-[#FAF8F5] border border-stone-200/90 rounded-xl text-xs sm:text-sm text-[#142132] placeholder-gray-400 outline-none focus:bg-white focus:border-[#D49B35] focus:ring-2 focus:ring-[#D49B35]/20 transition-all duration-200" />
+                                </div>
+                            </div>
+
+                            <!-- Row 3: Message Textarea -->
+                            <div class="relative">
+                                <i class="fa-regular fa-comment-dots absolute left-3.5 top-3.5 text-gray-400 text-xs pointer-events-none"></i>
+                                <textarea name="userMsg" rows="4" required placeholder="Let us know how we can help you..." class="w-full pl-9 pr-3.5 py-3 bg-[#FAF8F5] border border-stone-200/90 rounded-xl text-xs sm:text-sm text-[#142132] placeholder-gray-400 outline-none focus:bg-white focus:border-[#D49B35] focus:ring-2 focus:ring-[#D49B35]/20 transition-all duration-200 resize-none"></textarea>
+                            </div>
+
+                            <!-- Google reCAPTCHA Verification -->
+                            <div class="pt-1 flex justify-center overflow-hidden">
+                                <div class="g-recaptcha scale-90 sm:scale-100 origin-center" data-sitekey="6LdsiREsAAAAAM3isEuk3H58_tNgxF-Y2Xjopda3"></div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" name="eqSubmit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#DFA138] to-[#C98B22] hover:from-[#d5962e] hover:to-[#be801a] text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 cursor-pointer border-0">
+                                <i class="fa-regular fa-paper-plane text-xs"></i>
+                                <span>Send Message</span>
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Master Footer Component -->
+    <?php include('Footer.php'); ?>
+
+</body>
+</html>
