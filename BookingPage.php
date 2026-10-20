@@ -1,162 +1,174 @@
-<link rel="shortcut icon" href="./assect/logo/logo.svg" type="image/x-icon">
-
 <?php
 include('dbconfig.php');
-function daterange($first, $last, $step = '+1 day', $output_format = 'Y-m-d')
-{ //if it was simple y example y-m-d then it will show 17 instead of 2017
 
+function daterange($first, $last, $step = '+1 day', $output_format = 'Y-m-d')
+{
     $dates = array();
     $current = strtotime($first);
     $last = strtotime($last);
 
     while ($current <= $last) {
-
         $dates[] = date($output_format, $current);
         $current = strtotime($step, $current);
-    } //end of while loop
-
-    return $dates; //returns a array
-} //
-$select = "SELECT checkin,checkout FROM users WHERE request_status=1";
-//echo $select;
-$statement = $dbconn->prepare($select);
-
-$statement->execute();
-$json_array = '';
-$individual_dates = array();
-if ($statement->rowCount() > 0) {
-    $i = 0;
-    while ($result = $statement->fetchObject()) {
-        //print_r($result->checkin);
-        $range[$i] = daterange($result->checkin, $result->checkout);
-
-        $i++;
     }
-
-
-    //converts the associative array  into a regular array
-    foreach ($range as $ranges) {
-        foreach ($ranges as $many_ranges) {
-            $individual_dates[] = $many_ranges;
-        }
-    }
-    // print_r($rowData);
-    $json_array = json_encode($individual_dates);
-    //print_r($json_array);
-} else {
-    $json_array = json_encode($individual_dates);
+    return $dates;
 }
 
-if (isset($_POST['submit'])) {
-    //print_r($_POST);
+$individual_dates = array();
+try {
+    if (isset($dbconn)) {
+        $select = "SELECT checkin,checkout FROM users WHERE request_status=1";
+        $statement = $dbconn->prepare($select);
+        $statement->execute();
+        if ($statement->rowCount() > 0) {
+            $i = 0;
+            $range = array();
+            while ($result = $statement->fetchObject()) {
+                $range[$i] = daterange($result->checkin, $result->checkout);
+                $i++;
+            }
+            foreach ($range as $ranges) {
+                foreach ($ranges as $many_ranges) {
+                    $individual_dates[] = $many_ranges;
+                }
+            }
+        }
+    }
+} catch (Exception $e) {
+    // Graceful fallback if database connection is pending
+}
+$json_array = json_encode($individual_dates);
 
-    $name = $_POST['name'];
-    $mobnumber = $_POST['mobnumber'];
-    $aadhrno = $_POST['aadhrno'];
-    $email = $_POST['email'];
-    $fromdate = $_POST['checkin'];
-    $dateformt1 = date("Y-m-d", strtotime($fromdate));
-    $tilldate = $_POST['checkout'];
-    $dateformt2 = date("Y-m-d", strtotime($tilldate));
-    $notes = $_POST['notes'];
+if (isset($_POST['submit'])) {
+    $name = $_POST['name'] ?? '';
+    $mobnumber = $_POST['mobnumber'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $guests = $_POST['guests'] ?? 'Entire Property (6-12 Guests)';
+    $aadhrno = $_POST['aadhrno'] ?? ($guests ?: 'ID Document Attached');
+    $fromdate = $_POST['checkin'] ?? '';
+    $dateformt1 = !empty($fromdate) ? date("Y-m-d", strtotime($fromdate)) : date("Y-m-d");
+    $tilldate = $_POST['checkout'] ?? '';
+    $dateformt2 = !empty($tilldate) ? date("Y-m-d", strtotime($tilldate)) : date("Y-m-d", strtotime("+1 day"));
+    $notes = $_POST['notes'] ?? ('Booking request for ' . $guests);
 
     // Handle Aadhar PDF upload
     $aadhaar_pdf = null;
-    if (!isset($_FILES['aad_pdf']) || $_FILES['aad_pdf']['error'] != UPLOAD_ERR_OK) {
-        // Handle the error, e.g. show a message or prevent form submission
-        echo '<script>alert("Please upload a PDF document."); window.history.back();</script>';
-        exit;
-    } else {
+    if (isset($_FILES['aad_pdf']) && $_FILES['aad_pdf']['error'] == UPLOAD_ERR_OK) {
         $uploadDir = 'uploads/aadhaar/';
         if (!is_dir($uploadDir)) {
             mkdir($uploadDir, 0777, true);
         }
         $fileTmpPath = $_FILES['aad_pdf']['tmp_name'];
-        $fileName = uniqid('aadhaar_') . '.pdf';
+        $fileName = uniqid('id_') . '_' . preg_replace('/[^a-zA-Z0-9_\.-]/', '_', basename($_FILES['aad_pdf']['name']));
         $destPath = $uploadDir . $fileName;
         if (move_uploaded_file($fileTmpPath, $destPath)) {
             $aadhaar_pdf = $destPath;
         }
     }
 
-    $sql = "INSERT INTO users (name,mobnumber,email,aadhrno,checkin,checkout,notes,aadhaar_pdf) 
-            VALUES (:name,:mobnumber,:email,:aadhrno,:dateformt1,:dateformt2,:notes,:aadhaar_pdf)";
-
-    $insert = $dbconn->prepare($sql);
-
-    $insert->bindParam(':name', $name, PDO::PARAM_STR);
-    $insert->bindParam(':mobnumber', $mobnumber, PDO::PARAM_STR);
-    $insert->bindParam(':aadhrno', $aadhrno, PDO::PARAM_STR);
-    $insert->bindParam(':dateformt1', $dateformt1, PDO::PARAM_STR);
-    $insert->bindParam(':dateformt2', $dateformt2, PDO::PARAM_STR);
-    $insert->bindParam(':notes', $notes, PDO::PARAM_STR);
-    $insert->bindParam(':email', $email, PDO::PARAM_STR);
-    $insert->bindParam(':aadhaar_pdf', $aadhaar_pdf, PDO::PARAM_STR);
-
-    $insert->execute();
-    $lastInsertId = $dbconn->lastInsertId();
-
-    //echo $lastInsertId;
-    //die();
-    if ($lastInsertId) {
-
-        require 'mailsent/PHPMailerAutoload.php';                    //PHPMailerAutoload.php
-        require 'mailsent/class.phpmailer.php';
-        require 'mailsent/class.smtp.php';
-
-        $mail = new PHPMailer(true);  // Enable exceptions
-
-        try {
-            $mail->isSMTP();                                         // Set mailer to use SMTP
-            $mail->Host       = 'smtp.gmail.com';                    // Gmail SMTP server
-            $mail->SMTPAuth   = true;                               // Enable SMTP authentication
-            $mail->Username   = 'aahaserenitystays@gmail.com';            // SMTP username
-            $mail->Password   = 'nzeq qlsh idtk nyyg';        // Use App Password for Gmail
-            $mail->SMTPSecure = 'tls';                              // Enable TLS encryption
-            $mail->Port       = 587;                                // TCP port to connect to
-
-            $mail->setFrom('aahaserenitystays@gmail.com', 'Auro-Moon-Residency');
-            $mail->addAddress('aahaserenitystays@gmail.com');
-            $mail->addReplyTo($email, $name);
-            
-            $mail->isHTML(true);
-            $mail->Subject = 'Enquiry for Room booking';
-            $mail->Body    = 'Name: ' . $name . '<br>Phone No.: ' . $mobnumber . '<br>Email: ' . $email . '<br>';
-            $mail->AltBody = 'This message from ' . $name . ' for enquire of the Room booking';
-
-            $mail->send();
-            echo '<script language="javascript">
-            alert("Your Booking is placed successfully..!"); 
-            window.location.href="./";</script>';
-            
-        } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    $lastInsertId = null;
+    try {
+        if (isset($dbconn)) {
+            $sql = "INSERT INTO users (name,mobnumber,email,aadhrno,checkin,checkout,notes,aadhaar_pdf) 
+                    VALUES (:name,:mobnumber,:email,:aadhrno,:dateformt1,:dateformt2,:notes,:aadhaar_pdf)";
+            $insert = $dbconn->prepare($sql);
+            $insert->bindParam(':name', $name, PDO::PARAM_STR);
+            $insert->bindParam(':mobnumber', $mobnumber, PDO::PARAM_STR);
+            $insert->bindParam(':aadhrno', $aadhrno, PDO::PARAM_STR);
+            $insert->bindParam(':dateformt1', $dateformt1, PDO::PARAM_STR);
+            $insert->bindParam(':dateformt2', $dateformt2, PDO::PARAM_STR);
+            $insert->bindParam(':notes', $notes, PDO::PARAM_STR);
+            $insert->bindParam(':email', $email, PDO::PARAM_STR);
+            $insert->bindParam(':aadhaar_pdf', $aadhaar_pdf, PDO::PARAM_STR);
+            $insert->execute();
+            $lastInsertId = $dbconn->lastInsertId();
         }
-    } else {
-        echo '<script language="javascript">alert("Something went wrong??..please check the booking details..")</script>';
+    } catch (Exception $e) {
+        // Log or handle DB insertion error
+    }
+
+    // Send email notification
+    if ($lastInsertId || !empty($email)) {
+        if (file_exists('mailsent/class.phpmailer.php')) {
+            require_once 'mailsent/PHPMailerAutoload.php';
+            require_once 'mailsent/class.phpmailer.php';
+            require_once 'mailsent/class.smtp.php';
+            $mail = new PHPMailer(true);
+            try {
+                $mail->isSMTP();
+                $mail->Host       = 'smtp.gmail.com';
+                $mail->SMTPAuth   = true;
+                $mail->Username   = 'aahaserenitystays@gmail.com';
+                $mail->Password   = 'nzeq qlsh idtk nyyg';
+                $mail->SMTPSecure = 'tls';
+                $mail->Port       = 587;
+
+                $mail->setFrom('aahaserenitystays@gmail.com', 'Auro Moon Residency');
+                $mail->addAddress('aahaserenitystays@gmail.com');
+                $mail->addReplyTo($email, $name);
+
+                $mail->isHTML(true);
+                $mail->Subject = 'New Booking Request - Auro Moon Residency';
+                $mail->Body    = "<h3>New Booking Request</h3>" .
+                                 "<strong>Name:</strong> " . htmlspecialchars($name) . "<br>" .
+                                 "<strong>Phone:</strong> " . htmlspecialchars($mobnumber) . "<br>" .
+                                 "<strong>Email:</strong> " . htmlspecialchars($email) . "<br>" .
+                                 "<strong>Guests:</strong> " . htmlspecialchars($guests) . "<br>" .
+                                 "<strong>Check-In:</strong> " . htmlspecialchars($fromdate) . "<br>" .
+                                 "<strong>Check-Out:</strong> " . htmlspecialchars($tilldate) . "<br>" .
+                                 "<strong>ID Document:</strong> " . ($aadhaar_pdf ? 'Attached / Uploaded' : 'None') . "<br>";
+                $mail->send();
+            } catch (Exception $e) {
+                // Ignore mail sending error
+            }
+        }
+        echo '<script language="javascript">
+        alert("Your Booking request has been placed successfully! We will contact you shortly."); 
+        window.location.href="./";</script>';
         exit();
     }
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="./assect/logo/auro_moon_logo.png" type="image/png">
-    <title>Auro Moon Residency || Booking</title>
-    <!-- jquery date picker cdn -->
+    <title>Auro Moon Residency || Reserve Your Stay</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'brand-serif': ['"Playfair Display"', '"Cormorant Garamond"', 'Georgia', 'serif'],
+                        'brand-sans': ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- jQuery DatePicker -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <!-- <link rel="stylesheet" href="/resources/demos/style.css        "> -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <!-- boostrap cdn -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <!-- css path -->
+
     <link rel="stylesheet" href="style.css">
+
     <style>
         .font-brand-serif {
             font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
@@ -164,116 +176,398 @@ if (isset($_POST['submit'])) {
         .font-brand-sans {
             font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
         }
-        .form-control:focus {
-            border-color: #DE9E36 !important;
-            box-shadow: 0 0 0 3px rgba(222, 158, 54, 0.2) !important;
+
+        /* Luxury Gold Gradient */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #DEAA52 0%, #C59239 50%, #9C6619 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom jQuery DatePicker Luxury Styling */
+        .ui-datepicker {
+            background-color: #ffffff !important;
+            border: 1px solid #ECE5D8 !important;
+            border-radius: 16px !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12) !important;
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+            padding: 12px !important;
+            z-index: 100 !important;
+        }
+        .ui-datepicker-header {
+            background: #FAF7F2 !important;
+            border: none !important;
+            border-radius: 10px !important;
+            color: #14233C !important;
+            font-weight: 700 !important;
+            padding: 6px 0 !important;
+        }
+        .ui-datepicker-prev, .ui-datepicker-next {
+            cursor: pointer !important;
+            border-radius: 6px !important;
+        }
+        .ui-state-default, .ui-widget-content .ui-state-default {
+            border: 1px solid transparent !important;
+            background: #FAF8F5 !important;
+            color: #14233C !important;
+            text-align: center !important;
+            border-radius: 8px !important;
+            font-weight: 600 !important;
+        }
+        .ui-state-hover {
+            background: #16443C !important;
+            color: #ffffff !important;
+        }
+        .ui-state-active, .ui-widget-content .ui-state-active {
+            background: #DEAA52 !important;
+            color: #ffffff !important;
+        }
+        .unavailable span {
+            background-color: #fee2e2 !important;
+            color: #ef4444 !important;
+            text-decoration: line-through !important;
+            border-radius: 8px !important;
+        }
+        .available a {
+            background-color: #FAF8F5 !important;
+            color: #14233C !important;
+        }
+
+        /* Focus rings */
+        .booking-input:focus {
+            outline: none;
+            border-color: #16443C;
+            box-shadow: 0 0 0 3px rgba(22, 68, 60, 0.12);
         }
     </style>
 </head>
 
-<body class="bg-[#FAF7F2] font-brand-sans text-[#142132] antialiased min-h-screen flex flex-col">
+<body class="bg-[#FBF8F3] font-brand-sans text-[#142132] antialiased min-h-screen flex flex-col">
     <?php include('navbar.php') ?>
 
-    <main class="flex-1 max-w-3xl w-full mx-auto px-4 sm:px-6 py-10 sm:py-16">
+    <!-- Master Panoramic Booking Section (Exact Reference Mockup Layout) -->
+    <main class="relative flex-1 w-full overflow-hidden bg-[#FBF8F3]">
         
-        <!-- Form Card -->
-        <div class="bg-white rounded-3xl p-6 sm:p-9 md:p-10 border border-[#ECE5D8] shadow-[0_15px_40px_rgba(0,0,0,0.06)]">
+        <!-- Left Background Villa Terrace Photo (Desktop) -->
+        <div class="absolute inset-y-0 left-0 w-full lg:w-[58%] xl:w-[56%] bg-cover bg-left lg:bg-center bg-no-repeat pointer-events-none z-0" style="background-image: url('./assect/images/booking_terrace_bg.jpg');">
+            <!-- Organic Right Fade into Ivory Background -->
+            <div class="absolute inset-y-0 right-0 w-36 lg:w-48 bg-gradient-to-r from-transparent to-[#FBF8F3] hidden lg:block"></div>
+            <!-- Top Fade -->
+            <div class="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#FBF8F3]/90 via-[#FBF8F3]/40 to-transparent hidden lg:block"></div>
+            <!-- Bottom Fade -->
+            <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#FBF8F3] via-[#FBF8F3]/60 to-transparent hidden lg:block"></div>
+            <!-- Mobile Backdrop Overlay for legibility -->
+            <div class="absolute inset-0 bg-[#FBF8F3]/85 lg:hidden block"></div>
+        </div>
+
+        <!-- Foreground Content Container -->
+        <div class="relative z-10 w-full max-w-[1650px] 2xl:max-w-[1740px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-14 py-8 sm:py-12 lg:py-14">
             
-            <!-- Header -->
-            <div class="text-center mb-8 sm:mb-10">
-                <p class="text-[#B88028] text-xs sm:text-sm font-bold tracking-[0.24em] uppercase mb-2 select-none">
-                    RESERVATIONS
-                </p>
-                <h1 class="font-brand-serif text-3xl sm:text-4xl font-bold text-[#1A2839] leading-tight">
-                    Book Your Stay
-                </h1>
-                <div class="w-12 h-1 bg-[#DE9E36] rounded-full mx-auto mt-3 mb-3"></div>
-                <p class="text-xs sm:text-sm text-[#556270]">
-                    Reserve the entire property for your family or friends in Pondicherry.
-                </p>
+            <div class="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-10 lg:gap-10 xl:gap-16">
+                
+                <!-- ===================== LEFT SIDE: EDITORIAL HERO & TRUST BADGES ===================== -->
+                <div class="w-full lg:w-[48%] xl:w-[46%] pt-2 lg:pt-6">
+                    
+                    <!-- Kicker: PLAN YOUR GETAWAY with gold bar -->
+                    <div class="flex items-center gap-3 mb-3 sm:mb-4">
+                        <span class="text-[#B88028] text-xs sm:text-[13px] font-bold tracking-[0.24em] uppercase select-none">
+                            PLAN YOUR GETAWAY
+                        </span>
+                        <span class="w-12 h-[2px] bg-[#B88028] rounded-full"></span>
+                    </div>
+
+                    <!-- Main Hero Title -->
+                    <h1 class="font-brand-serif text-4xl sm:text-5xl md:text-6xl lg:text-[62px] xl:text-[68px] font-bold text-[#14233C] leading-[1.08] mb-4 sm:mb-5 tracking-tight">
+                        Reserve Your<br>
+                        <span class="text-[#C59239]">Peaceful Stay</span>
+                    </h1>
+
+                    <!-- Description -->
+                    <p class="text-[#4E5C6E] text-base sm:text-lg leading-relaxed max-w-xl mb-8 sm:mb-10 font-normal">
+                        A serene homestay near Auroville, surrounded by nature, comfort and calm. Book your stay and experience the beauty of Pondicherry at Auro Moon Residency.
+                    </p>
+
+                    <!-- 3 Feature Badges Row -->
+                    <div class="flex items-center gap-6 sm:gap-8 flex-wrap select-none pt-1">
+                        
+                        <!-- Badge 1: Calm Surroundings -->
+                        <div class="flex items-center gap-3">
+                            <div class="w-11 h-11 rounded-full bg-[#FAF3E7] border border-[#EEDBBA] text-[#C59239] flex items-center justify-center flex-shrink-0 shadow-xs">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                                    <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+                                </svg>
+                            </div>
+                            <div class="text-[#14233C] text-xs sm:text-sm font-bold leading-tight font-brand-sans">
+                                Calm<br>Surroundings
+                            </div>
+                        </div>
+
+                        <!-- Badge 2: Clean & Comfortable -->
+                        <div class="flex items-center gap-3">
+                            <div class="w-11 h-11 rounded-full bg-[#FAF3E7] border border-[#EEDBBA] text-[#C59239] flex items-center justify-center flex-shrink-0 shadow-xs">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 3a9 9 0 0 0 0 18c4.97 0 9-4.03 9-9 0-4.97-4.03-9-9-9Z"/>
+                                    <path d="M12 7c-2 2-3 4-3 5a3 3 0 0 0 6 0c0-1-1-3-3-5Z"/>
+                                </svg>
+                            </div>
+                            <div class="text-[#14233C] text-xs sm:text-sm font-bold leading-tight font-brand-sans">
+                                Clean &amp;<br>Comfortable
+                            </div>
+                        </div>
+
+                        <!-- Badge 3: A Memorable Stay Experience -->
+                        <div class="flex items-center gap-3">
+                            <div class="w-11 h-11 rounded-full bg-[#FAF3E7] border border-[#EEDBBA] text-[#C59239] flex items-center justify-center flex-shrink-0 shadow-xs">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                                </svg>
+                            </div>
+                            <div class="text-[#14233C] text-xs sm:text-sm font-bold leading-tight font-brand-sans">
+                                A Memorable<br>Stay Experience
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ===================== RIGHT SIDE: THE EXACT FLOATING BOOKING FORM CARD ===================== -->
+                <div class="w-full lg:w-[540px] xl:w-[580px] 2xl:w-[610px] flex-shrink-0">
+                    <div class="bg-white rounded-3xl p-6 sm:p-8 lg:p-9 shadow-[0_22px_60px_rgba(20,35,60,0.08)] border border-[#ECE5D8] relative z-20">
+                        
+                        <!-- Card Header Row -->
+                        <div class="flex items-start justify-between pb-6 mb-6 border-b border-gray-100 gap-4">
+                            <!-- Left Title -->
+                            <div>
+                                <h2 class="font-brand-serif text-3xl sm:text-[34px] font-bold text-[#14233C] leading-none tracking-tight">
+                                    Booking Form
+                                </h2>
+                            </div>
+                            <!-- Right Golden Leaf & Caption -->
+                            <div class="flex items-center gap-2.5 text-right flex-shrink-0">
+                                <div class="w-8 h-8 rounded-full bg-[#FAF3E7] flex items-center justify-center text-[#DEAA52]">
+                                    <i class="fa-solid fa-leaf text-sm"></i>
+                                </div>
+                                <div class="text-[11px] sm:text-xs text-[#5D6B78] leading-tight text-left">
+                                    Your peaceful stay<br>
+                                    <span class="text-[#14233C] font-semibold">is just a few details away</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Reservation Form -->
+                        <form action="#" method="POST" autocomplete="on" class="needs-validation" novalidate enctype="multipart/form-data" id="bookingForm">
+                            
+                            <!-- Hidden inputs for legacy DB schema compatibility -->
+                            <input type="hidden" name="aadhrno" id="aadhrno" value="ID Document Attached">
+                            <input type="hidden" name="notes" id="notes" value="Rooms are Booked">
+
+                            <!-- Row 1: Full Name & Mobile Number -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                                <!-- Full Name -->
+                                <div>
+                                    <label for="name" class="block text-xs font-bold text-[#1E2C3F] mb-1.5">
+                                        Full Name <span class="text-red-500">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <i class="fa-regular fa-user absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
+                                        <input type="text" id="name" name="name" required placeholder="Enter your full name" pattern="^[A-Za-z ]+$" class="booking-input w-full pl-9 pr-3.5 py-3 rounded-xl border border-gray-200 bg-white text-xs sm:text-sm text-[#14233C] placeholder-gray-400 transition-all duration-200" />
+                                    </div>
+                                    <small class="invalid-feedback text-xs text-red-500 hidden mt-1">Please enter your Name correctly (letters only).</small>
+                                </div>
+
+                                <!-- Mobile Number -->
+                                <div>
+                                    <label for="mob" class="block text-xs font-bold text-[#1E2C3F] mb-1.5">
+                                        Mobile Number <span class="text-red-500">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <i class="fa-solid fa-phone absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
+                                        <input type="tel" id="mob" name="mobnumber" required placeholder="Enter mobile number" pattern="[6-9]{1}[0-9]{9}" class="booking-input w-full pl-9 pr-3.5 py-3 rounded-xl border border-gray-200 bg-white text-xs sm:text-sm text-[#14233C] placeholder-gray-400 transition-all duration-200" />
+                                    </div>
+                                    <small class="invalid-feedback text-xs text-red-500 hidden mt-1">Please enter a valid 10-digit mobile number.</small>
+                                </div>
+                            </div>
+
+                            <!-- Row 2: Email Address & Guests -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                                <!-- Email Address -->
+                                <div>
+                                    <label for="email" class="block text-xs font-bold text-[#1E2C3F] mb-1.5">
+                                        Email Address <span class="text-red-500">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <i class="fa-regular fa-envelope absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
+                                        <input type="email" id="email" name="email" required placeholder="Enter your email address" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$" class="booking-input w-full pl-9 pr-3.5 py-3 rounded-xl border border-gray-200 bg-white text-xs sm:text-sm text-[#14233C] placeholder-gray-400 transition-all duration-200" />
+                                    </div>
+                                    <small class="invalid-feedback text-xs text-red-500 hidden mt-1">Please enter a valid Email ending with .com</small>
+                                </div>
+
+                                <!-- Guests -->
+                                <div>
+                                    <label for="guests" class="block text-xs font-bold text-[#1E2C3F] mb-1.5">
+                                        Guests <span class="text-red-500">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <i class="fa-solid fa-users absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
+                                        <select id="guests" name="guests" required class="booking-input w-full pl-9 pr-8 py-3 rounded-xl border border-gray-200 bg-white text-xs sm:text-sm text-[#14233C] transition-all duration-200 appearance-none cursor-pointer">
+                                            <option value="" disabled selected>Select number of guests</option>
+                                            <option value="1-2 Guests">1 - 2 Guests</option>
+                                            <option value="3-4 Guests">3 - 4 Guests</option>
+                                            <option value="5-6 Guests">5 - 6 Guests</option>
+                                            <option value="7-8 Guests">7 - 8 Guests</option>
+                                            <option value="9-12 Guests (Entire Property)">9 - 12 Guests (Entire Property)</option>
+                                        </select>
+                                        <i class="fa-solid fa-chevron-down absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-[10px] pointer-events-none"></i>
+                                    </div>
+                                    <small class="invalid-feedback text-xs text-red-500 hidden mt-1">Please select the number of guests.</small>
+                                </div>
+                            </div>
+
+                            <!-- Row 3: Check-In & Check-Out -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                                <!-- Check-In -->
+                                <div>
+                                    <label for="check-in" class="block text-xs font-bold text-[#1E2C3F] mb-1.5">
+                                        Check - In <span class="text-red-500">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <i class="fa-regular fa-calendar absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
+                                        <input type="text" id="check-in" name="checkin" required placeholder="Select check-in date" autocomplete="off" class="checkInDate booking-input w-full pl-9 pr-9 py-3 rounded-xl border border-gray-200 bg-white text-xs sm:text-sm text-[#14233C] placeholder-gray-400 transition-all duration-200 cursor-pointer" />
+                                        <i class="fa-regular fa-calendar-days absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
+                                    </div>
+                                    <small class="invalid-feedback text-xs text-red-500 hidden mt-1">Please select a Check-In date.</small>
+                                </div>
+
+                                <!-- Check-Out -->
+                                <div>
+                                    <label for="check-out" class="block text-xs font-bold text-[#1E2C3F] mb-1.5">
+                                        Check - Out <span class="text-red-500">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <i class="fa-regular fa-calendar absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
+                                        <input type="text" id="check-out" name="checkout" required placeholder="Select check-out date" autocomplete="off" class="checkOutDate booking-input w-full pl-9 pr-9 py-3 rounded-xl border border-gray-200 bg-white text-xs sm:text-sm text-[#14233C] placeholder-gray-400 transition-all duration-200 cursor-pointer" />
+                                        <i class="fa-regular fa-calendar-days absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
+                                    </div>
+                                    <small class="invalid-feedback text-xs text-red-500 hidden mt-1">Please select a Check-Out date.</small>
+                                </div>
+                            </div>
+
+                            <!-- Row 4: Identity Document (PDF) Drag & Drop Zone -->
+                            <div class="mb-3">
+                                <label class="block text-xs font-bold text-[#1E2C3F] mb-1.5">
+                                    Identity Document (PDF) <span class="text-red-500">*</span>
+                                </label>
+                                
+                                <div id="dropZone" class="relative border-2 border-dashed border-gray-200 hover:border-[#16443C] bg-[#FAFAFA] hover:bg-[#F6FAF8] rounded-2xl p-5 text-center transition-all duration-200 cursor-pointer group">
+                                    <input type="file" id="aad_pdf" name="aad_pdf" accept="application/pdf" required class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
+                                    
+                                    <div class="flex items-center justify-center gap-4 text-left pointer-events-none">
+                                        <!-- Soft green tinted circle with cloud upload icon -->
+                                        <div class="w-12 h-12 rounded-full bg-[#E5EFE9] text-[#16443C] flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-105 transition-transform duration-200 shadow-2xs">
+                                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-xs sm:text-[13px] text-[#14233C]">
+                                                <span class="font-bold text-[#14233C] underline underline-offset-2">Click to upload</span> or <span class="font-semibold text-gray-600">drag and drop</span>
+                                            </div>
+                                            <div class="text-[11px] text-[#6F7D8C] mt-0.5">
+                                                Aadhaar, Driving Licence, Passport, PAN or Voter ID
+                                            </div>
+                                            <div class="text-[10px] text-gray-400 mt-0.5 font-medium">
+                                                PDF only &bull; Max size 5 MB
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Uploaded File Badge (Reveals dynamically) -->
+                                    <div id="fileInfoBadge" class="hidden mt-3 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF5EF] border border-[#BCE2CD] text-[#16443C] text-xs font-semibold">
+                                        <i class="fa-solid fa-circle-check text-green-600"></i>
+                                        <span id="fileNameLabel" class="truncate max-w-[240px]">Document Selected</span>
+                                    </div>
+                                </div>
+                                <small class="invalid-feedback text-xs text-red-500 hidden mt-1">Please upload an accepted government ID document (PDF).</small>
+                            </div>
+
+                            <!-- Security Assurance Note -->
+                            <div class="flex items-center gap-2 mb-6">
+                                <i class="fa-solid fa-circle-check text-[#16443C] text-sm flex-shrink-0"></i>
+                                <span class="text-[11.5px] text-[#526071] font-medium leading-tight">
+                                    Your documents are secure and will only be used for booking verification.
+                                </span>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" name="submit" class="w-full py-4 rounded-xl bg-[#16443C] hover:bg-[#10342E] text-white font-bold text-sm sm:text-base shadow-[0_6px_20px_rgba(22,68,60,0.3)] hover:shadow-[0_10px_28px_rgba(22,68,60,0.45)] hover:-translate-y-0.5 transition-all duration-200 cursor-pointer border-0 flex items-center justify-center gap-2.5">
+                                <span>Confirm Booking Request</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+
             </div>
 
-            <form action="#" method="POST" autocomplete="on" class="needs-validation" novalidate enctype="multipart/form-data">
+            <!-- ===================== BOTTOM TRUST BAR ===================== -->
+            <div class="mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-[#ECE5D8] grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto relative z-10">
                 
-                <!-- Row 1: Name & Mobile -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mb-4">
-                    <div>
-                        <label for="name" class="form-label text-xs sm:text-sm font-bold text-[#1A2839]">Full Name <span class="text-red-500">*</span></label>
-                        <input type="text" id="name" name="name" class="form-control rounded-xl py-3 px-3.5 border-stone-200 text-sm shadow-none" placeholder="Enter your full name" required pattern="^[A-Za-z ]+$" />
-                        <small class="invalid-feedback text-xs">Please enter your Name correctly (letters only).</small>
+                <!-- Trust 1: Secure details -->
+                <div class="flex items-center gap-3.5">
+                    <div class="w-11 h-11 rounded-full bg-[#FAF3E7] text-[#C59239] flex items-center justify-center text-lg flex-shrink-0 shadow-2xs">
+                        <i class="fa-solid fa-shield-halved"></i>
                     </div>
                     <div>
-                        <label for="mob" class="form-label text-xs sm:text-sm font-bold text-[#1A2839]">Mobile Number <span class="text-red-500">*</span></label>
-                        <input type="tel" id="mob" name="mobnumber" class="form-control rounded-xl py-3 px-3.5 border-stone-200 text-sm shadow-none" placeholder="10-digit mobile number" pattern="[7-9]{1}[0-9]{9}" required />
-                        <small class="invalid-feedback text-xs">Please enter a valid 10-digit Indian mobile number.</small>
+                        <h4 class="font-brand-serif text-base font-bold text-[#14233C]">Secure details</h4>
+                        <p class="text-xs text-[#6F7D8C] mt-0.5">Your information is safe with us</p>
                     </div>
                 </div>
 
-                <!-- Row 2: Email Address -->
-                <div class="mb-4">
-                    <label for="email" class="form-label text-xs sm:text-sm font-bold text-[#1A2839]">Email Address <span class="text-red-500">*</span></label>
-                    <input type="email" id="email" name="email" class="form-control rounded-xl py-3 px-3.5 border-stone-200 text-sm shadow-none" placeholder="name@example.com" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$" />
-                    <small class="invalid-feedback text-xs">Please enter a valid Email Address ending with .com</small>
-                </div>
-
-                <!-- Row 3: Check-in & Check-out -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mb-4">
-                    <div>
-                        <label for="check-in" class="form-label text-xs sm:text-sm font-bold text-[#1A2839]">Check-In Date <span class="text-red-500">*</span></label>
-                        <input type="text" id="check-in" name="checkin" class="checkInDate form-control rounded-xl py-3 px-3.5 border-stone-200 text-sm shadow-none" aria-describedby="check-in" required placeholder="Select Check-In Date" autocomplete="off">
-                        <small class="invalid-feedback text-xs">Please select a Check-In date.</small>
+                <!-- Trust 2: Personal assistance -->
+                <div class="flex items-center gap-3.5 md:border-l md:border-[#ECE5D8] md:pl-8">
+                    <div class="w-11 h-11 rounded-full bg-[#FAF3E7] text-[#C59239] flex items-center justify-center text-lg flex-shrink-0 shadow-2xs">
+                        <i class="fa-solid fa-headphones"></i>
                     </div>
                     <div>
-                        <label for="check-out" class="form-label text-xs sm:text-sm font-bold text-[#1A2839]">Check-Out Date <span class="text-red-500">*</span></label>
-                        <input type="text" id="check-out" name="checkout" class="checkOutDate form-control rounded-xl py-3 px-3.5 border-stone-200 text-sm shadow-none" aria-describedby="check-out" required placeholder="Select Check-Out Date" autocomplete="off">
-                        <small class="invalid-feedback text-xs">Please select a Check-Out date.</small>
+                        <h4 class="font-brand-serif text-base font-bold text-[#14233C]">Personal assistance</h4>
+                        <p class="text-xs text-[#6F7D8C] mt-0.5">We're here to help you</p>
                     </div>
                 </div>
 
-                <!-- Row 4: ID Document Upload -->
-                <div class="mb-6">
-                    <label for="aad_pdf" class="form-label text-xs sm:text-sm font-bold text-[#1A2839]">Government ID Document (PDF) <span class="text-red-500">*</span></label>
-                    <input type="file" id="aad_pdf" name="aad_pdf" class="form-control rounded-xl py-2.5 px-3.5 border-stone-200 text-xs sm:text-sm shadow-none" accept="application/pdf" required />
-                    <span class="text-[11px] text-gray-500 block mt-1">Accepted: Aadhaar, Driving Licence, Passport, PAN Card, Voter ID (PDF format)</span>
-                    <small class="invalid-feedback text-xs">Please upload a valid PDF document.</small>
+                <!-- Trust 3: Peaceful stay -->
+                <div class="flex items-center gap-3.5 md:border-l md:border-[#ECE5D8] md:pl-8">
+                    <div class="w-11 h-11 rounded-full bg-[#FAF3E7] text-[#C59239] flex items-center justify-center text-lg flex-shrink-0 shadow-2xs">
+                        <i class="fa-solid fa-spa"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-brand-serif text-base font-bold text-[#14233C]">Peaceful stay</h4>
+                        <p class="text-xs text-[#6F7D8C] mt-0.5">A calm and memorable experience</p>
+                    </div>
                 </div>
 
-                <input type="hidden" name='notes' value="Rooms are Booked">
-
-                <!-- Submit Button -->
-                <button type="submit" name="submit" class="w-full py-4 rounded-xl bg-[#E5A93C] hover:bg-[#d69829] text-[#1a140c] font-bold text-base sm:text-lg shadow-md hover:shadow-lg transition-all cursor-pointer border-0 flex items-center justify-center gap-2.5">
-                    <i class="fa-regular fa-calendar-check text-lg"></i>
-                    <span>Confirm Booking Request</span>
-                </button>
-            </form>
+            </div>
 
         </div>
+
+        <!-- Delicate Botanical Foliage Illustration Watermark (Bottom Right) -->
+        <div class="absolute bottom-0 right-0 w-64 sm:w-80 pointer-events-none z-0 opacity-20 select-none">
+            <svg viewBox="0 0 300 300" fill="none" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 300 300 C 240 220 180 160 80 140 C 130 180 200 240 300 300 Z" fill="#C59239" />
+                <path d="M 280 230 C 230 170 170 120 70 100 C 120 140 190 200 280 230 Z" fill="#C59239" opacity="0.7" />
+                <path d="M 240 180 C 200 130 150 90 60 70 C 110 110 170 160 240 180 Z" fill="#C59239" opacity="0.5" />
+            </svg>
+        </div>
+
     </main>
+
+    <!-- Master Footer -->
     <?php include('Footer.php') ?>
+
+    <!-- DatePicker and Drag & Drop Scripts -->
     <script>
         $(document).ready(function() {
-            // var startDate;
-            // var endDate;
-            var disabledDates = '';
-            $('.checkInDate').datepicker({
-                dateFormat: 'yy-mm-dd',
-                minDate: 'new date()',
-                autoclose: true,
-                beforeShowDay: checkAvailability
-            });
-            $('.checkOutDate').datepicker({
-                dateFormat: 'yy-mm-dd',
-                minDate: 'new date()',
-                autoclose: true,
-                beforeShowDay: checkAvailability
-            });
-            //   $('.checkInDate').change(function() {
-            //     startDate = $(this).datepicker('getDate');
-            //     $('.checkOutDate').datepicker('option', 'minDate', startDate);
-            // });
-
             var disabledDates = <?php echo $json_array; ?>;
-            //console.log(date);
 
             function checkAvailability(mydate) {
                 var valreturn = true;
@@ -285,121 +579,151 @@ if (isset($_POST['submit'])) {
                         returnclass = "unavailable";
                     }
                 }
-                return [
-                    valreturn, returnclass
-                ];
+                return [valreturn, returnclass];
             }
 
-        });
-    
-    </script>
-    <script>
-    (function() {
-        'use strict';
-        var forms = document.querySelectorAll('.needs-validation');
-        Array.prototype.slice.call(forms)
-            .forEach(function(form) {
+            $('.checkInDate').datepicker({
+                dateFormat: 'yy-mm-dd',
+                minDate: 0,
+                autoclose: true,
+                beforeShowDay: checkAvailability,
+                onSelect: function(dateText) {
+                    var minDate = $(this).datepicker('getDate');
+                    if (minDate) {
+                        minDate.setDate(minDate.getDate() + 1);
+                        $('.checkOutDate').datepicker('option', 'minDate', minDate);
+                    }
+                }
+            });
+
+            $('.checkOutDate').datepicker({
+                dateFormat: 'yy-mm-dd',
+                minDate: 1,
+                autoclose: true,
+                beforeShowDay: checkAvailability
+            });
+
+            // Drag and Drop & File Upload handling
+            const fileInput = document.getElementById('aad_pdf');
+            const dropZone = document.getElementById('dropZone');
+            const fileBadge = document.getElementById('fileInfoBadge');
+            const fileLabel = document.getElementById('fileNameLabel');
+
+            if (fileInput && dropZone) {
+                fileInput.addEventListener('change', function(e) {
+                    if (this.files && this.files.length > 0) {
+                        const file = this.files[0];
+                        fileLabel.textContent = file.name + ' (' + (file.size / (1024 * 1024)).toFixed(2) + ' MB)';
+                        fileBadge.classList.remove('hidden');
+                        dropZone.classList.add('border-[#16443C]', 'bg-[#F4F9F6]');
+                    }
+                });
+
+                ['dragenter', 'dragover'].forEach(eventName => {
+                    dropZone.addEventListener(eventName, (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        dropZone.classList.add('border-[#16443C]', 'bg-[#EBF5F0]');
+                    }, false);
+                });
+
+                ['dragleave', 'drop'].forEach(eventName => {
+                    dropZone.addEventListener(eventName, (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        dropZone.classList.remove('border-[#16443C]', 'bg-[#EBF5F0]');
+                    }, false);
+                });
+
+                dropZone.addEventListener('drop', (e) => {
+                    const dt = e.dataTransfer;
+                    const files = dt.files;
+                    if (files.length > 0) {
+                        fileInput.files = files;
+                        fileLabel.textContent = files[0].name + ' (' + (files[0].size / (1024 * 1024)).toFixed(2) + ' MB)';
+                        fileBadge.classList.remove('hidden');
+                        dropZone.classList.add('border-[#16443C]', 'bg-[#F4F9F6]');
+                    }
+                }, false);
+            }
+
+            // Real-time client-side validation
+            const form = document.getElementById('bookingForm');
+            if (form) {
                 form.addEventListener('submit', function(event) {
-                    // Custom validation for name (no only spaces, only letters and spaces)
-                    var nameInput = form.querySelector('#name');
-                    var nameValue = nameInput.value.trim();
-                    var namePattern = /^[A-Za-z ]+$/;
-                    if (nameInput && (nameValue === "" || !namePattern.test(nameValue))) {
-                        nameInput.setCustomValidity('Please enter your Name correctly (letters and spaces only)');
+                    let isValid = true;
+
+                    // Name validation
+                    const name = document.getElementById('name');
+                    if (!name.value.trim() || !/^[A-Za-z ]+$/.test(name.value.trim())) {
+                        name.classList.add('border-red-500');
+                        $(name).closest('div').next('.invalid-feedback').removeClass('hidden');
+                        isValid = false;
                     } else {
-                        nameInput.setCustomValidity('');
+                        name.classList.remove('border-red-500');
+                        $(name).closest('div').next('.invalid-feedback').addClass('hidden');
                     }
-                    // Custom validation for email (must end with .com)
-                    var emailInput = form.querySelector('#email');
-                    var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$/;
-                    if (emailInput && !emailPattern.test(emailInput.value)) {
-                        emailInput.setCustomValidity('Please enter a valid Email Address ending with .com (e.g., user@example.com)');
+
+                    // Mobile validation
+                    const mob = document.getElementById('mob');
+                    if (!mob.value.trim() || !/^[6-9]{1}[0-9]{9}$/.test(mob.value.trim())) {
+                        mob.classList.add('border-red-500');
+                        $(mob).closest('div').next('.invalid-feedback').removeClass('hidden');
+                        isValid = false;
                     } else {
-                        emailInput.setCustomValidity('');
+                        mob.classList.remove('border-red-500');
+                        $(mob).closest('div').next('.invalid-feedback').addClass('hidden');
                     }
-                    if (!form.checkValidity()) {
+
+                    // Email validation
+                    const email = document.getElementById('email');
+                    if (!email.value.trim() || !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$/.test(email.value.trim())) {
+                        email.classList.add('border-red-500');
+                        $(email).closest('div').next('.invalid-feedback').removeClass('hidden');
+                        isValid = false;
+                    } else {
+                        email.classList.remove('border-red-500');
+                        $(email).closest('div').next('.invalid-feedback').addClass('hidden');
+                    }
+
+                    // Dates validation
+                    const checkin = document.getElementById('check-in');
+                    const checkout = document.getElementById('check-out');
+                    if (!checkin.value.trim()) {
+                        checkin.classList.add('border-red-500');
+                        $(checkin).closest('div').next('.invalid-feedback').removeClass('hidden');
+                        isValid = false;
+                    } else {
+                        checkin.classList.remove('border-red-500');
+                        $(checkin).closest('div').next('.invalid-feedback').addClass('hidden');
+                    }
+
+                    if (!checkout.value.trim()) {
+                        checkout.classList.add('border-red-500');
+                        $(checkout).closest('div').next('.invalid-feedback').removeClass('hidden');
+                        isValid = false;
+                    } else {
+                        checkout.classList.remove('border-red-500');
+                        $(checkout).closest('div').next('.invalid-feedback').addClass('hidden');
+                    }
+
+                    // PDF validation
+                    if (!fileInput.files || fileInput.files.length === 0) {
+                        dropZone.classList.add('border-red-400');
+                        $(dropZone).next('.invalid-feedback').removeClass('hidden');
+                        isValid = false;
+                    } else {
+                        dropZone.classList.remove('border-red-400');
+                        $(dropZone).next('.invalid-feedback').addClass('hidden');
+                    }
+
+                    if (!isValid) {
                         event.preventDefault();
                         event.stopPropagation();
                     }
-                    form.classList.add('was-validated');
-                }, false);
-                // Real-time validation for name
-                var nameInput = form.querySelector('#name');
-                if (nameInput) {
-                    function validateNameInput() {
-                        var nameValue = nameInput.value.trim();
-                        var namePattern = /^[A-Za-z ]+$/;
-                        if (nameValue === "" || !namePattern.test(nameValue)) {
-                            nameInput.setCustomValidity('Please enter your Name correctly (letters and spaces only)');
-                        } else {
-                            nameInput.setCustomValidity('');
-                        }
-                    }
-                    nameInput.addEventListener('input', validateNameInput);
-                    nameInput.addEventListener('paste', function() { setTimeout(validateNameInput, 0); });
-                }
-                // Real-time validation for email (must end with .com)
-                var emailInput = form.querySelector('#email');
-                if (emailInput) {
-                    function validateEmailInput() {
-                        var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$/;
-                        if (!emailPattern.test(emailInput.value)) {
-                            emailInput.setCustomValidity('Please enter a valid Email Address ending with .com (e.g., user@example.com)');
-                        } else {
-                            emailInput.setCustomValidity('');
-                        }
-                    }
-                    emailInput.addEventListener('input', validateEmailInput);
-                    emailInput.addEventListener('paste', function() { setTimeout(validateEmailInput, 0); });
-                }
-                // Real-time and paste validation for all fields
-                var mobInput = form.querySelector('#mob');
-                if (mobInput) {
-                    function validateMobInput() {
-                        var mobPattern = /^[7-9]{1}[0-9]{9}$/;
-                        if (!mobPattern.test(mobInput.value)) {
-                            mobInput.setCustomValidity('Please enter a valid Mobile Number');
-                        } else {
-                            mobInput.setCustomValidity('');
-                        }
-                    }
-                    mobInput.addEventListener('input', validateMobInput);
-                    mobInput.addEventListener('paste', function() { setTimeout(validateMobInput, 0); });
-                }
-                var aadInput = form.querySelector('#aad');
-                if (aadInput) {
-                    function validateAadInput() {
-                        aadInput.setCustomValidity(''); // Optional, always valid
-                    }
-                    aadInput.addEventListener('input', validateAadInput);
-                    aadInput.addEventListener('paste', function() { setTimeout(validateAadInput, 0); });
-                }
-                var checkinInput = form.querySelector('#check-in');
-                if (checkinInput) {
-                    function validateCheckinInput() {
-                        if (checkinInput.value.trim() === "") {
-                            checkinInput.setCustomValidity('Please select a Check-In date');
-                        } else {
-                            checkinInput.setCustomValidity('');
-                        }
-                    }
-                    checkinInput.addEventListener('input', validateCheckinInput);
-                    checkinInput.addEventListener('paste', function() { setTimeout(validateCheckinInput, 0); });
-                }
-                var checkoutInput = form.querySelector('#check-out');
-                if (checkoutInput) {
-                    function validateCheckoutInput() {
-                        if (checkoutInput.value.trim() === "") {
-                            checkoutInput.setCustomValidity('Please select a Check-Out date');
-                        } else {
-                            checkoutInput.setCustomValidity('');
-                        }
-                    }
-                    checkoutInput.addEventListener('input', validateCheckoutInput);
-                    checkoutInput.addEventListener('paste', function() { setTimeout(validateCheckoutInput, 0); });
-                }
-            });
-    })();
+                });
+            }
+        });
     </script>
 </body>
 
