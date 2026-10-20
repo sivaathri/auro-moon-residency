@@ -388,7 +388,7 @@
 
 
         <!-- Main Hero Overlay Content -->
-        <div class="relative z-10 w-full px-4 sm:px-8 md:px-14 lg:px-24 xl:px-36 py-6 sm:py-10">
+        <div class="relative z-10 w-full pl-8 sm:pl-16 md:pl-24 lg:pl-36 xl:pl-48 pr-4 sm:pr-8 md:pr-14 lg:pr-24 py-6 sm:py-10">
             <div class="max-w-2xl text-left">
                 <!-- Eyebrow Subtitle -->
                 <p class="text-[#E8C782] text-xs sm:text-sm font-semibold tracking-[0.24em] uppercase mb-2.5 sm:mb-3.5 select-none font-brand-sans">
