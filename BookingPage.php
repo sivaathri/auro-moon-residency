@@ -158,74 +158,97 @@ if (isset($_POST['submit'])) {
     <!-- css path -->
     <link rel="stylesheet" href="style.css">
     <style>
-        form .input_enter {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            box-sizing: border-box;
-            border: px solid #ccc;
-            outline: none;
+        .font-brand-serif {
+            font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
         }
-
-        form .input_enter:focus {
-            border: 1px solid #127873;
+        .font-brand-sans {
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
         }
-
-        .box_shad {
-            box-shadow: 3px 3px 20px 0px gray;
-            margin-top: 10%;
-            align-items: center;
+        .form-control:focus {
+            border-color: #DE9E36 !important;
+            box-shadow: 0 0 0 3px rgba(222, 158, 54, 0.2) !important;
         }
     </style>
 </head>
 
-<body>
+<body class="bg-[#FAF7F2] font-brand-sans text-[#142132] antialiased min-h-screen flex flex-col">
     <?php include('navbar.php') ?>
 
-    <div class="container">
-
-        <div class="row box_shad d-flex mt-sm-5 mb-sm-5">
-            <h3 class="header text-center my-2 fw-bold">BOOKING FORM</h3>
-            <div class="col-lg" style="background-color: #fff; padding: 10px">
-                <form action="#" method="POST" autocomplete="on" class="needs-validation" novalidate enctype="multipart/form-data">
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Name <span style="color:red">*</span></label>
-                        <input type="text" id="name" name="name" class="form-control shadow-none" placeholder="Name" required pattern="^[A-Za-z ]+$" />
-                        <small class="invalid-feedback">Please enter your Name correctly (required)</small>
-                    </div>
-                    <div class="mb-3">
-                        <label for="mob" class="form-label">Mobile Number <span style="color:red">*</span></label>
-                        <input type="text" id="mob" name="mobnumber" class="form-control shadow-none" placeholder="Mobile Number" pattern="[7-9]{1}[0-9]{9}" required />
-                        <small class="invalid-feedback">Please enter a valid Mobile Number (required)</small>
-                    </div>
-                    <div class="mb-3">
-                        <label for="aad_pdf" class="form-label">Document PDF(Aadhaar Card, Driving Licence, Passport, PAN Card, Voter ID Card)<span style="color:red">*</span></label>
-                        <input type="file" id="aad_pdf" name="aad_pdf" class="form-control shadow-none" accept="application/pdf" required />
-                        <small class="invalid-feedback">Please upload a PDF document (required).</small>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email Address <span style="color:red">*</span></label>
-                        <input type="email" id="email" name="email" class="form-control shadow-none" placeholder="Email Address" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$" />
-                        <small class="invalid-feedback">Please enter a valid Email Address ending with .com (e.g., user@example.com) (required)</small>
-                    </div>
-                    <div class="mb-3">
-                        <label for="check-in" class="form-label">Check - In <span style="color:red">*</span></label>
-                        <input type="text" id="check-in" name="checkin" class="checkInDate form-control shadow-none" aria-describedby="check-in" required placeholder="Check - In" autocomplete="off">
-                        <small class="invalid-feedback">Please select a Check-In date (required)</small>
-                    </div>
-                    <div class="mb-3">
-                        <label for="check-out" class="form-label">Check - Out <span style="color:red">*</span></label>
-                        <input type="text" id="check-out" name="checkout" class="checkOutDate form-control shadow-none" aria-describedby="check-out" required placeholder="Check - Out" autocomplete="off">
-                        <small class="invalid-feedback">Please select a Check-Out date (required)</small>
-                    </div>
-                    <input type="hidden" name='notes' value="Rooms are Booked">
-                    <button type="submit" name="submit" class="btn btn-lg btn-block loginalert-main" style=" background-color: #127873; color: #fff; width: 100%; margin-top: 25px; ">
-                        <span class="d-flex justify-content-center fw-bold">Book</span>
-                    </button>
-                </form>
+    <main class="flex-1 max-w-3xl w-full mx-auto px-4 sm:px-6 py-10 sm:py-16">
+        
+        <!-- Form Card -->
+        <div class="bg-white rounded-3xl p-6 sm:p-9 md:p-10 border border-[#ECE5D8] shadow-[0_15px_40px_rgba(0,0,0,0.06)]">
+            
+            <!-- Header -->
+            <div class="text-center mb-8 sm:mb-10">
+                <p class="text-[#B88028] text-xs sm:text-sm font-bold tracking-[0.24em] uppercase mb-2 select-none">
+                    RESERVATIONS
+                </p>
+                <h1 class="font-brand-serif text-3xl sm:text-4xl font-bold text-[#1A2839] leading-tight">
+                    Book Your Stay
+                </h1>
+                <div class="w-12 h-1 bg-[#DE9E36] rounded-full mx-auto mt-3 mb-3"></div>
+                <p class="text-xs sm:text-sm text-[#556270]">
+                    Reserve the entire property for your family or friends in Pondicherry.
+                </p>
             </div>
+
+            <form action="#" method="POST" autocomplete="on" class="needs-validation" novalidate enctype="multipart/form-data">
+                
+                <!-- Row 1: Name & Mobile -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mb-4">
+                    <div>
+                        <label for="name" class="form-label text-xs sm:text-sm font-bold text-[#1A2839]">Full Name <span class="text-red-500">*</span></label>
+                        <input type="text" id="name" name="name" class="form-control rounded-xl py-3 px-3.5 border-stone-200 text-sm shadow-none" placeholder="Enter your full name" required pattern="^[A-Za-z ]+$" />
+                        <small class="invalid-feedback text-xs">Please enter your Name correctly (letters only).</small>
+                    </div>
+                    <div>
+                        <label for="mob" class="form-label text-xs sm:text-sm font-bold text-[#1A2839]">Mobile Number <span class="text-red-500">*</span></label>
+                        <input type="tel" id="mob" name="mobnumber" class="form-control rounded-xl py-3 px-3.5 border-stone-200 text-sm shadow-none" placeholder="10-digit mobile number" pattern="[7-9]{1}[0-9]{9}" required />
+                        <small class="invalid-feedback text-xs">Please enter a valid 10-digit Indian mobile number.</small>
+                    </div>
+                </div>
+
+                <!-- Row 2: Email Address -->
+                <div class="mb-4">
+                    <label for="email" class="form-label text-xs sm:text-sm font-bold text-[#1A2839]">Email Address <span class="text-red-500">*</span></label>
+                    <input type="email" id="email" name="email" class="form-control rounded-xl py-3 px-3.5 border-stone-200 text-sm shadow-none" placeholder="name@example.com" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$" />
+                    <small class="invalid-feedback text-xs">Please enter a valid Email Address ending with .com</small>
+                </div>
+
+                <!-- Row 3: Check-in & Check-out -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mb-4">
+                    <div>
+                        <label for="check-in" class="form-label text-xs sm:text-sm font-bold text-[#1A2839]">Check-In Date <span class="text-red-500">*</span></label>
+                        <input type="text" id="check-in" name="checkin" class="checkInDate form-control rounded-xl py-3 px-3.5 border-stone-200 text-sm shadow-none" aria-describedby="check-in" required placeholder="Select Check-In Date" autocomplete="off">
+                        <small class="invalid-feedback text-xs">Please select a Check-In date.</small>
+                    </div>
+                    <div>
+                        <label for="check-out" class="form-label text-xs sm:text-sm font-bold text-[#1A2839]">Check-Out Date <span class="text-red-500">*</span></label>
+                        <input type="text" id="check-out" name="checkout" class="checkOutDate form-control rounded-xl py-3 px-3.5 border-stone-200 text-sm shadow-none" aria-describedby="check-out" required placeholder="Select Check-Out Date" autocomplete="off">
+                        <small class="invalid-feedback text-xs">Please select a Check-Out date.</small>
+                    </div>
+                </div>
+
+                <!-- Row 4: ID Document Upload -->
+                <div class="mb-6">
+                    <label for="aad_pdf" class="form-label text-xs sm:text-sm font-bold text-[#1A2839]">Government ID Document (PDF) <span class="text-red-500">*</span></label>
+                    <input type="file" id="aad_pdf" name="aad_pdf" class="form-control rounded-xl py-2.5 px-3.5 border-stone-200 text-xs sm:text-sm shadow-none" accept="application/pdf" required />
+                    <span class="text-[11px] text-gray-500 block mt-1">Accepted: Aadhaar, Driving Licence, Passport, PAN Card, Voter ID (PDF format)</span>
+                    <small class="invalid-feedback text-xs">Please upload a valid PDF document.</small>
+                </div>
+
+                <input type="hidden" name='notes' value="Rooms are Booked">
+
+                <!-- Submit Button -->
+                <button type="submit" name="submit" class="w-full py-4 rounded-xl bg-[#E5A93C] hover:bg-[#d69829] text-[#1a140c] font-bold text-base sm:text-lg shadow-md hover:shadow-lg transition-all cursor-pointer border-0 flex items-center justify-center gap-2.5">
+                    <i class="fa-regular fa-calendar-check text-lg"></i>
+                    <span>Confirm Booking Request</span>
+                </button>
+            </form>
+
         </div>
-    </div>
+    </main>
     <?php include('Footer.php') ?>
     <script>
         $(document).ready(function() {

@@ -33,18 +33,33 @@
 
 <body>
     <?php include('navbar.php') ?>
-    <div class="container my-3">
-        <h3 class="h3 fw-bold text-center">Calendar</h3>
-        <div id="calendar">
+    <main class="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+        <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+            <p class="text-[#B88028] text-xs sm:text-sm font-bold tracking-[0.24em] uppercase mb-2 select-none">
+                AVAILABILITY
+            </p>
+            <h1 class="font-brand-serif text-3xl sm:text-4xl font-bold text-[#1A2839]">
+                Booking Calendar
+            </h1>
+            <div class="w-12 h-1 bg-[#DE9E36] rounded-full mx-auto mt-3 mb-3"></div>
+            <p class="text-xs sm:text-sm text-[#556270]">
+                Check available dates for Auro Moon Residency. Booked dates are highlighted.
+            </p>
         </div>
-    </div>
 
-    <div class="flex justify-center my-10">
-        <a href="./BookingPage.php" 
-            class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-[30px] w-[340px] h-[100px] rounded-full transition duration-300 inline-block no-underline text-center">
-            <span class="text-[25px]">Book Your Stay</span> 
-        </a>
-    </div>
+        <div class="bg-white rounded-3xl p-4 sm:p-7 md:p-8 border border-[#ECE5D8] shadow-sm overflow-x-auto">
+            <div id="calendar" class="min-w-[300px]"></div>
+        </div>
+
+        <div class="flex justify-center my-8">
+            <a href="./BookingPage.php" 
+                class="w-full max-w-[320px] py-4 px-8 bg-[#E5A93C] hover:bg-[#d69829] text-[#1a140c] font-semibold text-base sm:text-lg rounded-xl shadow-[0_4px_20px_rgba(229,169,60,0.4)] hover:shadow-[0_6px_25px_rgba(229,169,60,0.55)] hover:-translate-y-0.5 transition-all duration-200 no-underline inline-flex items-center justify-center gap-3">
+                <i class="fa-regular fa-calendar-days text-lg"></i>
+                <span>Book Your Stay</span>
+                <i class="fa-solid fa-arrow-right-long text-base"></i>
+            </a>
+        </div>
+    </main>
 
     <?php include('Footer.php') ?>
 
