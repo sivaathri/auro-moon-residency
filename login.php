@@ -442,7 +442,7 @@ if (isset($_POST['submit'])) {
 <body>
 
     <!-- Back to public website button -->
-    <a href="index.php" class="back-home-badge" title="Go back to the website">
+    <a href="./" class="back-home-badge" title="Go back to the website">
         <i class="fa-solid fa-arrow-left"></i>
         <span>Website</span>
     </a>
