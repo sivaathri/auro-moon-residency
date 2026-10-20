@@ -7,54 +7,12 @@
     <!-- ======================================================== -->
     <!-- 1. TOP NEWSLETTER BANNER (STAY CONNECTED & GET OFFERS)   -->
     <!-- ======================================================== -->
-    <div class="relative w-full overflow-hidden bg-stone-100 border-b border-stone-200/70" style="background-image: url('./assect/images/footer_newsletter_bg.jpg'); background-size: cover; background-position: center right;">
-        <!-- Warm ambient overlay to ensure perfect contrast while preserving resort scenery -->
-        <div class="absolute inset-0 bg-gradient-to-r from-[#F9F5EE]/95 via-[#FAF6F0]/85 to-transparent pointer-events-none"></div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 py-12 sm:py-16">
-            <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
-                
-                <!-- Left Text Column -->
-                <div class="text-left max-w-xl w-full">
-                    <span class="block text-[11px] sm:text-xs font-bold uppercase tracking-[0.25em] text-[#8E5B1D] mb-1.5">
-                        STAY CONNECTED
-                    </span>
-                    <h2 class="font-brand-serif text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#182230] leading-tight mb-2.5">
-                        Get Updates &amp; Offers
-                    </h2>
-                    <p class="text-sm sm:text-base text-[#4F5968] leading-relaxed m-0 font-normal">
-                        Be the first to know about special stays, seasonal offers and experiences at Auro Moon Residency.
-                    </p>
-                </div>
-
-                <!-- Right Pill-Shaped Newsletter Input -->
-                <div class="w-full lg:max-w-md xl:max-w-lg flex-shrink-0">
-                    <form action="#" method="POST" class="m-0" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Auro Moon Residency offers!');">
-                        <div class="relative flex items-center bg-white rounded-full shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-stone-200/90 p-1.5 pl-5 sm:pl-6 transition-all duration-300 focus-within:shadow-[0_6px_30px_rgba(158,101,30,0.15)] focus-within:border-[#9E651E]/40">
-                            <!-- Envelope Icon -->
-                            <i class="fa-regular fa-envelope text-[#8E9CAE] text-base mr-3 flex-shrink-0"></i>
-                            
-                            <!-- Input -->
-                            <input type="email" required placeholder="Enter your email address" class="w-full bg-transparent border-0 outline-none text-[#232F3E] placeholder-[#9AA5B5] text-sm sm:text-base focus:ring-0 pr-2">
-                            
-                            <!-- Subscribe Button -->
-                            <button type="submit" class="inline-flex items-center gap-2 px-6 sm:px-7 py-3 rounded-full bg-gradient-to-r from-[#9F651C] to-[#875212] hover:from-[#895413] hover:to-[#74430D] text-white font-medium text-sm sm:text-base shadow-sm hover:shadow transition-all duration-300 flex-shrink-0 cursor-pointer">
-                                <span>Subscribe</span>
-                                <i class="fa-solid fa-arrow-right text-xs"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
+   
     <!-- ======================================================== -->
     <!-- 2. MAIN 4-COLUMN FOOTER CONTENT (CREAM IVORY BACKGROUND) -->
     <!-- ======================================================== -->
-    <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 pt-16 sm:pt-20 pb-12 sm:pb-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12">
+    <div class="relative z-10 w-full max-w-[1650px] 2xl:max-w-[1740px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 pt-16 sm:pt-20 pb-12 sm:pb-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12">
             
             <!-- Column 1: Brand & Identity (4 Cols on LG) -->
             <div class="lg:col-span-4 flex flex-col items-start">
@@ -111,7 +69,7 @@
                 </a>
 
                 <!-- Bio description -->
-                <p class="text-sm text-[#546070] leading-relaxed max-w-xs mb-6">
+                <p class="text-sm text-[#546070] leading-relaxed max-w-sm lg:max-w-md mb-6">
                     A cozy and comfortable homestay in the heart of Pondicherry, offering a peaceful and memorable stay for families, couples and solo travelers.
                 </p>
 
@@ -126,7 +84,7 @@
             </div>
 
             <!-- Column 2: Quick Links (2.5 Cols on LG) -->
-            <div class="lg:col-span-2 sm:pl-2">
+            <div class="lg:col-span-2 sm:pl-2 lg:pl-4 xl:pl-8">
                 <h4 class="font-brand-serif text-xl sm:text-[22px] font-bold text-[#182333]">
                     Quick Links
                 </h4>
@@ -340,12 +298,12 @@
             </div>
 
             <!-- Divider Line Above Legal & Copyright -->
-            <div class="relative z-20 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 mb-5">
+            <div class="relative z-20 w-full max-w-[1650px] 2xl:max-w-[1740px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 mb-5">
                 <div class="w-full h-[1px] bg-stone-700/60"></div>
             </div>
 
             <!-- Legal Links & Copyright Row -->
-            <div class="relative z-20 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#9CA3AF]">
+            <div class="relative z-20 w-full max-w-[1650px] 2xl:max-w-[1740px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#9CA3AF]">
                 
                 <!-- Left: Policies -->
                 <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 sm:gap-3 text-stone-400">
