@@ -492,7 +492,12 @@ img {
   }
 }
 
-/* Global Gold CTA Button - Prevent Bootstrap link hover blue override */
+/* ========================================================
+   UNIVERSAL BUTTON HOVER FIX
+   Prevents Bootstrap 5 (a:hover { color: #0a58ca; }) 
+   from turning ANY gold or styled CTA button blue on hover!
+   ======================================================== */
+
 .gold-btn,
 .gold-btn:link,
 .gold-btn:visited {
@@ -514,6 +519,70 @@ img {
 .gold-btn:hover *,
 .gold-btn:focus * {
     color: #1e170d !important;
+    text-decoration: none !important;
+}
+
+/* Hero CTA button on index (white text) */
+.hero-book-btn,
+.hero-book-btn:link,
+.hero-book-btn:visited,
+.hero-book-btn:hover,
+.hero-book-btn:focus,
+.hero-book-btn:active,
+.hero-book-btn *,
+.hero-book-btn:hover *,
+.hero-book-btn:focus * {
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+/* Other CTA buttons with dark text */
+.about-book-btn,
+.about-book-btn:link,
+.about-book-btn:visited,
+.about-book-btn:hover,
+.about-book-btn:focus,
+.about-book-btn:active,
+.about-book-btn *,
+.about-book-btn:hover *,
+.about-book-btn:focus *,
+.amenities-book-btn:hover,
+.amenities-book-btn:hover * {
+    color: #1a140c !important;
+    text-decoration: none !important;
+}
+
+/* Universal attribute selectors to catch any Tailwind styled gold anchor */
+a[class*="bg-[#E5A93C]"]:hover,
+a[class*="bg-[#E5A93C]"]:hover *,
+a[class*="bg-[#d69829]"]:hover,
+a[class*="bg-[#d69829]"]:hover *,
+a[class*="bg-[#F5B438]"]:hover,
+a[class*="bg-[#F5B438]"]:hover *,
+a[class*="bg-[#DE9E36]"]:hover,
+a[class*="bg-[#DE9E36]"]:hover * {
+    text-decoration: none !important;
+}
+
+/* Preserve white text on gold buttons on hover */
+a[class*="text-[#FFFDF7]"]:hover,
+a[class*="text-[#FFFDF7]"]:hover *,
+a[class*="text-white"]:hover,
+a[class*="text-white"]:hover * {
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+/* Preserve dark text on gold buttons on hover */
+a[class*="text-[#1a140c]"]:hover,
+a[class*="text-[#1a140c]"]:hover *,
+a[class*="text-[#1e170d]"]:hover,
+a[class*="text-[#1e170d]"]:hover *,
+a[class*="text-[#1E2530]"]:hover,
+a[class*="text-[#1E2530]"]:hover *,
+a[class*="text-[#1A2839]"]:hover,
+a[class*="text-[#1A2839]"]:hover * {
+    color: #1a140c !important;
     text-decoration: none !important;
 }
 

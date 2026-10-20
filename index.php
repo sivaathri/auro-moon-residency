@@ -56,6 +56,44 @@
         scrollbar-color: rgba(222, 158, 54, 0.45) transparent;
       }
 
+      /* Stop Bootstrap a:hover from turning gold CTA buttons blue */
+      .hero-book-btn,
+      .hero-book-btn:link,
+      .hero-book-btn:visited,
+      .hero-book-btn:hover,
+      .hero-book-btn:focus,
+      .hero-book-btn:active,
+      .hero-book-btn *,
+      .hero-book-btn:hover *,
+      .hero-book-btn:focus * {
+        color: #ffffff !important;
+        text-decoration: none !important;
+      }
+      .about-book-btn,
+      .about-book-btn:link,
+      .about-book-btn:visited,
+      .about-book-btn:hover,
+      .about-book-btn:focus,
+      .about-book-btn:active,
+      .about-book-btn *,
+      .about-book-btn:hover * {
+        color: #1a140c !important;
+        text-decoration: none !important;
+      }
+      .amenities-book-btn,
+      .amenities-book-btn:link,
+      .amenities-book-btn:visited {
+        color: #1A2839 !important;
+        text-decoration: none !important;
+      }
+      .amenities-book-btn:hover,
+      .amenities-book-btn:focus,
+      .amenities-book-btn:active,
+      .amenities-book-btn:hover * {
+        color: #1a140c !important;
+        text-decoration: none !important;
+      }
+
       .hero-bg-slide {
         position: absolute;
         inset: 0;
@@ -408,7 +446,7 @@
                 </div>
 
                 <!-- CTA Button -->
-                <a href="./BookingPage.php" class="inline-flex items-center gap-3 px-8 py-3.5 bg-[#E5A93C] hover:bg-[#d69829] text-[#FFFDF7] font-semibold text-base sm:text-lg rounded-xl shadow-[0_4px_20px_rgba(229,169,60,0.4)] hover:shadow-[0_6px_25px_rgba(229,169,60,0.55)] hover:-translate-y-0.5 transition-all duration-200 no-underline font-brand-sans group select-none">
+                <a href="./BookingPage.php" class="hero-book-btn inline-flex items-center gap-3 px-8 py-3.5 bg-[#E5A93C] hover:bg-[#d69829] text-[#FFFDF7] font-semibold text-base sm:text-lg rounded-xl shadow-[0_4px_20px_rgba(229,169,60,0.4)] hover:shadow-[0_6px_25px_rgba(229,169,60,0.55)] hover:-translate-y-0.5 transition-all duration-200 no-underline font-brand-sans group select-none">
                     <span>Book Your Stay</span>
                     <i class="fa-solid fa-arrow-right-long text-base transition-transform duration-200 group-hover:translate-x-1"></i>
                 </a>
@@ -529,7 +567,7 @@
                     </p>
 
                     <!-- CTA Button -->
-                    <a href="./BookingPage.php" class="inline-flex items-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-[#E5A93C] hover:bg-[#d69829] text-[#1a140c] font-semibold text-sm sm:text-base rounded-xl shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 no-underline font-brand-sans group select-none">
+                    <a href="./BookingPage.php" class="about-book-btn inline-flex items-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-[#E5A93C] hover:bg-[#d69829] text-[#1a140c] font-semibold text-sm sm:text-base rounded-xl shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 no-underline font-brand-sans group select-none">
                         <i class="fa-regular fa-calendar-days text-base"></i>
                         <span>Book Your Stay</span>
                         <i class="fa-solid fa-arrow-right-long text-sm transition-transform duration-200 group-hover:translate-x-1"></i>
