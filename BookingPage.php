@@ -249,7 +249,7 @@ if (isset($_POST['submit'])) {
     <main class="relative flex-1 w-full overflow-hidden bg-[#FAF6F1] flex flex-col justify-between">
         
         <!-- Left Background Villa Terrace Photo (Desktop) -->
-        <div class="absolute inset-y-0 left-0 w-full lg:w-[60%] xl:w-[57%] bg-cover bg-left lg:bg-center bg-no-repeat pointer-events-none z-0" style="background-image: url('./assect/images/booking_terrace_bg.jpg');">
+        <div class="absolute inset-y-0 left-0 w-full lg:w-[60%] xl:w-[57%] bg-cover bg-left bg-no-repeat pointer-events-none z-0" style="background-image: url('./assect/images/booking_terrace_bg.jpg');">
             <!-- Organic Right Fade into Ivory Background -->
             <div class="absolute inset-y-0 right-0 w-44 lg:w-64 bg-gradient-to-r from-transparent via-[#FAF6F1]/70 to-[#FAF6F1] hidden lg:block"></div>
             <!-- Top Fade -->
@@ -266,7 +266,7 @@ if (isset($_POST['submit'])) {
             <div class="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-10 lg:gap-10 xl:gap-14">
                 
                 <!-- ===================== LEFT SIDE: EDITORIAL HERO & TRUST BADGES ===================== -->
-                <div class="w-full lg:w-[48%] xl:w-[46%] pt-2 lg:pt-5 md:pl-10 lg:pl-16 xl:pl-24 2xl:pl-32">
+                <div class="w-full lg:w-[46%] xl:w-[44%] pt-2 lg:pt-5 lg:ml-12 xl:ml-20 2xl:ml-28 md:pl-8 lg:pl-12 xl:pl-16">
                     
                     <!-- Kicker: PLAN YOUR GETAWAY with gold bar -->
                     <div class="flex items-center gap-3 mb-3.5 sm:mb-4">
