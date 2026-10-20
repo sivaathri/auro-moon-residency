@@ -343,9 +343,9 @@
     <section id="home" class="relative w-full flex items-center overflow-hidden font-brand-sans" style="height: calc(100vh - 80px); height: calc(100dvh - 80px); max-height: calc(100vh - 80px);">
         <!-- Background Image Container -->
         <div id="heroBgContainer" class="absolute inset-0 overflow-hidden pointer-events-none">
-            <div id="heroSlide0" class="hero-bg-slide" style="background-image: url('./assect/images/herobg2.png'); transform: translateX(0%) translateZ(0);"></div>
+            <div id="heroSlide0" class="hero-bg-slide" style="background-image: url('./assect/images/herobg3.png'); transform: translateX(0%) translateZ(0);"></div>
             <div id="heroSlide1" class="hero-bg-slide" style="background-image: url('./assect/images/auro_moon_hero.jpg'); transform: translateX(100%) translateZ(0);"></div>
-            <div id="heroSlide2" class="hero-bg-slide" style="background-image: url('./assect/images/herobg3.png'); transform: translateX(100%) translateZ(0);"></div>
+            <div id="heroSlide2" class="hero-bg-slide" style="background-image: url('./assect/images/herobg2.png'); transform: translateX(100%) translateZ(0);"></div>
         </div>
 
 
@@ -1301,9 +1301,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
         // Preload images
         const images = [
-            "./assect/images/herobg2.png",
-            "./assect/images/auro_moon_hero.jpg",
             "./assect/images/herobg3.png",
+            "./assect/images/auro_moon_hero.jpg",
+            "./assect/images/herobg2.png",
             "./assect/images/Gallery/2BHK Bedroom 2.JPG",
             "./assect/images/Gallery/2BHK Bedroom 1.JPG",
             "./assect/images/Gallery/2BHK Kitchen.JPG",
