@@ -474,7 +474,8 @@ if (isset($_POST['submit'])) {
                                 <div id="dropZone" class="relative border border-dashed border-[#D1D8E0] hover:border-[#194643] bg-[#FBFBFC] hover:bg-[#F4F8F6] rounded-2xl p-4 sm:p-5 text-center transition-all duration-200 cursor-pointer group">
                                     <input type="file" id="aad_pdf" name="aad_pdf" accept="application/pdf" required class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
                                     
-                                    <div class="flex items-center justify-center gap-4 text-left pointer-events-none">
+                                    <!-- Default Upload Prompt -->
+                                    <div id="dropZonePrompt" class="flex items-center justify-center gap-4 text-left pointer-events-none">
                                         <!-- Soft green circular badge with cloud upload icon -->
                                         <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#E3ECE7] text-[#194643] flex items-center justify-center text-lg sm:text-xl flex-shrink-0 group-hover:scale-105 transition-transform duration-200 shadow-2xs">
                                             <i class="fa-solid fa-cloud-arrow-up"></i>
@@ -492,10 +493,28 @@ if (isset($_POST['submit'])) {
                                         </div>
                                     </div>
 
-                                    <!-- Uploaded File Badge (Reveals dynamically) -->
-                                    <div id="fileInfoBadge" class="hidden mt-3 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EAF5EF] border border-[#BCE2CD] text-[#194643] text-xs font-semibold">
-                                        <i class="fa-solid fa-circle-check text-green-600"></i>
-                                        <span id="fileNameLabel" class="truncate max-w-[240px]">Document Selected</span>
+                                    <!-- Selected File Card with DELETE button -->
+                                    <div id="fileSelectedView" class="hidden relative z-20 flex items-center justify-between gap-3 p-3 sm:p-3.5 bg-white rounded-xl border border-[#BCE2CD] shadow-xs text-left">
+                                        <div class="flex items-center gap-3 min-w-0">
+                                            <div class="w-10 h-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-lg flex-shrink-0">
+                                                <i class="fa-solid fa-file-pdf"></i>
+                                            </div>
+                                            <div class="min-w-0">
+                                                <p id="fileNameLabel" class="text-xs sm:text-[13px] font-bold text-[#14233C] truncate max-w-[170px] sm:max-w-[250px]">
+                                                    Document Selected
+                                                </p>
+                                                <p class="text-[11px] text-[#194643] font-semibold flex items-center gap-1.5 mt-0.5">
+                                                    <i class="fa-solid fa-circle-check text-green-600 text-xs"></i>
+                                                    <span id="fileSizeText">PDF Attached</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Delete / Remove Button -->
+                                        <button type="button" id="removeFileBtn" title="Delete selected PDF" class="relative z-30 px-3 py-1.5 rounded-lg bg-red-50 hover:bg-red-500 text-red-600 hover:text-white text-xs font-bold transition-all duration-200 cursor-pointer border border-red-200 hover:border-red-500 flex items-center gap-1.5 shadow-2xs">
+                                            <i class="fa-solid fa-trash-can text-[11px]"></i>
+                                            <span>Delete</span>
+                                        </button>
                                     </div>
                                 </div>
                                 <small class="invalid-feedback text-xs text-red-500 hidden mt-1">Please upload an accepted government ID document (PDF).</small>
@@ -619,24 +638,59 @@ if (isset($_POST['submit'])) {
             // Drag and Drop & File Upload handling
             const fileInput = document.getElementById('aad_pdf');
             const dropZone = document.getElementById('dropZone');
-            const fileBadge = document.getElementById('fileInfoBadge');
-            const fileLabel = document.getElementById('fileNameLabel');
+            const dropZonePrompt = document.getElementById('dropZonePrompt');
+            const fileSelectedView = document.getElementById('fileSelectedView');
+            const fileNameLabel = document.getElementById('fileNameLabel');
+            const fileSizeText = document.getElementById('fileSizeText');
+            const removeFileBtn = document.getElementById('removeFileBtn');
+
+            function showSelectedFile(file) {
+                if (!file) return;
+                if (fileNameLabel) fileNameLabel.textContent = file.name;
+                const sizeInMB = (file.size / (1024 * 1024)).toFixed(2);
+                if (fileSizeText) fileSizeText.textContent = sizeInMB + ' MB • Ready';
+                
+                if (dropZonePrompt) dropZonePrompt.classList.add('hidden');
+                if (fileSelectedView) fileSelectedView.classList.remove('hidden');
+                if (dropZone) {
+                    dropZone.classList.add('border-[#194643]', 'bg-[#F4F9F6]');
+                    dropZone.classList.remove('border-red-400');
+                    const err = $(dropZone).next('.invalid-feedback');
+                    if (err.length) err.addClass('hidden');
+                }
+            }
+
+            function clearSelectedFile() {
+                if (fileInput) fileInput.value = '';
+                if (fileSelectedView) fileSelectedView.classList.add('hidden');
+                if (dropZonePrompt) dropZonePrompt.classList.remove('hidden');
+                if (dropZone) {
+                    dropZone.classList.remove('border-[#194643]', 'bg-[#F4F9F6]', 'border-[#16443C]');
+                }
+            }
 
             if (fileInput && dropZone) {
                 fileInput.addEventListener('change', function(e) {
                     if (this.files && this.files.length > 0) {
-                        const file = this.files[0];
-                        fileLabel.textContent = file.name + ' (' + (file.size / (1024 * 1024)).toFixed(2) + ' MB)';
-                        fileBadge.classList.remove('hidden');
-                        dropZone.classList.add('border-[#16443C]', 'bg-[#F4F9F6]');
+                        showSelectedFile(this.files[0]);
+                    } else {
+                        clearSelectedFile();
                     }
                 });
+
+                if (removeFileBtn) {
+                    removeFileBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        clearSelectedFile();
+                    });
+                }
 
                 ['dragenter', 'dragover'].forEach(eventName => {
                     dropZone.addEventListener(eventName, (e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        dropZone.classList.add('border-[#16443C]', 'bg-[#EBF5F0]');
+                        dropZone.classList.add('border-[#194643]', 'bg-[#EBF5F0]');
                     }, false);
                 });
 
@@ -644,7 +698,7 @@ if (isset($_POST['submit'])) {
                     dropZone.addEventListener(eventName, (e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        dropZone.classList.remove('border-[#16443C]', 'bg-[#EBF5F0]');
+                        dropZone.classList.remove('border-[#194643]', 'bg-[#EBF5F0]');
                     }, false);
                 });
 
@@ -653,9 +707,7 @@ if (isset($_POST['submit'])) {
                     const files = dt.files;
                     if (files.length > 0) {
                         fileInput.files = files;
-                        fileLabel.textContent = files[0].name + ' (' + (files[0].size / (1024 * 1024)).toFixed(2) + ' MB)';
-                        fileBadge.classList.remove('hidden');
-                        dropZone.classList.add('border-[#16443C]', 'bg-[#F4F9F6]');
+                        showSelectedFile(files[0]);
                     }
                 }, false);
             }
