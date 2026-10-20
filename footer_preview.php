@@ -37,7 +37,7 @@
         }
     </style>
 </head>
-<body class="bg-[#eef2f6] min-h-screen m-0 p-0 font-brand-sans">
+<body class="bg-[#eef2f6] min-h-screen flex flex-col justify-end m-0 p-0 font-brand-sans">
 
     <!-- Preview Container -->
     <div class="w-full">
