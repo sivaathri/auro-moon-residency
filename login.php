@@ -1,16 +1,21 @@
 <?php
+session_start();
 include('dbconfig.php');
 $message = '';
 if (isset($_POST['submit'])) {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $query = "SELECT * FROM tbladmin where admin_email=:email and admin_pwd=:passWord";
+    $email = trim($_POST['email'] ?? '');
+    $password = trim($_POST['password'] ?? '');
+    
+    $query = "SELECT * FROM tbladmin WHERE LOWER(TRIM(admin_email)) = LOWER(:email) AND TRIM(admin_pwd) = :passWord LIMIT 1";
     $run_query = $dbconn->prepare($query);
     $run_query->bindParam(':email', $email, PDO::PARAM_STR);
     $run_query->bindParam(':passWord', $password, PDO::PARAM_STR);
     $run_query->execute();
-    $_count = $run_query->rowCount();
-    if ($_count > 0) {
+    $admin = $run_query->fetch(PDO::FETCH_ASSOC);
+    
+    if ($admin) {
+        $_SESSION['admin_logged_in'] = true;
+        $_SESSION['admin_email'] = $admin['admin_email'];
         header('Location: Admin.php');
         exit();
     } else {
