@@ -57,7 +57,7 @@ if (isset($_POST["eqSubmit"])) {
     // ------------------------------------------
     // 4️⃣ SUCCESS - REDIRECT TO HOME
     // ------------------------------------------
-    echo "<script>alert('Thank you for contacting us! We will get back to you soon.'); window.location.href='https://aahaserenitystay.com/';</script>";
+    echo "<script>alert('Thank you for contacting us! We will get back to you soon.'); window.location.href='./';</script>";
     exit;
 }
 ?>

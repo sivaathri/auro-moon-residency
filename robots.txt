@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://www.aahahomestay.com/sitemap.xml
+Sitemap: https://www.auromoonresidency.com/sitemap.xml

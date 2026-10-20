@@ -25,8 +25,8 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AAHA Serenity Stay || Login </title>
-    <link rel="shortcut icon" href="./assect/logo/aaha home stay.png" type="image/x-icon">
+    <title>Auro Moon Residency || Login</title>
+    <link rel="shortcut icon" href="./assect/logo/auro_moon_logo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
@@ -257,8 +257,8 @@ body {
       <!-- Right Side -->
       <div class="card-right">
         <div class="logo-box">
-          <img src="./assect/logo/aaha home stay.png" alt="Logo" class="logo" />
-          <h1>AAHA SERENITY STAY</h1>
+          <img src="./assect/logo/auro_moon_logo.png" alt="Logo" class="logo" />
+          <h1>Auro Moon Residency</h1>
           <p>Admin Portal</p>
         </div>
         <?php if ($message) echo $message; ?>

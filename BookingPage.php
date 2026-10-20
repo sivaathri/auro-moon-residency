@@ -115,7 +115,7 @@ if (isset($_POST['submit'])) {
             $mail->SMTPSecure = 'tls';                              // Enable TLS encryption
             $mail->Port       = 587;                                // TCP port to connect to
 
-            $mail->setFrom('aahaserenitystays@gmail.com', 'AAHA-Serenity-Stay');
+            $mail->setFrom('aahaserenitystays@gmail.com', 'Auro-Moon-Residency');
             $mail->addAddress('aahaserenitystays@gmail.com');
             $mail->addReplyTo($email, $name);
             
@@ -145,7 +145,8 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AAHA Serenity Stay || BOOKING</title>
+    <link rel="shortcut icon" href="./assect/logo/auro_moon_logo.png" type="image/png">
+    <title>Auro Moon Residency || Booking</title>
     <!-- jquery date picker cdn -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <!-- <link rel="stylesheet" href="/resources/demos/style.css        "> -->

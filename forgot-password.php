@@ -43,8 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forgot Password || AAHA Serenity Stay</title>
-    <link rel="shortcut icon" href="./assect/logo/aaha home stay.png" type="image/x-icon">
+    <title>Forgot Password || Auro Moon Residency</title>
+    <link rel="shortcut icon" href="./assect/logo/auro_moon_logo.png" type="image/png">
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -86,8 +86,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <!-- Right Side -->
       <div class="card-right">
         <div class="logo-box">
-          <img src="./assect/logo/aaha home stay.png" alt="Logo" class="logo" />
-          <h1>AAHA SERENITY STAY</h1>
+          <img src="./assect/logo/auro_moon_logo.png" alt="Logo" class="logo" />
+          <h1>Auro Moon Residency</h1>
           <p>Admin Portal</p>
         </div>
         <?php if ($message) echo $message; ?>

@@ -16,8 +16,8 @@ function sendEmail($toEmail, $toName, $subject, $htmlBody, $altBody) {
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
-    $mail->setFrom('aahaserenitystays@gmail.com', 'AAHA-Home-Stay');
-    $mail->addReplyTo('aahaserenitystays@gmail.com', 'AAHA-Home-Stay');
+    $mail->setFrom('aahaserenitystays@gmail.com', 'Auro-Moon-Residency');
+    $mail->addReplyTo('aahaserenitystays@gmail.com', 'Auro-Moon-Residency');
     $mail->addAddress($toEmail, $toName);
     $mail->isHTML(true);
     $mail->Subject = $subject;
@@ -64,19 +64,19 @@ if (isset($_POST['action'])) {
                     $htmlBody = '<html><body>
                         <h2>Booking Confirmation</h2>
                         <p>Hi ' . htmlspecialchars($userName) . ',</p>
-                        <p>We are happy to confirm your booking at AAHA Serenity Stay!</p>
+                        <p>We are happy to confirm your booking at Auro Moon Residency!</p>
                         <p>Your booking details have been processed and confirmed.</p>
                         <p>Thank you for choosing to stay with us.</p>
                         <br>
-                        <p>Best regards,<br>AAHA Serenity Stay Team</p>
+                        <p>Best regards,<br>Auro Moon Residency Team</p>
                     </body></html>';
 
-                    $altBody = 'Hi ' . $userName . ', We are happy to confirm your booking at AAHA Serenity Stay! Your booking details have been processed and confirmed. Thank you for choosing to stay with us.';
+                    $altBody = 'Hi ' . $userName . ', We are happy to confirm your booking at Auro Moon Residency! Your booking details have been processed and confirmed. Thank you for choosing to stay with us.';
 
                     $emailStatus = sendEmail(
                         $userEmail,
                         $userName,
-                        'Booking Confirmation - AAHA Serenity Stay',
+                        'Booking Confirmation - Auro Moon Residency',
                         $htmlBody,
                         $altBody
                     );
@@ -115,7 +115,7 @@ if (isset($_POST['action'])) {
                 $emailStatus = sendEmail(
                     $userMail,
                     $username,
-                    'Sorry...Your Room Booking Request in AAHA Serenity Stay is Rejected!',
+                    'Sorry...Your Room Booking Request at Auro Moon Residency is Rejected!',
                     'Hi ' . htmlspecialchars($username) . ',<br>We are sorry to cancel your booking.',
                     'Hi there, sorry to cancel your booking.'
                 );
@@ -156,9 +156,9 @@ if (isset($_POST['action'])) {
                 $emailStatus = sendEmail(
                     $userMail,
                     $username,
-                    'Your Booking at AAHA Serenity Stay has been Cancelled',
-                    'Hi ' . htmlspecialchars($username) . ',<br>Your booking at AAHA Serenity Stay has been cancelled as per your request.<br>If you have any questions, please contact us.<br><br>Best regards,<br>AAHA Serenity Stay Team',
-                    'Hi ' . $username . ', Your booking at AAHA Serenity Stay has been cancelled as per your request. If you have any questions, please contact us.'
+                    'Your Booking at Auro Moon Residency has been Cancelled',
+                    'Hi ' . htmlspecialchars($username) . ',<br>Your booking at Auro Moon Residency has been cancelled as per your request.<br>If you have any questions, please contact us.<br><br>Best regards,<br>Auro Moon Residency Team',
+                    'Hi ' . $username . ', Your booking at Auro Moon Residency has been cancelled as per your request. If you have any questions, please contact us.'
                 );
 
                 echo $emailStatus === true ? 'success' : $emailStatus;
